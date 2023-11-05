@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class CardStatsSO : ScriptableObject
+//for storing card data
+
+[CreateAssetMenu (fileName = "CardData", menuName = "ScriptableObjects/CardData")]
+public class CardDataSO : ScriptableObject
 {
-    public float defaultHealth;
-    public float defaultAttack;
-    public float defaultDefense;
-    public float defaultSpeed;
-    public float turnsAlive;
+    public string defaultName;
+    public Sprite defaultImage;
+
+    public int defaultHealth;
+    public int defaultAttack;
+    public int defaultDefense;
+    public int defaultSpeed;
+    public int defaultTurns;
 }

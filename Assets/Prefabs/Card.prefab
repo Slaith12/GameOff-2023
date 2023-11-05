@@ -2264,6 +2264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8165506505221861223}
+  - component: {fileID: 5709432050560571582}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -2293,3 +2294,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 143, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5709432050560571582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9045158443200049062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b20c691bbc24a129aa6bc79cce489b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialCardStats: {fileID: 0}
+  nameText: {fileID: 787485846051706043}
+  imageIMG: {fileID: 4722690611389418746}
+  attackText: {fileID: 1350192439072102230}
+  defenseText: {fileID: 174451153940639049}
+  speedText: {fileID: 7929059167103061203}
+  turnsText: {fileID: 8693567234110398460}
+  healthText: {fileID: 2336971127560737296}
