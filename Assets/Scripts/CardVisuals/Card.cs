@@ -26,7 +26,7 @@ public class Card : MonoBehaviour
     [SerializeField] private TextMeshProUGUI turnsText;
     [SerializeField] private TextMeshProUGUI healthText;
 
-    private void Awake()
+    private void Start()
     {
         cardName = initialCardStats.defaultName;
         image = initialCardStats.defaultImage;
@@ -45,7 +45,10 @@ public class Card : MonoBehaviour
         speedText.SetText(speed.ToString());
         turnsText.SetText(turns.ToString());
         healthText.SetText(health.ToString());
+    }
 
-
+    public void SetCardDataSO(CardDataSO initialCardStats)
+    {
+        this.initialCardStats = initialCardStats;
     }
 }
