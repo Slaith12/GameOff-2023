@@ -19,7 +19,7 @@ public class CardSizeEditor : Editor
     {
         base.OnInspectorGUI();
         CardResizer resizer = (CardResizer)target;
-        float size = EditorGUILayout.DelayedFloatField("Size", resizer.currentSize);
+        float size = EditorGUILayout.FloatField("Size", resizer.currentSize);
         if (size != resizer.currentSize && size > 0)
             resizer.currentSize = size;
     }

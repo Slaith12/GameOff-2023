@@ -2265,6 +2265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8165506505221861223}
   - component: {fileID: 5709432050560571582}
+  - component: {fileID: 3599364237722019283}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -2314,3 +2315,30 @@ MonoBehaviour:
   speedText: {fileID: 7929059167103061203}
   turnsText: {fileID: 8693567234110398460}
   healthText: {fileID: 2336971127560737296}
+--- !u!114 &3599364237722019283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9045158443200049062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b8d38ca2e091c45baa2497104f786f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxes:
+  - {fileID: 2185850920713989773}
+  - {fileID: 1350192439072102230}
+  - {fileID: 3194674607841321232}
+  - {fileID: 174451153940639049}
+  - {fileID: 1928226837093408006}
+  - {fileID: 7929059167103061203}
+  - {fileID: 1500835727404466719}
+  - {fileID: 787485846051706043}
+  - {fileID: 6693359225268139995}
+  - {fileID: 8693567234110398460}
+  - {fileID: 540892927285545502}
+  - {fileID: 2336971127560737296}
+  resizers:
+  - {fileID: 974820640119187242}
