@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//NOTE: if you want to offset a sprite so that it isn't 
+//NOTE: if you want to offset a sprite, don't change anything in here, just attach the image as a child of the main image object and offset that instead.
 
 [ExecuteAlways] //this will make it so card images are resized while in edit mode as well.
-public class ImageSize : MonoBehaviour
+public class ImageResizer : MonoBehaviour
 {
     //Shrink = shrink image so none of it is cut off
     //Expand = expand image to take up entire space, allowing some of it to be cut off
     enum ResizeMode { Shrink, Expand }
 
-    [SerializeField] float defaultWidth;
-    [SerializeField] float defaultHeight;
+    public float defaultWidth;
+    public float defaultHeight;
     [SerializeField] ResizeMode resizeMode;
     [SerializeField] Image image;
 
