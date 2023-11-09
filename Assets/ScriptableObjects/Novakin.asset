@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
+  m_Name: Novakin
+  m_EditorClassIdentifier: 
+  defaultName: Novakin
+  defaultImage: {fileID: 21300000, guid: 3e59c5b7f415b43308c72f86cef02608, type: 3}
+  defaultHealth: 3
+  defaultAttack: 6
+  defaultDefense: 4
+  defaultSpeed: 5
+  defaultTurns: 2
