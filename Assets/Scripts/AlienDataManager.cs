@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class AlienDataManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static AlienDataManager alienDataManager { get; private set; }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private List<Alien> alienData;
+
+    private void Awake()
     {
-        
+        alienDataManager = this;
+        DontDestroyOnLoad(gameObject);
     }
 }

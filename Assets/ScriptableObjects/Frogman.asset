@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Frogman
   m_EditorClassIdentifier: 
   defaultName: Frogman
-  defaultImage: {fileID: 21300000, guid: 42b36cab73fc74656a23108144856a9b, type: 3}
-  defaultHealth: 5
-  defaultAttack: 5
+  defaultCardImage: {fileID: 21300000, guid: 42b36cab73fc74656a23108144856a9b, type: 3}
+  defaultAlienImage: {fileID: 21300000, guid: d6f8294fc71a949dbb15de83c9de794d, type: 3}
+  defaultHealth: 50
+  defaultAttack: 3
   defaultDefense: 2
-  defaultSpeed: 6
+  defaultSpeed: 7
   defaultTurns: 3
+  defaultEffect: Gives +1 speed to all friendly aliens

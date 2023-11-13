@@ -8,11 +8,14 @@ using UnityEngine;
 public class CardDataSO : ScriptableObject
 {
     public string defaultName;
-    public Sprite defaultImage;
+    public Sprite defaultCardImage;
+    public Sprite defaultAlienImage;
 
     public int defaultHealth;
     public int defaultAttack;
     public int defaultDefense;
     public int defaultSpeed;
     public int defaultTurns;
+
+    public string defaultEffect;
 }
