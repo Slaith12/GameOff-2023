@@ -15,6 +15,4 @@ public class Alien
     public int attackPellets { get; set; }
     public int defensePellets { get; set; }
     public int speedPellets { get; set; }
-
-    public string effect { get; set; }
 }

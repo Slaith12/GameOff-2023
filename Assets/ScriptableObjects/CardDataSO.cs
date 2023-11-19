@@ -18,5 +18,6 @@ public class CardDataSO : ScriptableObject
     public int defaultSpeed;
     public int defaultTurns;
 
-    public string defaultEffect;
+    public string unchangingDescription;
+    public string unchangingEffect;
 }

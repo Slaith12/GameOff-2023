@@ -45,7 +45,7 @@ public class Card : MonoBehaviour
         turns = initialCardStats.defaultTurns;
         health = initialCardStats.defaultHealth;
 
-        effect = initialCardStats.defaultEffect;
+        effect = initialCardStats.unchangingEffect;
 
         nameText.SetText(cardName);
         imageIMG.sprite = cardImage;
