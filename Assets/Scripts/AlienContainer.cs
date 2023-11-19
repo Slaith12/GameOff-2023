@@ -7,18 +7,18 @@ public class AlienContainer : MonoBehaviour
 {
     private Button button;
     private Card card;
-    private Alien alien;
+    private AlienUI alien;
 
     void Awake()
     {
         button = GetComponent<Button>();
-        button.onClick.AddListener(delegate { CardDataManager.cardDataManager.TransferCard(this.transform); });
+        // button.onClick.AddListener(delegate { CardDataManager.cardDataManager.TransferCard(this.transform); });
     }
 
-    public void SetFields(Card card, Alien alien)
+    public void SetFields(Card card, AlienUI alien)
     {
         this.card = card;
         this.alien = alien;
-        this.alien.UpdateStats(card.GetCardName(), card.GetAlienImage(), card.GetAttack(), card.GetDefense(), card.GetSpeed(), card.GetTurns(), card.GetHealth(), card.GetEffect());
+        this.alien.UpdateStats(card.name, card.alienImage, card.attack, card.defense, card.speed, card.turns, card.health, card.effect);
     }
 }
