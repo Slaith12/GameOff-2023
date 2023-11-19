@@ -8,17 +8,17 @@ public class Card : MonoBehaviour
 {
     [SerializeField] private CardDataSO initialCardStats;
 
-    private string cardName;
-    private Sprite cardImage;
-    private Sprite alienImage;
+    public string cardName;
+    public Sprite cardImage;
+    public Sprite alienImage;
 
-    private int attack;
-    private int defense;
-    private int speed;
-    private int turns;
-    private int health;
+    public int attack;
+    public int defense;
+    public int speed;
+    public int turns;
+    public int health;
 
-    private string effect;
+    public string effect;
 
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private Image imageIMG;
@@ -35,9 +35,9 @@ public class Card : MonoBehaviour
 
     private void Start()
     {
-        cardName = initialCardStats.defaultName;
-        cardImage = initialCardStats.defaultCardImage;
-        alienImage = initialCardStats.defaultAlienImage;
+        cardName = initialCardStats.unchangingName;
+        cardImage = initialCardStats.unchangingCardImage;
+        alienImage = initialCardStats.unchangingAlienImage;
 
         attack = initialCardStats.defaultAttack;
         defense = initialCardStats.defaultDefense;
@@ -45,7 +45,7 @@ public class Card : MonoBehaviour
         turns = initialCardStats.defaultTurns;
         health = initialCardStats.defaultHealth;
 
-        effect = initialCardStats.defaultEffect;
+        effect = initialCardStats.unchangingEffect;
 
         nameText.SetText(cardName);
         imageIMG.sprite = cardImage;
@@ -59,48 +59,11 @@ public class Card : MonoBehaviour
         effectText.SetText(effect.ToString());
 
         button = GetComponent<Button>();
-        button.onClick.AddListener(delegate { CardDataManager.cardDataManager.SetSelectedCard(this); });
+        // button.onClick.AddListener(delegate { CardDataManager.cardDataManager.SetSelectedCard(this); });
     }
 
     public void SetCardDataSO(CardDataSO initialCardStats)
     {
         this.initialCardStats = initialCardStats;
-    }
-
-    public string GetCardName()
-    {
-        return cardName;
-    }
-    public Sprite GetCardImage()
-    {
-        return cardImage;
-    }
-    public Sprite GetAlienImage()
-    {
-        return alienImage;
-    }
-    public int GetAttack()
-    {
-        return attack;
-    }
-    public int GetDefense()
-    {
-        return defense;
-    }
-    public int GetSpeed()
-    {
-        return speed;
-    }
-    public int GetTurns()
-    {
-        return turns;
-    }
-    public int GetHealth()
-    {
-        return health;
-    }
-    public string GetEffect()
-    {
-        return effect;
     }
 }

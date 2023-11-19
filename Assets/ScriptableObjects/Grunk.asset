@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
-  m_Name: Frogman
+  m_Name: Grunk
   m_EditorClassIdentifier: 
-  unchangingName: Frogman
-  unchangingCardImage: {fileID: 21300000, guid: 42b36cab73fc74656a23108144856a9b, type: 3}
-  unchangingAlienImage: {fileID: 21300000, guid: d6f8294fc71a949dbb15de83c9de794d, type: 3}
+  unchangingName: Grunk
+  unchangingCardImage: {fileID: 21300000, guid: e6ff32e38612a4a51986bb83174f6ea3, type: 3}
+  unchangingAlienImage: {fileID: 21300000, guid: 0de5e62fbe8ef4579b2979e4a86125da, type: 3}
   unchangingCardFrame: {fileID: 0}
-  defaultHealth: 50
-  defaultAttack: 2
-  defaultDefense: 2
-  defaultSpeed: 8
+  defaultHealth: 100
+  defaultAttack: 5
+  defaultDefense: 4
+  defaultSpeed: 4
   defaultTurns: 4
-  unchangingDescription: A tribal frog fighter from a swamp planet. His body is soft,
-    but quick and nimble.
+  unchangingDescription: Soldier of the evil Glunkite Army. He fights with a spirit
+    of steel. His strength is stored in his horn.
   unchangingEffect: 

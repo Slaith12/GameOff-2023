@@ -756,11 +756,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b65b1824bfc49b9a7280df980d1471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardData:
-  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
-  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
-  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
-  alienPrefab: {fileID: 5444282917339499401, guid: dd431d2bb53684f7886b70d0b9215ad2, type: 3}
+  cardDeck: []
+  attackPellets: 0
+  defensePellets: 0
+  speedPellets: 0
 --- !u!4 &1372907773
 Transform:
   m_ObjectHideFlags: 0
@@ -1055,6 +1054,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 945399235}
   - {fileID: 85732521}
-  - {fileID: 1372907773}
   - {fileID: 1611210615}
   - {fileID: 1275338208}
+  - {fileID: 1372907773}
