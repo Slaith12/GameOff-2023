@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public List<AlienCombat> playerAliens;
+    public List<AlienCombat> enemyAliens;
+
+    public void CombatTurn()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CombatStep(AlienCombat attacker, AlienCombat defender)
     {
-        
+        //animation code
+        defender.damageTaken += (attacker.alienData.defaultAttack + 10 - defender.alienData.defaultDefense) * 4;
+        if(defender.damageTaken >= defender.alienData.defaultHealth)
+        {
+            //defender dies
+            Debug.Log("Defender dies");
+        }
+    }
+
+    public void CombatStepDebug(int id)
+    {
+        switch(id)
+        {
+            case 1:
+                CombatStep(playerAliens[0], enemyAliens[0]);
+                break;
+            case 2:
+                CombatStep(enemyAliens[0], playerAliens[0]);
+                break;
+        }
     }
 }

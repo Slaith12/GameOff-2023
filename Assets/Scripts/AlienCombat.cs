@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AlienCombat : MonoBehaviour
 {
-    CardDataSO alienData;
+    public CardDataSO alienData;
 
-    int damageTaken;
-    int turnsTaken;
+    public int damageTaken;
+    public int turnsTaken;
 
     
 }
