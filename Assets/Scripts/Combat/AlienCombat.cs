@@ -1,0 +1,90 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AlienCombat : MonoBehaviour
+{
+    public Alien alienData;
+
+    //used to be able to find alien in CombatManager
+    public bool player;
+    public int index;
+
+    public int damageTaken;
+
+    public new SpriteRenderer renderer;
+
+    public delegate void IndividualEvent(AlienCombat alien);
+    //Event Order: BeforeAttack, BeforeDamage, AfterDamage, Death, AfterAttack
+    public delegate void CombatEvent(AlienCombat attacker, AlienCombat defender);
+    /// <summary>
+    /// Called when this alien is about to attack. Can be used to modify upcoming damage or do similar actions.
+    /// </summary>
+    public event CombatEvent OnBeforeAttack;
+    /// <summary>
+    /// Called when this alien is about to be damaged. Can be used modify incoming damage or do similar actions.
+    /// </summary>
+    public event CombatEvent OnBeforeDamage;
+    /// <summary>
+    /// Called when this alien has just been damaged. Can be used to react to damage or do similar actions.
+    /// </summary>
+    public event CombatEvent OnAfterDamage;
+    /// <summary>
+    /// Called when this alien has just attacked. Can be used to apply additional effects after damage or do similar actions.
+    /// </summary>
+    public event CombatEvent OnAfterAttack;
+    /// <summary>
+    /// Called when this alien has died. Can be used to react to death or do similar actions.
+    /// </summary>
+    public event IndividualEvent OnDeath;
+
+    public void Initialize(Alien alien, int index, bool player)
+    {
+        alienData = alien;
+        this.index = index;
+        this.player = player;
+
+        transform.position = (player ? Vector2.left : Vector2.right) * (7 + 10*index);
+        renderer.flipX = player; //all alien sprites face left by default, player aliens should face right
+        renderer.sprite = alienData.cardDataSO.unchangingAlienImage;
+    }
+
+    /// <summary>
+    /// <para>THIS FUNCTION SHOULD ONLY BE USED BY COMBATMANAGER!!</para>
+    /// <para>If any other script needs to change an alien's position, use one of CombatManager's functions</para>
+    /// See: <see cref="CombatManager.ShiftPlayerAlien(AlienCombat, int)"/>, <see cref="CombatManager.ShiftEnemyAlien(AlienCombat, int)"/>
+    /// </summary>
+    public void ChangeIndex(int newIndex, float time = 0.5f)
+    {
+        index = newIndex;
+        ShiftToPos((player ? Vector2.left : Vector2.right) * (7 + 10 * index), time);
+    }
+
+    public void ShiftToPos(Vector2 pos, float time = 0.5f)
+    {
+        transform.position = pos;
+    }
+
+    public void Attack(AlienCombat defender)
+    {
+        OnBeforeAttack?.Invoke(this, defender);
+        defender.Damage(attacker: this);
+        OnAfterAttack?.Invoke(this, defender);
+    }
+
+    public void Damage(AlienCombat attacker)
+    {
+        OnBeforeDamage?.Invoke(attacker, this);
+        damageTaken += (attacker.alienData.attack + 10 - this.alienData.defense) * 4;
+        OnAfterDamage?.Invoke(attacker, this);
+        if (damageTaken > alienData.health)
+            Death();
+    }
+
+    public void Death()
+    {
+        Debug.Log("Alien Died");
+        OnDeath?.Invoke(this);
+        Destroy(gameObject);
+    }
+}
