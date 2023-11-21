@@ -12,7 +12,11 @@ public class AlienCombat : MonoBehaviour
 
     public int damageTaken;
 
-    public new SpriteRenderer renderer;
+    Vector3 targetPos;
+    float interpTime;
+
+    [SerializeField] new SpriteRenderer renderer;
+    Animator animator;
 
     public delegate void IndividualEvent(AlienCombat alien);
     //Event Order: BeforeAttack, BeforeDamage, AfterDamage, Death, AfterAttack
@@ -43,10 +47,12 @@ public class AlienCombat : MonoBehaviour
         alienData = alien;
         this.index = index;
         this.player = player;
+        animator = GetComponent<Animator>();
 
         transform.position = (player ? Vector2.left : Vector2.right) * (7 + 10*index);
-        renderer.flipX = player; //all alien sprites face left by default, player aliens should face right
+        transform.localScale = new Vector3(player ? -1 : 1, 1, 1); //all alien sprites face left by default, player aliens should face right
         renderer.sprite = alienData.cardDataSO.unchangingAlienImage;
+        animator.runtimeAnimatorController = alienData.cardDataSO.animations;
     }
 
     /// <summary>
@@ -60,13 +66,28 @@ public class AlienCombat : MonoBehaviour
         ShiftToPos((player ? Vector2.left : Vector2.right) * (7 + 10 * index), time);
     }
 
-    public void ShiftToPos(Vector2 pos, float time = 0.5f)
+    public void ShiftToPos(Vector2 pos, float time = 0.2f)
     {
-        transform.position = pos;
+        targetPos = pos;
+        interpTime = time;
+    }
+
+    private void Update()
+    {
+        if(interpTime > 0)
+        {
+            float interpAmount = Time.deltaTime / interpTime;
+            if (interpAmount > 1)
+                interpAmount = 1;
+            Vector3 interpVector = targetPos - transform.position;
+            transform.position += interpVector * Mathf.Sqrt(interpAmount);
+            interpTime -= Time.deltaTime;
+        }
     }
 
     public void Attack(AlienCombat defender)
     {
+        animator.SetTrigger("Attack");
         OnBeforeAttack?.Invoke(this, defender);
         defender.Damage(attacker: this);
         OnAfterAttack?.Invoke(this, defender);
@@ -83,8 +104,13 @@ public class AlienCombat : MonoBehaviour
 
     public void Death()
     {
-        Debug.Log("Alien Died");
+        animator.SetTrigger("Death");
         OnDeath?.Invoke(this);
+    }
+
+    //Animation Event
+    public void DestroySelf()
+    {
         Destroy(gameObject);
     }
 }

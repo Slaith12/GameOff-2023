@@ -13,11 +13,17 @@ public class DataManagerDebug : MonoBehaviour
         DataManager data = GetComponent<DataManager>();
         for(int i = 0; i < Mathf.Min(playerLineup.Length, data.playerLineup.Length); i++)
         {
-            data.playerLineup[i] = new Alien(playerLineup[i]);
+            if (playerLineup[i] == null)
+                data.playerLineup[i] = null;
+            else
+                data.playerLineup[i] = new Alien(playerLineup[i]);
         }
         for (int i = 0; i < Mathf.Min(enemyLineup.Length, data.enemyLineup.Length); i++)
         {
-            data.enemyLineup[i] = new Alien(enemyLineup[i]);
+            if (enemyLineup[i] == null)
+                data.enemyLineup[i] = null;
+            else
+                data.enemyLineup[i] = new Alien(enemyLineup[i]);
         }
     }
 }

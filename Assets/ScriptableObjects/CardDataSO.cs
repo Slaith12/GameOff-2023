@@ -10,6 +10,7 @@ public class CardDataSO : ScriptableObject
     public string unchangingName;
     public Sprite unchangingCardImage;
     public Sprite unchangingAlienImage;
+    public RuntimeAnimatorController animations;
     public Sprite unchangingCardFrame;
 
     public int defaultHealth;

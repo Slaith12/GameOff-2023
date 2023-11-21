@@ -7,13 +7,24 @@ public class CombatManager : MonoBehaviour
 {
     public CombatManager instance { get; private set; }
 
+    //how long a 1 speed creature would take to attack.
+    //the time it takes for a creature to attack is this value/speed.
+    const float attackTimeThreshold = 4f;
+    //the percentage of the time threshold already filled when an alien gets to the front
+    //higher values benefit slower creatures more
+    const float startingTimeBoost = 0.25f;
+
     [SerializeField] GameObject alienPrefab;
 
     List<AlienCombat> playerAliens;
+    public float playerAttackTime;
     List<AlienCombat> enemyAliens;
+    public float enemyAttackTime;
     bool started;
 
     public event AlienCombat.IndividualEvent OnAlienSpawn;
+    public event AlienCombat.IndividualEvent OnPlayerAttackerChange;
+    public event AlienCombat.IndividualEvent OnEnemyAttackerChange;
 
     #region Setup & Spawning
 
@@ -25,6 +36,10 @@ public class CombatManager : MonoBehaviour
     private void Start()
     {
         InitializeLineups();
+        playerAttackTime = attackTimeThreshold*startingTimeBoost;
+        OnPlayerAttackerChange += delegate { playerAttackTime = attackTimeThreshold * startingTimeBoost; };
+        enemyAttackTime = attackTimeThreshold * startingTimeBoost;
+        OnEnemyAttackerChange += delegate { enemyAttackTime = attackTimeThreshold * startingTimeBoost; };
         started = true;
     }
 
@@ -113,6 +128,22 @@ public class CombatManager : MonoBehaviour
 
     #endregion
 
+    private void Update()
+    {
+        playerAttackTime += Time.deltaTime * playerAliens[0].alienData.speed;
+        if (playerAttackTime >= attackTimeThreshold)
+        {
+            playerAttackTime -= attackTimeThreshold;
+            playerAliens[0].Attack(enemyAliens[0]);
+        }
+        enemyAttackTime += Time.deltaTime * enemyAliens[0].alienData.speed;
+        if (enemyAttackTime >= attackTimeThreshold)
+        {
+            enemyAttackTime -= attackTimeThreshold;
+            enemyAliens[0].Attack(playerAliens[0]);
+        }
+    }
+
     public void ShiftPlayerAlien(AlienCombat alien, int newIndex)
     {
         Debug.LogError("ShiftPlayerAlien not implemented yet because I'm lazy. Make it yourself.");
@@ -137,6 +168,8 @@ public class CombatManager : MonoBehaviour
             playerAliens[i].ChangeIndex(i - 1);
         }
         playerAliens.RemoveAt(alien.index);
+        if (alien.index == 0)
+            OnPlayerAttackerChange?.Invoke(alien);
     }
 
     public void RemoveEnemyAlien(AlienCombat alien)
@@ -151,6 +184,8 @@ public class CombatManager : MonoBehaviour
             enemyAliens[i].ChangeIndex(i - 1);
         }
         enemyAliens.RemoveAt(alien.index);
+        if (alien.index == 0)
+            OnEnemyAttackerChange?.Invoke(alien);
     }
 
     public void CombatStepDebug(int id)
