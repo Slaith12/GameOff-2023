@@ -7,9 +7,9 @@ using UnityEngine;
 [CreateAssetMenu (fileName = "CardData", menuName = "ScriptableObjects/CardData")]
 public class CardDataSO : ScriptableObject
 {
-    public string defaultName;
-    public Sprite defaultCardImage;
-    public Sprite defaultAlienImage;
+    public string unchangingName;
+    public Sprite unchangingCardImage;
+    public Sprite unchangingAlienImage;
 
     public int defaultHealth;
     public int defaultAttack;
@@ -17,5 +17,6 @@ public class CardDataSO : ScriptableObject
     public int defaultSpeed;
     public int defaultRounds;
 
-    public string defaultEffect;
+    public string unchangingDescription;
+    public string unchangingEffect;
 }
