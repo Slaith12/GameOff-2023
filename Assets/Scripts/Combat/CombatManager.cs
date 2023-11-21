@@ -130,13 +130,27 @@ public class CombatManager : MonoBehaviour
 
     private void Update()
     {
+        if(playerAliens.Count == 0)
+        {
+            //lose code
+            Debug.Log("You Lose!");
+            enabled = false;
+            return;
+        }
+        if(enemyAliens.Count == 0)
+        {
+            //win code
+            Debug.Log("You Win!");
+            enabled = false;
+            return;
+        }
         playerAttackTime += Time.deltaTime * playerAliens[0].alienData.speed;
+        enemyAttackTime += Time.deltaTime * enemyAliens[0].alienData.speed;
         if (playerAttackTime >= attackTimeThreshold)
         {
             playerAttackTime -= attackTimeThreshold;
             playerAliens[0].Attack(enemyAliens[0]);
         }
-        enemyAttackTime += Time.deltaTime * enemyAliens[0].alienData.speed;
         if (enemyAttackTime >= attackTimeThreshold)
         {
             enemyAttackTime -= attackTimeThreshold;
