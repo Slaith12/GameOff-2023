@@ -15,7 +15,7 @@ public class CardDataSO : ScriptableObject
     public int defaultAttack;
     public int defaultDefense;
     public int defaultSpeed;
-    public int defaultTurns;
+    public int defaultRounds;
 
     public string defaultEffect;
 }
