@@ -1984,9 +1984,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 945399235}
   - {fileID: 85732521}
-<<<<<<< Updated upstream
-  - {fileID: 1372907773}
-  - {fileID: 1611210615}
-=======
->>>>>>> Stashed changes
   - {fileID: 1275338208}
