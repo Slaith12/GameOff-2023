@@ -6,14 +6,22 @@ using UnityEngine.UI;
 public class Hand : MonoBehaviour
 {
     private List<Card> handList = new List<Card>();
+
+    [SerializeField] private CardDeck deck;
     [SerializeField] private GameObject cardPrefab;
 
-    public void PopulateHand(List<CardDataSO> cardDeck)
+    private void Start()
+    {
+        PopulateHand();
+    }
+
+    public void PopulateHand()
     {
         for(int i = 0; i < 3; i++)
         {
             GameObject tempCard = Instantiate(cardPrefab, this.transform);
-            tempCard.GetComponent<Card>().SetAlien(new Alien(cardDeck[i]));
+            tempCard.GetComponent<Card>().SetAlien(new Alien(deck.deck[i]));
+            deck.deck.RemoveAt(i);
             handList.Add(tempCard.GetComponent<Card>());
         }
     }

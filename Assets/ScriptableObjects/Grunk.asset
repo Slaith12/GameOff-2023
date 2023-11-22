@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
-  m_Name: MrBreast
+  m_Name: Grunk
   m_EditorClassIdentifier: 
-  defaultName: Mr Breast
-  defaultImage: {fileID: 21300000, guid: 8349344eeca40bf489184fe8ebcd6938, type: 3}
-  defaultHealth: 67
-  defaultAttack: 3
-  defaultDefense: 4
-  defaultSpeed: 1
-  defaultTurns: 9
+  unchangingName: Grunk
+  unchangingCardImage: {fileID: 21300000, guid: e6ff32e38612a4a51986bb83174f6ea3, type: 3}
+  unchangingAlienImage: {fileID: 0}
+  defaultHealth: 100
+  defaultAttack: 5
+  defaultDefense: 5
+  defaultSpeed: 5
+  defaultRounds: 3
+  unchangingDescription: placeholder
+  unchangingEffect: 

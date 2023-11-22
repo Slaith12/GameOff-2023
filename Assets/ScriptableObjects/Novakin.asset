@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
   m_Name: Novakin
   m_EditorClassIdentifier: 
-  defaultName: Novakin
-  defaultImage: {fileID: 21300000, guid: 3e59c5b7f415b43308c72f86cef02608, type: 3}
-  defaultHealth: 3
+  unchangingName: Novakin
+  unchangingCardImage: {fileID: 21300000, guid: 3e59c5b7f415b43308c72f86cef02608, type: 3}
+  unchangingAlienImage: {fileID: 0}
+  defaultHealth: 75
   defaultAttack: 6
   defaultDefense: 4
   defaultSpeed: 5
-  defaultTurns: 2
+  defaultRounds: 2
+  unchangingDescription: placeholder
+  unchangingEffect: 

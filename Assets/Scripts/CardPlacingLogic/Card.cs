@@ -8,6 +8,12 @@ public class Card : MonoBehaviour
 {
     public Alien alien;
 
+    public enum cardState
+    {
+        hand,
+        lineup,
+    }
+
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private Image imageIMG;
 
@@ -23,6 +29,9 @@ public class Card : MonoBehaviour
 
     private void Start()
     {
+        nameText.SetText(alien.cardDataSO.unchangingName);
+        imageIMG.sprite = alien.cardDataSO.unchangingCardImage;
+
         attackText.SetText(alien.cardDataSO.defaultAttack.ToString());
         defenseText.SetText(alien.cardDataSO.defaultDefense.ToString());
         speedText.SetText(alien.cardDataSO.defaultSpeed.ToString());
