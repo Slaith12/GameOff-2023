@@ -190,7 +190,7 @@ public class CombatManager : MonoBehaviour
     {
         if (!enemyAliens.Contains(alien))
         {
-            Debug.LogError("RemoveEnemyAlien attempted to remove alien not in player list.");
+            Debug.LogError("RemoveEnemyAlien attempted to remove alien not in enemy list.");
             return;
         }
         for (int i = alien.index + 1; i < enemyAliens.Count; i++)

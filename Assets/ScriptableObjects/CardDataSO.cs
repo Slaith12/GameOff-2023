@@ -21,4 +21,6 @@ public class CardDataSO : ScriptableObject
 
     public string unchangingDescription;
     public string unchangingEffect;
+
+    public Vector2 healthBarOffset = new Vector2(3, 15);
 }

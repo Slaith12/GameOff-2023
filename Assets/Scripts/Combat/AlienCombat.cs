@@ -16,6 +16,7 @@ public class AlienCombat : MonoBehaviour
     float interpTime;
 
     [SerializeField] new SpriteRenderer renderer;
+    [SerializeField] HealthBar healthBar;
     Animator animator;
 
     public delegate void IndividualEvent(AlienCombat alien);
@@ -53,6 +54,10 @@ public class AlienCombat : MonoBehaviour
         transform.localScale = new Vector3(player ? -1 : 1, 1, 1); //all alien sprites face left by default, player aliens should face right
         renderer.sprite = alienData.cardDataSO.unchangingAlienImage;
         animator.runtimeAnimatorController = alienData.cardDataSO.animations;
+
+        healthBar.transform.localPosition = alienData.cardDataSO.healthBarOffset;
+        healthBar.transform.localScale = transform.localScale; //if the root object is flipped, re-flip the health bar so it faces the right way
+        healthBar.SetHealth(alien.health, alien.health);
     }
 
     /// <summary>
@@ -85,6 +90,11 @@ public class AlienCombat : MonoBehaviour
         }
     }
 
+    private void UpdateHealthBar(int recentDamage, bool displayDamage = true)
+    {
+        healthBar.SetHealth(alienData.health - damageTaken, alienData.health);
+    }
+
     public void Attack(AlienCombat defender)
     {
         animator.SetTrigger("Attack");
@@ -95,10 +105,29 @@ public class AlienCombat : MonoBehaviour
 
     public void Damage(AlienCombat attacker)
     {
+        int prevDamage = damageTaken;
         OnBeforeDamage?.Invoke(attacker, this);
+
         damageTaken += (attacker.alienData.attack + 10 - this.alienData.defense) * 4;
+        UpdateHealthBar(recentDamage: damageTaken - prevDamage);
+
         OnAfterDamage?.Invoke(attacker, this);
-        if (damageTaken > alienData.health)
+        if (damageTaken >= alienData.health)
+            Death();
+    }
+
+    public void DamageNonAttacker(int damage, bool triggerEvents = false, bool displayDamage = false)
+    {
+        int prevDamage = damageTaken;
+        if (triggerEvents)
+            OnBeforeDamage?.Invoke(null, this);
+
+        damageTaken += damage;
+        UpdateHealthBar(recentDamage: damageTaken - prevDamage, displayDamage);
+
+        if (triggerEvents)
+            OnAfterDamage?.Invoke(null, this);
+        if (damageTaken >= alienData.health)
             Death();
     }
 
