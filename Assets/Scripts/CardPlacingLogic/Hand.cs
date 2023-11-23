@@ -20,7 +20,7 @@ public class Hand : MonoBehaviour
         for(int i = 0; i < 3; i++)
         {
             GameObject tempCard = Instantiate(cardPrefab, this.transform);
-            tempCard.GetComponent<Card>().SetAlien(new Alien(deck.deck[i]));
+            tempCard.GetComponent<Card>().SetAlien(new Alien(deck.deck[i]), Card.cardState.hand);
             deck.deck.RemoveAt(i);
             handList.Add(tempCard.GetComponent<Card>());
         }

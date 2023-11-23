@@ -13,6 +13,7 @@ public class Card : MonoBehaviour, ISelectable
         hand,
         lineup,
     }
+    public cardState currentCardState;
 
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private Image imageIMG;
@@ -33,11 +34,10 @@ public class Card : MonoBehaviour, ISelectable
         button.onClick.AddListener(delegate { ButtonEnabler.instance.SetSelectedItem(this); });
     }
 
-    public void SetAlien(Alien alien)
+    public void SetAlien(Alien alien, cardState currentCardState)
     {
         this.alien = alien;
-
-        Debug.Log(alien.cardDataSO.unchangingName);
+        this.currentCardState = currentCardState;
 
         nameText.SetText(alien.cardDataSO.unchangingName);
         imageIMG.sprite = alien.cardDataSO.unchangingCardImage;

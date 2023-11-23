@@ -19,13 +19,9 @@ public class ButtonEnabler : MonoBehaviour
 
     public void SetSelectedItem(GameObject lineupCardContainer, int garbage)
     {
-        Debug.Log("Button Press Detected");
-        if(selectedItem.GetSelectableType() == 0)
+        if (selectedItem.GetSelectableType() == 0)
         {
             Alien tempAlien = selectedItem.GetGameObject().GetComponent<Card>().alien;
-
-            Debug.Log(tempAlien.cardDataSO.unchangingName);
-
             Destroy(selectedItem.GetGameObject());
             for(int i = 0; i < handCards.Count; i++)
             {
@@ -35,6 +31,7 @@ public class ButtonEnabler : MonoBehaviour
                 }
             }
             lineupCardContainer.GetComponent<LineupCardContainer>().SetCard(tempAlien);
+            selectedItem = null;
         }
         else
         {
@@ -45,7 +42,7 @@ public class ButtonEnabler : MonoBehaviour
 
     public void SetSelectedItem(ISelectable tempSelectedItem)
     {
-        if(selectedItem == null)
+        if(selectedItem == null || selectedItem.GetSelectableType() == 0)
         {
             this.selectedItem = tempSelectedItem;
             return;

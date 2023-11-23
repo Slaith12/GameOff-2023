@@ -17,13 +17,8 @@ public class LineupCardContainer : MonoBehaviour
 
     public void SetCard(Alien alien)
     {
-        foreach(Transform child in this.transform)
-        {
-            Destroy(child.gameObject);
-        }
-
         GameObject cardInstance = Instantiate(cardPrefab, this.transform);
 
-        cardInstance.GetComponent<Card>().SetAlien(alien);
+        cardInstance.GetComponent<Card>().SetAlien(alien, Card.cardState.lineup);
     }
 }
