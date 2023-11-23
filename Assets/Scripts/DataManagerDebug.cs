@@ -7,6 +7,8 @@ public class DataManagerDebug : MonoBehaviour
     [SerializeField] CardDataSO[] playerLineup;
     [SerializeField] CardDataSO[] enemyLineup;
 
+    [SerializeField] bool regenerateLineups;
+
     //this needs to be awake since CombatManager expects DataManager to be set already when the scene is loaded
     private void Awake()
     {
@@ -24,6 +26,15 @@ public class DataManagerDebug : MonoBehaviour
                 data.enemyLineup[i] = null;
             else
                 data.enemyLineup[i] = new Alien(enemyLineup[i]);
+        }
+    }
+
+    private void Update()
+    {
+        if(regenerateLineups)
+        {
+            Awake();
+            regenerateLineups = false;
         }
     }
 }

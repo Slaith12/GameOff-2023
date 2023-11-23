@@ -5,6 +5,8 @@ using UnityEngine;
 //consider splitting display logic into a separate class
 public class CombatManager : MonoBehaviour
 {
+    const string SETUP_SCENE = "Placeholder Setup Scene";
+
     public CombatManager instance { get; private set; }
 
     //how long a 1 speed creature would take to attack.
@@ -14,6 +16,8 @@ public class CombatManager : MonoBehaviour
     //higher values benefit slower creatures more
     const float startingTimeBoost = 0.25f;
 
+    [SerializeField] GameObject winUI;
+    [SerializeField] GameObject loseUI;
     [SerializeField] GameObject alienPrefab;
 
     List<AlienCombat> playerAliens;
@@ -35,11 +39,16 @@ public class CombatManager : MonoBehaviour
 
     private void Start()
     {
+        winUI.SetActive(false);
+        loseUI.SetActive(false);
+
         InitializeLineups();
+
         playerAttackTime = attackTimeThreshold*startingTimeBoost;
         OnPlayerAttackerChange += delegate { playerAttackTime = attackTimeThreshold * startingTimeBoost; };
         enemyAttackTime = attackTimeThreshold * startingTimeBoost;
         OnEnemyAttackerChange += delegate { enemyAttackTime = attackTimeThreshold * startingTimeBoost; };
+
         started = true;
     }
 
@@ -132,14 +141,14 @@ public class CombatManager : MonoBehaviour
     {
         if(playerAliens.Count == 0)
         {
-            //lose code
+            Lose();
             Debug.Log("You Lose!");
             enabled = false;
             return;
         }
         if(enemyAliens.Count == 0)
         {
-            //win code
+            Win();
             Debug.Log("You Win!");
             enabled = false;
             return;
@@ -156,6 +165,24 @@ public class CombatManager : MonoBehaviour
             enemyAttackTime -= attackTimeThreshold;
             enemyAliens[0].Attack(playerAliens[0]);
         }
+    }
+
+    void Win()
+    {
+        DataManager.instance.currentStage++;
+        winUI.SetActive(true);
+    }
+
+    void Lose()
+    {
+        DataManager.instance.numLosses++;
+        loseUI.SetActive(true);
+    }
+
+    public void GoToSetup()
+    {
+        Time.timeScale = 1;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(SETUP_SCENE);
     }
 
     public void ShiftPlayerAlien(AlienCombat alien, int newIndex)
