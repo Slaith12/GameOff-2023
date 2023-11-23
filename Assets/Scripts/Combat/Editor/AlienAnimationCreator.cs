@@ -25,7 +25,7 @@ public class AlienAnimationCreator : ScriptableObject
 
     public bool useCustomIdle;
     public Sprite[] idleSprites;
-    public float idleAnimLength = 1;
+    public float idleAnimLength = 2;
     public AnimationClip idleAnim;
 
     public bool useCustomAttack;
@@ -71,29 +71,11 @@ public class AlienAnimationCreator : ScriptableObject
         {
             GenerateAttack();
         }
-
-        RuntimeAnimatorController genericAnimator = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(genericAnimatorPath);
-        AnimationClip genericIdle = AssetDatabase.LoadAssetAtPath<AnimationClip>(genericIdleAnimPath);
-        AnimationClip genericAttack = AssetDatabase.LoadAssetAtPath<AnimationClip>(genericAttackAnimPath);
-        if (genericAnimator == null || genericIdle == null || genericAttack == null)
+        if (!useCustomAnimator)
         {
-            EditorUtility.DisplayDialog("Missing Generic Animations",
-                "Unable to create animations due to missing generic animations. " +
-                "The animator controller, idle animation, and attack animation are required to be in the same folder. " +
-                "If the animations were moved or renamed, please enter the new path/names into Assets/Scripts/Combat/Editor/AlienAnimationCreator.cs", "OK");
-            return;
+            GenerateAnimator();
+            EditorUtility.DisplayDialog("Animator Generated", "Animator generated. If you're re-generating an existing alien's animations, you'll need to replace the animator in the alien's data SO.", "OK");
         }
-
-        AnimatorOverrideController animator = new AnimatorOverrideController(genericAnimator);
-
-        List<KeyValuePair<AnimationClip, AnimationClip>> overrides = new List<KeyValuePair<AnimationClip, AnimationClip>>
-        {
-            new KeyValuePair<AnimationClip, AnimationClip>(genericIdle, idleAnim),
-            new KeyValuePair<AnimationClip, AnimationClip>(genericAttack, attackAnim)
-        };
-        animator.ApplyOverrides(overrides);
-        AssetDatabase.CreateAsset(animator, animsFolder + alienName + $"/{alienName} Animator.overrideController");
-        this.animator = animator;
         EditorUtility.SetDirty(this);
     }
 
@@ -155,6 +137,32 @@ public class AlienAnimationCreator : ScriptableObject
 
         AssetDatabase.CreateAsset(attackAnim, animsFolder + alienName + $"/Attack ({alienName}).anim");
         this.attackAnim = attackAnim;
+    }
+
+    public void GenerateAnimator()
+    {
+        RuntimeAnimatorController genericAnimator = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(genericAnimatorPath);
+        AnimationClip genericIdle = AssetDatabase.LoadAssetAtPath<AnimationClip>(genericIdleAnimPath);
+        AnimationClip genericAttack = AssetDatabase.LoadAssetAtPath<AnimationClip>(genericAttackAnimPath);
+        if (genericAnimator == null || genericIdle == null || genericAttack == null)
+        {
+            EditorUtility.DisplayDialog("Missing Generic Animations",
+                "Unable to create animations due to missing generic animations. " +
+                "The animator controller, idle animation, and attack animation are required to be in the same folder. " +
+                "If the animations were moved or renamed, please enter the new path/names into Assets/Scripts/Combat/Editor/AlienAnimationCreator.cs", "OK");
+            return;
+        }
+
+        AnimatorOverrideController animator = new AnimatorOverrideController(genericAnimator);
+
+        List<KeyValuePair<AnimationClip, AnimationClip>> overrides = new List<KeyValuePair<AnimationClip, AnimationClip>>
+        {
+            new KeyValuePair<AnimationClip, AnimationClip>(genericIdle, idleAnim),
+            new KeyValuePair<AnimationClip, AnimationClip>(genericAttack, attackAnim)
+        };
+        animator.ApplyOverrides(overrides);
+        AssetDatabase.CreateAsset(animator, animsFolder + alienName + $"/{alienName} Animator.overrideController");
+        this.animator = animator;
     }
 }
 

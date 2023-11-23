@@ -9,7 +9,7 @@ AnimatorOverrideController:
   m_Name: Grunk Animator
   m_Controller: {fileID: 9100000, guid: 4ad32c3a6bd35e44688aca8b944be3cf, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 75e942c6c6ead234d9e885ed3b81f0d0, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 80f4e007bdf0219479116f7f3ce26288, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 3b02fcd3f9c018f46b754a04133f692e, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: a1a7026937abd5d4bbacd0ca7fdc51e1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 75e942c6c6ead234d9e885ed3b81f0d0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 80f4e007bdf0219479116f7f3ce26288, type: 2}

@@ -315,15 +315,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLineup:
   - {fileID: 11400000, guid: aeefb9164ab9d4e93980b59af572feb3, type: 2}
+  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
   - {fileID: 11400000, guid: aeefb9164ab9d4e93980b59af572feb3, type: 2}
-  - {fileID: 11400000, guid: aeefb9164ab9d4e93980b59af572feb3, type: 2}
-  - {fileID: 11400000, guid: aeefb9164ab9d4e93980b59af572feb3, type: 2}
+  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
   - {fileID: 11400000, guid: aeefb9164ab9d4e93980b59af572feb3, type: 2}
   enemyLineup:
   - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
+  - {fileID: 11400000, guid: aeefb9164ab9d4e93980b59af572feb3, type: 2}
   - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
-  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
-  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
+  - {fileID: 11400000, guid: aeefb9164ab9d4e93980b59af572feb3, type: 2}
   - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
 --- !u!114 &1517865674
 MonoBehaviour:
