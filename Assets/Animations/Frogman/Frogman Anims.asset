@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231f917665811494f97bbd0af71585e4, type: 3}
+  m_Name: Frogman Anims
+  m_EditorClassIdentifier: 
+  alienName: Frogman
+  useCustomAnimator: 0
+  animator: {fileID: 22100000, guid: f9ddb3c6f597ef24f8dacb8c7637eebb, type: 2}
+  useCustomIdle: 0
+  idleSprites:
+  - {fileID: 21300000, guid: d6f8294fc71a949dbb15de83c9de794d, type: 3}
+  - {fileID: 21300000, guid: ce25a560771aa47139f1a6bf018a1abe, type: 3}
+  idleAnimLength: 2
+  idleAnim: {fileID: 7400000, guid: 3a61c3062232922449ebf239cf5124f3, type: 2}
+  useCustomAttack: 0
+  attackSprite: {fileID: 21300000, guid: 24efc4c9cb1c843b19f8a79c4b3acf1e, type: 3}
+  attackAnim: {fileID: 7400000, guid: 7bd9cd75709fe694e9c690b639caf198, type: 2}

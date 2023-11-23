@@ -15,4 +15,14 @@ public class Alien
     public int attackPellets { get; set; }
     public int defensePellets { get; set; }
     public int speedPellets { get; set; }
+
+    public Alien(CardDataSO data)
+    {
+        cardDataSO = data;
+        attack = data.defaultAttack;
+        defense = data.defaultDefense;
+        speed = data.defaultSpeed;
+        rounds = data.defaultTurns;
+        health = data.defaultHealth;
+    }
 }
