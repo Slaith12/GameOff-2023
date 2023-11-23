@@ -17,10 +17,10 @@ MonoBehaviour:
   animator: {fileID: 22100000, guid: a5527e0cf582249409b1f8bec2c30d07, type: 2}
   useCustomIdle: 0
   idleSprites:
-  - {fileID: 21300000, guid: 0de5e62fbe8ef4579b2979e4a86125da, type: 3}
-  - {fileID: 21300000, guid: e1c83ce82f95742508479ed9ea3745f5, type: 3}
+  - {fileID: 21300000, guid: 26233f7d854bbb64e8de2d30922f71d2, type: 3}
+  - {fileID: 21300000, guid: ec20a1a7b113cde43af1d194f9ceac76, type: 3}
   idleAnimLength: 2
   idleAnim: {fileID: 7400000, guid: a1a7026937abd5d4bbacd0ca7fdc51e1, type: 2}
   useCustomAttack: 0
-  attackSprite: {fileID: 21300000, guid: 6aedd2ea81fb0428ba3ea54e4ad29f62, type: 3}
+  attackSprite: {fileID: 21300000, guid: 27a0308d87728884dbafb69e3cb24d3c, type: 3}
   attackAnim: {fileID: 7400000, guid: 80f4e007bdf0219479116f7f3ce26288, type: 2}
