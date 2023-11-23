@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class Card : MonoBehaviour
+public class Card : MonoBehaviour, ISelectable
 {
     public Alien alien;
 
@@ -27,8 +27,18 @@ public class Card : MonoBehaviour
 
     private Button button;
 
-    private void Start()
+    private void Awake()
     {
+        button = GetComponent<Button>();
+        button.onClick.AddListener(delegate { ButtonEnabler.instance.SetSelectedItem(this); });
+    }
+
+    public void SetAlien(Alien alien)
+    {
+        this.alien = alien;
+
+        Debug.Log(alien.cardDataSO.unchangingName);
+
         nameText.SetText(alien.cardDataSO.unchangingName);
         imageIMG.sprite = alien.cardDataSO.unchangingCardImage;
 
@@ -39,13 +49,15 @@ public class Card : MonoBehaviour
         healthText.SetText(alien.cardDataSO.defaultHealth.ToString());
 
         descriptionText.SetText(alien.cardDataSO.unchangingDescription);
-
-        button = GetComponent<Button>();
-        //button.onClick.AddListener(delegate { CardDataManager.cardDataManager.SetSelectedCard(this); });
     }
 
-    public void SetAlien(Alien alien)
+    public int GetSelectableType()
     {
-        this.alien = alien;
+        return 0;
+    }
+
+    public GameObject GetGameObject()
+    {
+        return this.gameObject;
     }
 }

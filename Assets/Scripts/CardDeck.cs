@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class CardDeck : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI deckCounter;
+    [SerializeField] private Button button;
 
     [SerializeField] private List<CardDataSO> possibleCards;
     public List<CardDataSO> deck;

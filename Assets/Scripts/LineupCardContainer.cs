@@ -7,15 +7,23 @@ public class LineupCardContainer : MonoBehaviour
 {
     private Button button;
     private Card card;
+    [SerializeField] private GameObject cardPrefab;
 
     void Awake()
     {
         button = GetComponent<Button>();
-        // button.onClick.AddListener(delegate { CardDataManager.cardDataManager.TransferCard(this.transform); });
+        button.onClick.AddListener(delegate { ButtonEnabler.instance.SetSelectedItem(this.gameObject, 0); });
     }
 
-    public void SetFields(Card card)
+    public void SetCard(Alien alien)
     {
-        this.card = card;
+        foreach(Transform child in this.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        GameObject cardInstance = Instantiate(cardPrefab, this.transform);
+
+        cardInstance.GetComponent<Card>().SetAlien(alien);
     }
 }
