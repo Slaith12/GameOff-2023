@@ -25,3 +25,4 @@ MonoBehaviour:
   unchangingDescription: A tribal frog fighter from a swamp planet. His body is soft,
     but quick and nimble.
   unchangingEffect: 
+  healthBarOffset: {x: 3, y: 9}

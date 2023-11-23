@@ -25,3 +25,4 @@ MonoBehaviour:
   unchangingDescription: Soldier of the evil Glunkite Army. He fights with a spirit
     of steel. His strength is stored in his horn.
   unchangingEffect: 
+  healthBarOffset: {x: 3, y: 15}
