@@ -65,13 +65,13 @@ public class AlienCombat : MonoBehaviour
     /// <para>If any other script needs to change an alien's position, use one of CombatManager's functions</para>
     /// See: <see cref="CombatManager.ShiftPlayerAlien(AlienCombat, int)"/>, <see cref="CombatManager.ShiftEnemyAlien(AlienCombat, int)"/>
     /// </summary>
-    public void ChangeIndex(int newIndex, float time = 0.5f)
+    public void ChangeIndex(int newIndex, float time = 1.25f)
     {
         index = newIndex;
         ShiftToPos((player ? Vector2.left : Vector2.right) * (7 + 10 * index), time);
     }
 
-    public void ShiftToPos(Vector2 pos, float time = 0.2f)
+    public void ShiftToPos(Vector2 pos, float time = 1.25f)
     {
         targetPos = pos;
         interpTime = time;
