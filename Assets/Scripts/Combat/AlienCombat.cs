@@ -11,6 +11,7 @@ public class AlienCombat : MonoBehaviour
     public int index;
 
     public int damageTaken;
+    public List<DOTInfo> currentDOTs;
 
     Vector3 targetPos;
     float interpTime;
@@ -49,6 +50,7 @@ public class AlienCombat : MonoBehaviour
         this.index = index;
         this.player = player;
         animator = GetComponent<Animator>();
+        currentDOTs = new List<DOTInfo>();
 
         transform.position = (player ? Vector2.left : Vector2.right) * (7 + 10*index);
         transform.localScale = new Vector3(player ? -1 : 1, 1, 1); //all alien sprites face left by default, player aliens should face right
@@ -58,6 +60,11 @@ public class AlienCombat : MonoBehaviour
         healthBar.transform.localPosition = alienData.cardDataSO.healthBarOffset;
         healthBar.transform.localScale = transform.localScale; //if the root object is flipped, re-flip the health bar so it faces the right way
         healthBar.SetHealth(alien.health, alien.health);
+
+        foreach(AbilitySO ability in alien.cardDataSO.abilities)
+        {
+            ability.InitCombat(this);
+        }
     }
 
     /// <summary>
@@ -88,8 +95,36 @@ public class AlienCombat : MonoBehaviour
             transform.position += interpVector * Mathf.Sqrt(interpAmount);
             interpTime -= Time.deltaTime;
         }
+        //can't be a foreach loop because it causes an error if I remove an element from the list in the middle of the loop
+        for(int i = 0; i < currentDOTs.Count; i++)
+        {
+            DOTInfo dot = currentDOTs[i];
+            dot.tickTimer += Time.deltaTime;
+            //don't take DOT damage when dead, will reactivate OnDamage and OnDeath events improperly
+            if(dot.tickTimer >= dot.tickDelay && damageTaken < alienData.health)
+            {
+                dot.tickTimer -= dot.tickDelay;
+                dot.remainingTicks--;
+                DamageNonAttacker(dot.damagePerTick);
+                if(dot.remainingTicks <= 0)
+                {
+                    currentDOTs.RemoveAt(i);
+                    i--;
+                }
+            }
+        }
     }
 
+    public void ApplyDOT(DOTInfo newDOT)
+    {
+        if(currentDOTs.Find(existingDOT => existingDOT.source == newDOT.source) != null)
+        {
+            return;
+        }
+        currentDOTs.Add(newDOT);
+    }
+
+    //parameters would be used for displaying damage numbers, not currently implemented
     private void UpdateHealthBar(int recentDamage, bool displayDamage = true)
     {
         healthBar.SetHealth(alienData.health - damageTaken, alienData.health);
@@ -116,7 +151,7 @@ public class AlienCombat : MonoBehaviour
             Death();
     }
 
-    public void DamageNonAttacker(int damage, bool triggerEvents = false, bool displayDamage = false)
+    public void DamageNonAttacker(int damage, bool triggerEvents = true, bool displayDamage = true)
     {
         int prevDamage = damageTaken;
         if (triggerEvents)

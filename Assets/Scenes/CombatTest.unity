@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLineup:
-  - {fileID: 11400000, guid: aeefb9164ab9d4e93980b59af572feb3, type: 2}
+  - {fileID: 11400000, guid: e30d8e8e0a616c641806556fee9823e9, type: 2}
   - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
   - {fileID: 11400000, guid: aeefb9164ab9d4e93980b59af572feb3, type: 2}
   - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
@@ -254,9 +254,10 @@ MonoBehaviour:
   enemyLineup:
   - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
   - {fileID: 11400000, guid: aeefb9164ab9d4e93980b59af572feb3, type: 2}
-  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
+  - {fileID: 11400000, guid: e30d8e8e0a616c641806556fee9823e9, type: 2}
   - {fileID: 11400000, guid: aeefb9164ab9d4e93980b59af572feb3, type: 2}
   - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
+  regenerateLineups: 0
 --- !u!114 &1517865674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +276,7 @@ MonoBehaviour:
   speedPellets: 0
   currentStage: 0
   numLosses: 0
-  combatSpeed: 0
+  combatSpeed: 2
 --- !u!4 &1517865675
 Transform:
   m_ObjectHideFlags: 0
