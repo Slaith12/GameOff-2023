@@ -42,13 +42,32 @@ public class ButtonEnabler : MonoBehaviour
 
     public void SetSelectedItem(ISelectable tempSelectedItem)
     {
-        if(selectedItem == null || selectedItem.GetSelectableType() == 0)
+        if(selectedItem == null)
         {
             this.selectedItem = tempSelectedItem;
             return;
         }
 
+        if ((selectedItem.GetSelectableType() == 0) && (tempSelectedItem.GetGameObject().GetComponent<Card>().currentCardState == Card.cardState.hand))
+        {
+            this.selectedItem = tempSelectedItem;
+            return;
+        }
 
+        if (tempSelectedItem.GetSelectableType() == 0 && selectedItem.GetSelectableType() == 0)
+        {
+            Alien tempAlien = tempSelectedItem.GetGameObject().GetComponent<Card>().alien;
+            Transform tempParent = tempSelectedItem.GetGameObject().GetComponent<Card>().GetParentTransform();
+            Destroy(tempSelectedItem.GetGameObject());
+
+            tempParent.GetComponent<LineupCardContainer>().SetCard(selectedItem.GetGameObject().GetComponent<Card>().alien);
+            tempParent = selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform();
+            tempParent.GetComponent<LineupCardContainer>().SetCard(tempAlien);
+            Destroy(selectedItem.GetGameObject());
+
+            selectedItem = null;
+            return;
+        }
     }
 
     public void AddHandCardObject(Card card)

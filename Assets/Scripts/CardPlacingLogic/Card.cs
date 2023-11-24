@@ -60,4 +60,9 @@ public class Card : MonoBehaviour, ISelectable
     {
         return this.gameObject;
     }
+
+    public Transform GetParentTransform()
+    {
+        return transform.parent;
+    }
 }
