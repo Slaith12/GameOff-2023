@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LineupCardContainer : MonoBehaviour
 {
     private Button button;
-    private Card card;
+    private Alien alien;
     [SerializeField] private GameObject cardPrefab;
 
     void Awake()
@@ -17,8 +17,8 @@ public class LineupCardContainer : MonoBehaviour
 
     public void SetCard(Alien alien)
     {
+        this.alien = alien;
         GameObject cardInstance = Instantiate(cardPrefab, this.transform);
-
         cardInstance.GetComponent<Card>().SetAlien(alien, Card.cardState.lineup);
     }
 }
