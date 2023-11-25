@@ -19,6 +19,10 @@ public class ButtonEnabler : MonoBehaviour
 
     public void SetSelectedItem(GameObject lineupCardContainer)
     {
+        if(selectedItem == null)
+        {
+            return;
+        }
         if (selectedItem.GetSelectableType() == 0)
         {
             Alien tempAlien = selectedItem.GetGameObject().GetComponent<Card>().alien;
@@ -73,6 +77,11 @@ public class ButtonEnabler : MonoBehaviour
             selectedItem = null;
             return;
         }
+    }
+
+    public void DeleteSelectedItem()
+    {
+        selectedItem = null;
     }
 
     public void AddHandCardObject(Card card)

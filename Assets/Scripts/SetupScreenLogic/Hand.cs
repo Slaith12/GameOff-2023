@@ -28,7 +28,7 @@ public class Hand : MonoBehaviour
     public void RedrawHand()
     {
         int handSize = ButtonEnabler.instance.handCards.Count;
-        foreach(Card card in ButtonEnabler.instance.handCards)
+        foreach (Card card in ButtonEnabler.instance.handCards)
         {
             deck.deck.Add(card.alien.cardDataSO);
             Destroy(card.gameObject);
@@ -37,7 +37,7 @@ public class Hand : MonoBehaviour
 
         ButtonEnabler.instance.handCards.RemoveRange(0, handSize);
 
-        for(int i = 0; i < handSize; i++)
+        for (int i = 0; i < handSize; i++)
         {
             GameObject tempCard = Instantiate(cardPrefab, this.transform);
             tempCard.GetComponent<Card>().SetAlien(new Alien(deck.deck[i]), Card.cardState.hand);
@@ -46,5 +46,6 @@ public class Hand : MonoBehaviour
             deck.UpdateDeckSize();
         }
         deck.DisableButton();
+        ButtonEnabler.instance.DeleteSelectedItem();
     }
 }
