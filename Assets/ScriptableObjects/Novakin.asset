@@ -21,7 +21,7 @@ MonoBehaviour:
   defaultAttack: 6
   defaultDefense: 3
   defaultSpeed: 3
-  defaultTurns: 3
+  defaultRounds: 3
   unchangingDescription: A Novakin is born when a star dies
   unchangingEffect: Attacks inflict fire, burning the enemy for 8 damage per second
     for 5 seconds.

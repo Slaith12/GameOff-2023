@@ -16,13 +16,38 @@ public class Alien
     public int defensePellets { get; set; }
     public int speedPellets { get; set; }
 
-    public Alien(CardDataSO data)
+    public Alien()
     {
-        cardDataSO = data;
-        attack = data.defaultAttack;
-        defense = data.defaultDefense;
-        speed = data.defaultSpeed;
-        rounds = data.defaultTurns;
-        health = data.defaultHealth;
+
+    }
+
+    public Alien(CardDataSO cardDataSO)
+    {
+        this.cardDataSO = cardDataSO;
+
+        attack = cardDataSO.defaultAttack;
+        defense = cardDataSO.defaultDefense;
+        speed = cardDataSO.defaultSpeed;
+        rounds = cardDataSO.defaultRounds;
+        health = cardDataSO.defaultHealth;
+
+        attackPellets = 0;
+        defensePellets = 0;
+        speedPellets = 0;
+    }
+
+    public Alien(CardDataSO cardDataSO, int attackPellets, int defensePellets, int speedPellets)
+    {
+        this.cardDataSO = cardDataSO;
+
+        this.attackPellets = attackPellets;
+        this.defensePellets = defensePellets;
+        this.speedPellets = speedPellets;
+
+        attack = cardDataSO.defaultAttack + attackPellets;
+        defense = cardDataSO.defaultDefense + defensePellets;
+        speed = cardDataSO.defaultSpeed + speedPellets;
+        rounds = cardDataSO.defaultRounds;
+        health = cardDataSO.defaultHealth;
     }
 }

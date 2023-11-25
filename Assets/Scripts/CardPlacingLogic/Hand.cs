@@ -5,24 +5,24 @@ using UnityEngine.UI;
 
 public class Hand : MonoBehaviour
 {
-    public static Hand instance { get; private set; }
-
     private List<Card> handList = new List<Card>();
+
+    [SerializeField] private CardDeck deck;
     [SerializeField] private GameObject cardPrefab;
 
-    private void Awake()
+    private void Start()
     {
-        instance = this;
+        PopulateHand();
     }
 
-    public void PopulateHand(List<CardDataSO> cardDeck)
+    public void PopulateHand()
     {
         for(int i = 0; i < 3; i++)
         {
             GameObject tempCard = Instantiate(cardPrefab, this.transform);
-            tempCard.GetComponent<Card>().SetCardDataSO(cardDeck[i]);
+            tempCard.GetComponent<Card>().SetAlien(new Alien(deck.deck[i]), Card.cardState.hand);
+            deck.deck.RemoveAt(i);
             handList.Add(tempCard.GetComponent<Card>());
-            //tempCard.transform.position = new Vector3((100 * i) - 100, 50, 0);
         }
     }
 }
