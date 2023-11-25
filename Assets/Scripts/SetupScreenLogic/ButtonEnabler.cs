@@ -6,7 +6,7 @@ public class ButtonEnabler : MonoBehaviour
 {
     public static ButtonEnabler instance;
 
-    [SerializeField] private List<Card> handCards;
+    public List<Card> handCards;
     [SerializeField] private List<LineupCardContainer> lineupCardContainers;
     [SerializeField] private List<Card> lineupCards;
 
@@ -17,19 +17,24 @@ public class ButtonEnabler : MonoBehaviour
         instance = this;
     }
 
-    public void SetSelectedItem(GameObject lineupCardContainer, int garbage)
+    public void SetSelectedItem(GameObject lineupCardContainer)
     {
         if (selectedItem.GetSelectableType() == 0)
         {
             Alien tempAlien = selectedItem.GetGameObject().GetComponent<Card>().alien;
-            Destroy(selectedItem.GetGameObject());
-            for(int i = 0; i < handCards.Count; i++)
+            Card placeholderCard = null;
+            foreach (Card card in handCards)
             {
-                if(handCards[i] == null)
+                if (card == selectedItem.GetGameObject().GetComponent<Card>())
                 {
-                    handCards.RemoveAt(i);
+                    placeholderCard = card;
                 }
             }
+            if(placeholderCard != null)
+            {
+                handCards.Remove(placeholderCard);
+            }
+            Destroy(selectedItem.GetGameObject());
             lineupCardContainer.GetComponent<LineupCardContainer>().SetCard(tempAlien);
             selectedItem = null;
         }

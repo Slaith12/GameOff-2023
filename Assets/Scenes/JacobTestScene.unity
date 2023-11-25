@@ -1054,13 +1054,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6779915ea59244e7a93659befe64e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardDeck: []
-  attackPellets: 0
-  defensePellets: 0
-  speedPellets: 0
-  currentStage: 0
-  numLosses: 0
-  combatSpeed: 0
 --- !u!4 &1372907773
 Transform:
   m_ObjectHideFlags: 0
@@ -1127,7 +1120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deckCounter: {fileID: 1983852271}
-  button: {fileID: 0}
+  button: {fileID: 1851750693}
+  hand: {fileID: 834724324}
   possibleCards:
   - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
   - {fileID: 11400000, guid: b30a8cf27dee74944969820a2a7ea79e, type: 2}
@@ -1455,19 +1449,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1851750694}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 834724322}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1851750694
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class LineupCardContainer : MonoBehaviour
     void Awake()
     {
         button = GetComponent<Button>();
-        button.onClick.AddListener(delegate { ButtonEnabler.instance.SetSelectedItem(this.gameObject, 0); });
+        button.onClick.AddListener(delegate { ButtonEnabler.instance.SetSelectedItem(this.gameObject); });
     }
 
     public void SetCard(Alien alien)
