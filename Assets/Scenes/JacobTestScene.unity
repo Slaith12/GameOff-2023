@@ -402,7 +402,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 537282773}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -612,7 +612,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 662430981}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1058,6 +1058,9 @@ MonoBehaviour:
   attackPellets: 0
   defensePellets: 0
   speedPellets: 0
+  currentStage: 0
+  numLosses: 0
+  combatSpeed: 0
 --- !u!4 &1372907773
 Transform:
   m_ObjectHideFlags: 0
@@ -1127,8 +1130,9 @@ MonoBehaviour:
   button: {fileID: 0}
   possibleCards:
   - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
-  - {fileID: 11400000, guid: 97c2219f94a9449d39a1863060ec7c3e, type: 2}
-  - {fileID: 11400000, guid: 19d5f4fc19a0e4d228c796eb004f661e, type: 2}
+  - {fileID: 11400000, guid: b30a8cf27dee74944969820a2a7ea79e, type: 2}
+  - {fileID: 11400000, guid: aeefb9164ab9d4e93980b59af572feb3, type: 2}
+  - {fileID: 11400000, guid: e30d8e8e0a616c641806556fee9823e9, type: 2}
   deck: []
 --- !u!1 &1588509667
 GameObject:
@@ -1705,7 +1709,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1959910674}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -2025,7 +2029,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 2022059927}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []

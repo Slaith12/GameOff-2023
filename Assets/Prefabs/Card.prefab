@@ -2170,7 +2170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61b20c691bbc24a129aa6bc79cce489b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialCardStats: {fileID: 0}
+  currentCardState: 0
   nameText: {fileID: 787485846051706043}
   imageIMG: {fileID: 8151469912356283520}
   attackText: {fileID: 1350192439072102230}
@@ -2178,7 +2178,7 @@ MonoBehaviour:
   speedText: {fileID: 7929059167103061203}
   turnsText: {fileID: 8693567234110398460}
   healthText: {fileID: 2336971127560737296}
-  effectText: {fileID: 1500835727404466719}
+  descriptionText: {fileID: 1500835727404466719}
 --- !u!114 &3599364237722019283
 MonoBehaviour:
   m_ObjectHideFlags: 0
