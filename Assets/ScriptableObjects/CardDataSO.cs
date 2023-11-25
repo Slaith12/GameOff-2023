@@ -10,6 +10,8 @@ public class CardDataSO : ScriptableObject
     public string unchangingName;
     public Sprite unchangingCardImage;
     public Sprite unchangingAlienImage;
+    public RuntimeAnimatorController animations;
+    public Sprite unchangingCardFrame;
 
     public int defaultHealth;
     public int defaultAttack;
@@ -19,4 +21,6 @@ public class CardDataSO : ScriptableObject
 
     public string unchangingDescription;
     public string unchangingEffect;
+
+    public Vector2 healthBarOffset = new Vector2(3, 15);
 }
