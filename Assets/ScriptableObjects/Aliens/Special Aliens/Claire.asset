@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
   m_Name: Claire
   m_EditorClassIdentifier: 
-  unchangingName: Cl41R3
-  unchangingCardImage: {fileID: 21300000, guid: b02906d85ded9f14abac8a309786dcd6, type: 3}
-  unchangingAlienImage: {fileID: 21300000, guid: fef5a9d8696602f418b15a9dede679fd, type: 3}
+  displayName: Cl41R3
+  cardThumbnail: {fileID: 21300000, guid: b02906d85ded9f14abac8a309786dcd6, type: 3}
+  defaultCombatSprite: {fileID: 21300000, guid: fef5a9d8696602f418b15a9dede679fd, type: 3}
   animations: {fileID: 22100000, guid: 1323e808fc43fb34694d5748a4732198, type: 2}
   unchangingCardFrame: {fileID: 0}
   defaultHealth: 175
@@ -22,8 +22,8 @@ MonoBehaviour:
   defaultDefense: 8
   defaultSpeed: 2
   defaultRounds: 2
-  unchangingDescription: An ACORP medium weight class constitution gynoid. Likes
+  description: An ACORP medium weight class constitution gynoid. Likes
     wrenches
-  unchangingEffect: Immune to all status effects.
+  effectDescription: Immune to all status effects.
   abilities: []
   healthBarOffset: {x: 3, y: 9}

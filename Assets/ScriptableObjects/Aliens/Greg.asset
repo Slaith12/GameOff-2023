@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
   m_Name: Greg
   m_EditorClassIdentifier: 
-  unchangingName: Greg
-  unchangingCardImage: {fileID: 21300000, guid: 018f6daf899eb984cb1760b86f849fea, type: 3}
-  unchangingAlienImage: {fileID: 21300000, guid: 0fbbe96a38ca09540a75dd6b21144bbc, type: 3}
+  displayName: Greg
+  cardThumbnail: {fileID: 21300000, guid: 018f6daf899eb984cb1760b86f849fea, type: 3}
+  defaultCombatSprite: {fileID: 21300000, guid: 0fbbe96a38ca09540a75dd6b21144bbc, type: 3}
   animations: {fileID: 22100000, guid: 72d019c7794adba4e908afacf9d8f853, type: 2}
   unchangingCardFrame: {fileID: 0}
   defaultHealth: 60
@@ -22,8 +22,8 @@ MonoBehaviour:
   defaultDefense: 6
   defaultSpeed: 6
   defaultRounds: 6
-  unchangingDescription: A doodle come to life and escaped from a math notebook.
-    Still doesn't know what an integral is.
   unchangingEffect: 
+  description: A doodle come to life and escaped from a math notebook. Still doesn't
+    know what an integral is.
   abilities: []
   healthBarOffset: {x: 3, y: 9}

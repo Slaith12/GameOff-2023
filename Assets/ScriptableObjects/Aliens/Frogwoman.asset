@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
   m_Name: Frogwoman
   m_EditorClassIdentifier: 
-  unchangingName: Frogwoman
-  unchangingCardImage: {fileID: 21300000, guid: 807658c364b8be24fa9bdffbe02b37d9, type: 3}
-  unchangingAlienImage: {fileID: 21300000, guid: 42eff5a8258cd8f4f91cff808e74a599, type: 3}
+  displayName: Frogwoman
+  cardThumbnail: {fileID: 21300000, guid: 807658c364b8be24fa9bdffbe02b37d9, type: 3}
+  defaultCombatSprite: {fileID: 21300000, guid: 42eff5a8258cd8f4f91cff808e74a599, type: 3}
   animations: {fileID: 22100000, guid: a6b5d1ab44851374d98a96aec9ff5593, type: 2}
   unchangingCardFrame: {fileID: 0}
   defaultHealth: 50
@@ -22,9 +22,9 @@ MonoBehaviour:
   defaultDefense: 1
   defaultSpeed: 8
   defaultRounds: 2
-  unchangingDescription: A tribal frog fighter. Her arms are coated in a slow-acting
+  description: A tribal frog fighter. Her arms are coated in a slow-acting
     poison.
-  unchangingEffect: Attacks inflict poison, dealing 6 damage per second for 10 seconds.
+  effectDescription: Attacks inflict poison, dealing 6 damage per second for 10 seconds.
   abilities:
   - {fileID: 11400000, guid: 618103c3d7bd7d54b8b23e45c8bb4a3a, type: 2}
   healthBarOffset: {x: 3, y: 9}

@@ -12,17 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
   m_Name: Magnus
   m_EditorClassIdentifier: 
-  unchangingName: Magnus
-  unchangingCardImage: {fileID: 21300000, guid: c6a19091eaceb274b804e4824a68f8cf, type: 3}
-  unchangingAlienImage: {fileID: 21300000, guid: dada0c300e4278b40b603f7546a38881, type: 3}
+  displayName: Magnus
+  cardThumbnail: {fileID: 21300000, guid: c6a19091eaceb274b804e4824a68f8cf, type: 3}
+  defaultCombatSprite: {fileID: 21300000, guid: dada0c300e4278b40b603f7546a38881, type: 3}
   animations: {fileID: 22100000, guid: e54a885b6c4e4964b99ea07ac8a37417, type: 2}
-  unchangingCardFrame: {fileID: 0}
+  customCardFrame: {fileID: 0}
+  customCardCounters: {fileID: 0}
+  customThumbnailFrame: {fileID: 0}
   defaultHealth: 75
   defaultAttack: 2
   defaultDefense: 5
   defaultSpeed: 7
   defaultRounds: 4
-  unchangingDescription: A sentient magnet who loves solving puzzles
-  unchangingEffect: +2 DEF -1 SPD for cards next to self.
+  description: A sentient magnet who loves solving puzzles
+  effectDescription: +2 DEF -1 SPD for allies next to self.
   abilities: []
   healthBarOffset: {x: 3, y: 5}

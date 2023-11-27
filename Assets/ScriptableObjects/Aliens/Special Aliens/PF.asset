@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
   m_Name: PF
   m_EditorClassIdentifier: 
-  unchangingName: PF
-  unchangingCardImage: {fileID: 21300000, guid: 7945a1c7b87fbd14a96f240143e69910, type: 3}
-  unchangingAlienImage: {fileID: 21300000, guid: 8aa1b818af74e8042bcdcd0c67f95cf4, type: 3}
+  displayName: PF
+  cardThumbnail: {fileID: 21300000, guid: 7945a1c7b87fbd14a96f240143e69910, type: 3}
+  defaultCombatSprite: {fileID: 21300000, guid: 8aa1b818af74e8042bcdcd0c67f95cf4, type: 3}
   animations: {fileID: 22100000, guid: dabf3ef87e320b84aa874ba107cd00fa, type: 2}
   unchangingCardFrame: {fileID: 0}
   defaultHealth: 75
@@ -22,7 +22,7 @@ MonoBehaviour:
   defaultDefense: 4
   defaultSpeed: 6
   defaultRounds: 4
-  unchangingDescription: A schoolgirl trapped in a non-euclidean complex.
-  unchangingEffect: Each attack has a 1% chance to instantly kill opponent.
+  description: A schoolgirl trapped in a non-euclidean complex.
+  effectDescription: Each attack has a 1% chance to instantly kill opponent.
   abilities: []
   healthBarOffset: {x: 3, y: 5}

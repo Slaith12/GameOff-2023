@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
   m_Name: Gorbino
   m_EditorClassIdentifier: 
-  unchangingName: Gorbino
-  unchangingCardImage: {fileID: 21300000, guid: b5b53d5b3eb91d741ba984ac0b157b9d, type: 3}
-  unchangingAlienImage: {fileID: 21300000, guid: ea2bff6a03b420849a033416593e26f7, type: 3}
+  displayName: Gorbino
+  cardThumbnail: {fileID: 21300000, guid: b5b53d5b3eb91d741ba984ac0b157b9d, type: 3}
+  defaultCombatSprite: {fileID: 21300000, guid: ea2bff6a03b420849a033416593e26f7, type: 3}
   animations: {fileID: 22100000, guid: 46e2fb46e69019b469d1fc5c39865438, type: 2}
   unchangingCardFrame: {fileID: 0}
   defaultHealth: 80
@@ -22,7 +22,7 @@ MonoBehaviour:
   defaultDefense: 5
   defaultSpeed: 6
   defaultRounds: 4
-  unchangingDescription: A fresh new recruit in the evil glunkite army. Edgy and
+  description: A fresh new recruit in the evil glunkite army. Edgy and
     quick-witted. He got his shades from space ebay.
   unchangingEffect: 
   abilities: []

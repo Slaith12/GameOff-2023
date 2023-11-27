@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
   m_Name: Orc
   m_EditorClassIdentifier: 
-  unchangingName: The Orcitect
-  unchangingCardImage: {fileID: 0}
-  unchangingAlienImage: {fileID: 0}
+  displayName: The Orcitect
+  cardThumbnail: {fileID: 0}
+  defaultCombatSprite: {fileID: 0}
   animations: {fileID: 22100000, guid: 39507b0453503914588ff82653352594, type: 2}
   unchangingCardFrame: {fileID: 0}
   defaultHealth: 125
@@ -22,7 +22,7 @@ MonoBehaviour:
   defaultDefense: 6
   defaultSpeed: 6
   defaultRounds: 2
-  unchangingDescription: A scrappy orc engineer determined to conquer with his machine.
-  unchangingEffect: Adds a pellet to the deck each turn.
+  description: A scrappy orc engineer determined to conquer with his machine.
+  effectDescription: Adds a pellet to the deck each turn.
   abilities: []
   healthBarOffset: {x: 3, y: 15}

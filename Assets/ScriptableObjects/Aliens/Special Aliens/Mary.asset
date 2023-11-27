@@ -12,17 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
   m_Name: Mary
   m_EditorClassIdentifier: 
-  unchangingName: Mary
-  unchangingCardImage: {fileID: 21300000, guid: 988cc67d9cad7204b91df9e48cddc51b, type: 3}
-  unchangingAlienImage: {fileID: 21300000, guid: be6c32258521a524282aad7dbcd6e11e, type: 3}
+  displayName: Mary
+  cardThumbnail: {fileID: 21300000, guid: 988cc67d9cad7204b91df9e48cddc51b, type: 3}
+  defaultCombatSprite: {fileID: 21300000, guid: be6c32258521a524282aad7dbcd6e11e, type: 3}
   animations: {fileID: 22100000, guid: 0aee17ea5b1d7854caca8513cbbe2cb2, type: 2}
-  unchangingCardFrame: {fileID: 0}
+  customCardFrame: {fileID: 0}
+  customCardCounters: {fileID: 0}
+  customThumbnailFrame: {fileID: 0}
   defaultHealth: 30
   defaultAttack: 3
   defaultDefense: 3
   defaultSpeed: 3
   defaultRounds: 3
-  unchangingDescription: A girl with supernatural luck. Can't seem to die.
-  unchangingEffect: Revives until there are no other cards.
+  description: A girl with supernatural luck. Can't seem to die.
+  effectDescription: Revives until there are no other allies.
   abilities: []
   healthBarOffset: {x: 3, y: 15}

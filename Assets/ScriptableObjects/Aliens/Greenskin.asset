@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
   m_Name: Greenskin
   m_EditorClassIdentifier: 
-  unchangingName: Greenskin
-  unchangingCardImage: {fileID: 21300000, guid: fc54b2d60886f4e429371187c02f8a4d, type: 3}
-  unchangingAlienImage: {fileID: 21300000, guid: bb109de2b73e1ca41a1d6a1f0192b30c, type: 3}
+  displayName: Greenskin
+  cardThumbnail: {fileID: 21300000, guid: fc54b2d60886f4e429371187c02f8a4d, type: 3}
+  defaultCombatSprite: {fileID: 21300000, guid: bb109de2b73e1ca41a1d6a1f0192b30c, type: 3}
   animations: {fileID: 22100000, guid: dbaf3ab4e7f7a444e80f5802b6b3666d, type: 2}
   unchangingCardFrame: {fileID: 0}
   defaultHealth: 75
@@ -22,7 +22,7 @@ MonoBehaviour:
   defaultDefense: 5
   defaultSpeed: 5
   defaultRounds: 4
-  unchangingDescription: A green-skinned warrior from a far away planet. His abs
+  description: A green-skinned warrior from a far away planet. His abs
     are made of steel and his fists of tungsten.
   unchangingEffect: 
   abilities: []

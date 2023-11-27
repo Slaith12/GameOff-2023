@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
   m_Name: Meatslab
   m_EditorClassIdentifier: 
-  unchangingName: Meatslab
-  unchangingCardImage: {fileID: 21300000, guid: f02657f2e67b2914fb8abb233728eaa9, type: 3}
-  unchangingAlienImage: {fileID: 21300000, guid: 3b05df911980d4e14a916232eb396764, type: 3}
+  displayName: Meatslab
+  cardThumbnail: {fileID: 21300000, guid: f02657f2e67b2914fb8abb233728eaa9, type: 3}
+  defaultCombatSprite: {fileID: 21300000, guid: 3b05df911980d4e14a916232eb396764, type: 3}
   animations: {fileID: 22100000, guid: f35c4b8e3ff8cc847a29c55d595f5a5a, type: 2}
   unchangingCardFrame: {fileID: 0}
   defaultHealth: 150
@@ -22,7 +22,7 @@ MonoBehaviour:
   defaultDefense: 10
   defaultSpeed: 1
   defaultRounds: 7
-  unchangingDescription: A sack-like creature with a twisted face. Full of meat and
+  description: A sack-like creature with a twisted face. Full of meat and
     bones.
   unchangingEffect: 
   abilities: []

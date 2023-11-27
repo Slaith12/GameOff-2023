@@ -12,17 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
   m_Name: Frogmage
   m_EditorClassIdentifier: 
-  unchangingName: Frogman Mage
-  unchangingCardImage: {fileID: 21300000, guid: 0b20026e1069e34408c81bf2d0c995f9, type: 3}
-  unchangingAlienImage: {fileID: 21300000, guid: 950f6812b0f49bb498331f24c7e61edd, type: 3}
+  displayName: Frogman Mage
+  cardThumbnail: {fileID: 21300000, guid: 0b20026e1069e34408c81bf2d0c995f9, type: 3}
+  defaultCombatSprite: {fileID: 21300000, guid: 950f6812b0f49bb498331f24c7e61edd, type: 3}
   animations: {fileID: 22100000, guid: 2cc0c902a3627b04d9e2ba63e9094ca7, type: 2}
-  unchangingCardFrame: {fileID: 0}
+  customCardFrame: {fileID: 0}
+  customCardCounters: {fileID: 0}
+  customThumbnailFrame: {fileID: 0}
   defaultHealth: 75
   defaultAttack: 1
   defaultDefense: 3
   defaultSpeed: 8
   defaultRounds: 2
-  unchangingDescription: A tribal frog mage. He has connections to the occult.
-  unchangingEffect: +1 ATK +1 SPD to card in front of self.
+  description: A tribal frog mage. He has connections to the occult.
+  effectDescription: +1 ATK +1 SPD to ally in front of self.
   abilities: []
   healthBarOffset: {x: 3, y: 9}

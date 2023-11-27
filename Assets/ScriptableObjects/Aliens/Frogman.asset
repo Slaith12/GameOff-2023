@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
   m_Name: Frogman
   m_EditorClassIdentifier: 
-  unchangingName: Frogman
-  unchangingCardImage: {fileID: 21300000, guid: e4c1c4de0d150a04194e38e4c7bd4dd8, type: 3}
-  unchangingAlienImage: {fileID: 21300000, guid: d6f8294fc71a949dbb15de83c9de794d, type: 3}
+  displayName: Frogman
+  cardThumbnail: {fileID: 21300000, guid: e4c1c4de0d150a04194e38e4c7bd4dd8, type: 3}
+  defaultCombatSprite: {fileID: 21300000, guid: d6f8294fc71a949dbb15de83c9de794d, type: 3}
   animations: {fileID: 22100000, guid: f9ddb3c6f597ef24f8dacb8c7637eebb, type: 2}
   unchangingCardFrame: {fileID: 0}
   defaultHealth: 50
@@ -22,7 +22,7 @@ MonoBehaviour:
   defaultDefense: 2
   defaultSpeed: 9
   defaultRounds: 4
-  unchangingDescription: A tribal frog fighter from a swamp planet. His body is soft,
+  description: A tribal frog fighter from a swamp planet. His body is soft,
     but quick and nimble.
   unchangingEffect: 
   abilities: []

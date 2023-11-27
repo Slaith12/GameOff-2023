@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
   m_Name: Novakin
   m_EditorClassIdentifier: 
-  unchangingName: Novakin
-  unchangingCardImage: {fileID: 21300000, guid: c8aeaff05cbccb84cb870e8372d31ebf, type: 3}
-  unchangingAlienImage: {fileID: 21300000, guid: 5ae401b25cc6543edb752ba0448974f4, type: 3}
+  displayName: Novakin
+  cardThumbnail: {fileID: 21300000, guid: c8aeaff05cbccb84cb870e8372d31ebf, type: 3}
+  defaultCombatSprite: {fileID: 21300000, guid: 5ae401b25cc6543edb752ba0448974f4, type: 3}
   animations: {fileID: 22100000, guid: 4541a452eaaddc54bac2efce23d0cbd2, type: 2}
   unchangingCardFrame: {fileID: 0}
   defaultHealth: 100
@@ -22,8 +22,8 @@ MonoBehaviour:
   defaultDefense: 3
   defaultSpeed: 3
   defaultRounds: 2
-  unchangingDescription: A Novakin is born when a star dies
-  unchangingEffect: Attacks inflict fire, burning the enemy for 8 damage per second
+  description: A Novakin is born when a star dies
+  effectDescription: Attacks inflict fire, burning the enemy for 8 damage per second
     for 5 seconds.
   abilities:
   - {fileID: 11400000, guid: eb4457d2564c83b49afd018c14a04bf4, type: 2}

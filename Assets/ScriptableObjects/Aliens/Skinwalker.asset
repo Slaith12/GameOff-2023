@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
   m_Name: Skinwalker
   m_EditorClassIdentifier: 
-  unchangingName: Skinwalker
-  unchangingCardImage: {fileID: 21300000, guid: 271a298b9620c104d8b93c344088b67b, type: 3}
-  unchangingAlienImage: {fileID: 21300000, guid: 15e0ded3193520243a65174ca734e790, type: 3}
+  displayName: Skinwalker
+  cardThumbnail: {fileID: 21300000, guid: 271a298b9620c104d8b93c344088b67b, type: 3}
+  defaultCombatSprite: {fileID: 21300000, guid: 15e0ded3193520243a65174ca734e790, type: 3}
   animations: {fileID: 22100000, guid: aeca8d1a04d88cc45930ecb0406c7c03, type: 2}
   unchangingCardFrame: {fileID: 0}
   defaultHealth: 75
@@ -22,7 +22,7 @@ MonoBehaviour:
   defaultDefense: 2
   defaultSpeed: 7
   defaultRounds: 4
-  unchangingDescription: A twisted skeleton covered in a thin layer of skin.
+  description: A twisted skeleton covered in a thin layer of skin.
   unchangingEffect: 
   abilities: []
   healthBarOffset: {x: 3, y: 15}

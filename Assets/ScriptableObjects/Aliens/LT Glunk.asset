@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
   m_Name: LT Glunk
   m_EditorClassIdentifier: 
-  unchangingName: Lieutenant Glunk
-  unchangingCardImage: {fileID: 21300000, guid: 80c9e6f981ab2f7448b8479b2930405b, type: 3}
-  unchangingAlienImage: {fileID: 21300000, guid: 40396435a809a3d4cb946af71f8664c9, type: 3}
+  displayName: Lieutenant Glunk
+  cardThumbnail: {fileID: 21300000, guid: 80c9e6f981ab2f7448b8479b2930405b, type: 3}
+  defaultCombatSprite: {fileID: 21300000, guid: 40396435a809a3d4cb946af71f8664c9, type: 3}
   animations: {fileID: 22100000, guid: 9ca0535b855bf0547b29bfa32e7d6231, type: 2}
   unchangingCardFrame: {fileID: 0}
   defaultHealth: 100
@@ -22,7 +22,7 @@ MonoBehaviour:
   defaultDefense: 3
   defaultSpeed: 3
   defaultRounds: 3
-  unchangingDescription: 4-armed lieutenant of the evil glunkite army.
-  unchangingEffect: 50% chance to attack twice.
+  description: 4-armed lieutenant of the evil glunkite army.
+  effectDescription: 50% chance to attack twice.
   abilities: []
   healthBarOffset: {x: 3, y: 15}

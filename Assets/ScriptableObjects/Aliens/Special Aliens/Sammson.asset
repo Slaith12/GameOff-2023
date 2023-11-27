@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
   m_Name: Sammson
   m_EditorClassIdentifier: 
-  unchangingName: Sammson
-  unchangingCardImage: {fileID: 21300000, guid: c5544aeaed759674499d8d6c0d933d1b, type: 3}
-  unchangingAlienImage: {fileID: 21300000, guid: c3ddd7db66d85f642a4ef1b0b7673131, type: 3}
+  displayName: Sammson
+  cardThumbnail: {fileID: 21300000, guid: c5544aeaed759674499d8d6c0d933d1b, type: 3}
+  defaultCombatSprite: {fileID: 21300000, guid: c3ddd7db66d85f642a4ef1b0b7673131, type: 3}
   animations: {fileID: 22100000, guid: e318ec2a61ad8a545912b1277e65265d, type: 2}
   unchangingCardFrame: {fileID: 0}
   defaultHealth: 150
@@ -22,7 +22,7 @@ MonoBehaviour:
   defaultDefense: 6
   defaultSpeed: 3
   defaultRounds: 1
-  unchangingDescription: 
-  unchangingEffect: Heals by half of damage done to opponent.
+  description: 
+  effectDescription: Heals by half of damage done to opponent.
   abilities: []
   healthBarOffset: {x: 3, y: 15}
