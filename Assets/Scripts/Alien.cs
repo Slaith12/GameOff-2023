@@ -50,4 +50,22 @@ public class Alien
         rounds = cardDataSO.defaultRounds;
         health = cardDataSO.defaultHealth;
     }
+
+    public void ChangeAttackPellets(int amount)
+    {
+        attackPellets += amount;
+        attack += amount;
+    }
+
+    public void ChangeDefensePellets(int amount)
+    {
+        defensePellets += amount;
+        defense += amount;
+    }
+
+    public void ChangeSpeedPellets(int amount)
+    {
+        speedPellets += amount;
+        speed += amount;
+    }
 }
