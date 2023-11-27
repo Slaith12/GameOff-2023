@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1b83550d5247948cda27bee7a2ae4adb
+guid: 3da3b05607ce9467eb2c818173073658
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,22 +110,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BluePill_0
+      name: Discard_2_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 86
-        width: 268
-        height: 281
+        x: 30
+        y: 42
+        width: 194
+        height: 346
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6e39cc049a4242b2873ab5222d981a9
-      internalID: -983255109
+      spriteID: dec4bba6850f84b2abae222df33ffecc
+      internalID: 135914692
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BluePill_0: -983255109
+      Discard_2_0: 135914692
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

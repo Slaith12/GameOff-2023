@@ -51,6 +51,20 @@ public class Card : MonoBehaviour, ISelectable
         descriptionText.SetText(alien.cardDataSO.unchangingDescription);
     }
 
+    private void Update()
+    {
+        nameText.SetText(alien.cardDataSO.unchangingName);
+        imageIMG.sprite = alien.cardDataSO.unchangingCardImage;
+
+        attackText.SetText(alien.attack.ToString());
+        defenseText.SetText(alien.defense.ToString());
+        speedText.SetText(alien.speed.ToString());
+        turnsText.SetText(alien.rounds.ToString());
+        healthText.SetText(alien.health.ToString());
+
+        descriptionText.SetText(alien.cardDataSO.unchangingDescription);
+    }
+
     public int GetSelectableType()
     {
         return 0;

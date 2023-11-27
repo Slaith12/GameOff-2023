@@ -6,9 +6,8 @@ public class ButtonEnabler : MonoBehaviour
 {
     public static ButtonEnabler instance;
 
-    [SerializeField] private List<Card> handCards;
-    [SerializeField] private List<LineupCardContainer> lineupCardContainers;
-    [SerializeField] private List<Card> lineupCards;
+    public List<Card> handCards;
+    [SerializeField] private List<LineupCardContainer> lineupCardContainers = new List<LineupCardContainer>(5);
 
     private ISelectable selectedItem;
 
@@ -17,19 +16,34 @@ public class ButtonEnabler : MonoBehaviour
         instance = this;
     }
 
-    public void SetSelectedItem(GameObject lineupCardContainer, int garbage)
+    public void SetSelectedItem(GameObject lineupCardContainer)
     {
+        if(selectedItem == null)
+        {
+            return;
+        }
         if (selectedItem.GetSelectableType() == 0)
         {
             Alien tempAlien = selectedItem.GetGameObject().GetComponent<Card>().alien;
-            Destroy(selectedItem.GetGameObject());
-            for(int i = 0; i < handCards.Count; i++)
+            Card placeholderCard = null;
+            foreach (Card card in handCards)
             {
-                if(handCards[i] == null)
+                if (card == selectedItem.GetGameObject().GetComponent<Card>())
                 {
-                    handCards.RemoveAt(i);
+                    placeholderCard = card;
                 }
             }
+            if(placeholderCard != null)
+            {
+                handCards.Remove(placeholderCard);
+            }
+
+            if(selectedItem.GetGameObject().GetComponent<Card>().currentCardState == Card.cardState.lineup)
+            {
+                selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().alien = null;
+            }
+
+            Destroy(selectedItem.GetGameObject());
             lineupCardContainer.GetComponent<LineupCardContainer>().SetCard(tempAlien);
             selectedItem = null;
         }
@@ -42,41 +56,200 @@ public class ButtonEnabler : MonoBehaviour
 
     public void SetSelectedItem(ISelectable tempSelectedItem)
     {
+        //when no item is selected
         if(selectedItem == null)
         {
             this.selectedItem = tempSelectedItem;
             return;
         }
 
-        if ((selectedItem.GetSelectableType() == 0) && (tempSelectedItem.GetGameObject().GetComponent<Card>().currentCardState == Card.cardState.hand))
+        //if both items are cards
+        if(tempSelectedItem.GetSelectableType() == 0 && selectedItem.GetSelectableType() == 0)
+        {
+            if(selectedItem.GetGameObject().GetComponent<Card>().currentCardState == Card.cardState.lineup && tempSelectedItem.GetGameObject().GetComponent<Card>().currentCardState == Card.cardState.lineup)
+            {
+                Alien tempAlien = tempSelectedItem.GetGameObject().GetComponent<Card>().alien;
+                Transform tempParent = tempSelectedItem.GetGameObject().GetComponent<Card>().GetParentTransform();
+                Destroy(tempSelectedItem.GetGameObject());
+
+                tempParent.GetComponent<LineupCardContainer>().SetCard(selectedItem.GetGameObject().GetComponent<Card>().alien);
+                tempParent = selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform();
+                tempParent.GetComponent<LineupCardContainer>().SetCard(tempAlien);
+                Destroy(selectedItem.GetGameObject());
+
+                selectedItem = null;
+                return;
+            }
+            else
+            {
+                this.selectedItem = tempSelectedItem;
+                return;
+            }
+        }
+        //if selectedItem is a stored pellet and the tempSelectedItem is an alien pellet container
+        else if(selectedItem.GetSelectableType() == 2 && tempSelectedItem.GetSelectableType() == 3)
+        {
+            if (selectedItem.GetGameObject().GetComponent<StoredPellets>().GetNumPellets() == 0)
+            {
+                this.selectedItem = tempSelectedItem;
+                return;
+            }
+            else if (selectedItem.GetGameObject().GetComponent<StoredPellets>().thisPelletType == StoredPellets.pelletType.red && tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.red)
+            {
+                selectedItem.GetGameObject().GetComponent<StoredPellets>().ChangeNumPellets(-1);
+                tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeAttackPellets(1);
+
+                selectedItem = null;
+                return;
+            }
+            else if(selectedItem.GetGameObject().GetComponent<StoredPellets>().thisPelletType == StoredPellets.pelletType.yellow && tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.yellow)
+            {
+                selectedItem.GetGameObject().GetComponent<StoredPellets>().ChangeNumPellets(-1);
+                tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeSpeedPellets(1);
+
+                selectedItem = null;
+                return;
+            }
+            else if (selectedItem.GetGameObject().GetComponent<StoredPellets>().thisPelletType == StoredPellets.pelletType.blue && tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.blue)
+            {
+                selectedItem.GetGameObject().GetComponent<StoredPellets>().ChangeNumPellets(-1);
+                tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeDefensePellets(1);
+
+                selectedItem = null;
+                return;
+            }
+            else
+            {
+                this.selectedItem = tempSelectedItem;
+                return;
+            }
+        }
+        //if selectedItem is an alien pellet container and the tempSelectedItem is a stored pellet
+        else if (selectedItem.GetSelectableType() == 3 && tempSelectedItem.GetSelectableType() == 2)
+        {
+            if (selectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.red && tempSelectedItem.GetGameObject().GetComponent<StoredPellets>().thisPelletType == StoredPellets.pelletType.red)
+            {
+                if (selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.attackPellets == 0)
+                {
+                    this.selectedItem = tempSelectedItem;
+                    return;
+                }
+                selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeAttackPellets(-1);
+                tempSelectedItem.GetGameObject().GetComponent<StoredPellets>().ChangeNumPellets(1);
+
+                selectedItem = null;
+                return;
+            }
+            else if (selectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.yellow && tempSelectedItem.GetGameObject().GetComponent<StoredPellets>().thisPelletType == StoredPellets.pelletType.yellow)
+            {
+                if (selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.speedPellets == 0)
+                {
+                    this.selectedItem = tempSelectedItem;
+                    return;
+                }
+                selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeSpeedPellets(-1);
+                tempSelectedItem.GetGameObject().GetComponent<StoredPellets>().ChangeNumPellets(1);
+
+                selectedItem = null;
+                return;
+            }
+            else if (selectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.blue && tempSelectedItem.GetGameObject().GetComponent<StoredPellets>().thisPelletType == StoredPellets.pelletType.blue)
+            {
+                if (selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.defensePellets == 0)
+                {
+                    this.selectedItem = tempSelectedItem;
+                    return;
+                }
+                selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeDefensePellets(-1);
+                tempSelectedItem.GetGameObject().GetComponent<StoredPellets>().ChangeNumPellets(1);
+
+                selectedItem = null;
+                return;
+            }
+            else
+            {
+                this.selectedItem = tempSelectedItem;
+                return;
+            }
+        }
+        //if both selectedItem and tempSelectedItem are alien pellet containers
+        else if (selectedItem.GetSelectableType() == 3 && tempSelectedItem.GetSelectableType() == 3)
+        {
+            if (selectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.red && tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.red)
+            {
+                if (selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.attackPellets == 0)
+                {
+                    this.selectedItem = tempSelectedItem;
+                    return;
+                }
+                selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeAttackPellets(-1);
+                tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeAttackPellets(1);
+
+                selectedItem = null;
+                return;
+            }
+            else if (selectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.yellow && tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.yellow)
+            {
+                if (selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.speedPellets == 0)
+                {
+                    this.selectedItem = tempSelectedItem;
+                    return;
+                }
+                selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeSpeedPellets(-1);
+                tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeSpeedPellets(1);
+
+                selectedItem = null;
+                return;
+            }
+            else if (selectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.blue && tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.blue)
+            {
+                if (selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.defensePellets == 0)
+                {
+                    this.selectedItem = tempSelectedItem;
+                    return;
+                }
+                selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeDefensePellets(-1);
+                tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeDefensePellets(1);
+
+                selectedItem = null;
+                return;
+            }
+            else
+            {
+                this.selectedItem = tempSelectedItem;
+                return;
+            }
+        }
+        else
         {
             this.selectedItem = tempSelectedItem;
-            return;
         }
 
-        if (tempSelectedItem.GetSelectableType() == 0 && selectedItem.GetSelectableType() == 0)
+    }
+
+    public void DiscardSelectedItem()
+    {
+        Debug.Log("runs");
+        Destroy(selectedItem.GetGameObject());
+        selectedItem = null;
+    }
+
+    public ISelectable GetSelectedItem()
+    {
+        if(selectedItem != null)
         {
-            Alien tempAlien = tempSelectedItem.GetGameObject().GetComponent<Card>().alien;
-            Transform tempParent = tempSelectedItem.GetGameObject().GetComponent<Card>().GetParentTransform();
-            Destroy(tempSelectedItem.GetGameObject());
-
-            tempParent.GetComponent<LineupCardContainer>().SetCard(selectedItem.GetGameObject().GetComponent<Card>().alien);
-            tempParent = selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform();
-            tempParent.GetComponent<LineupCardContainer>().SetCard(tempAlien);
-            Destroy(selectedItem.GetGameObject());
-
-            selectedItem = null;
-            return;
+            return selectedItem;
         }
+        return null;
+    }
+
+    public void DeleteSelectedItem()
+    {
+        selectedItem = null;
     }
 
     public void AddHandCardObject(Card card)
     {
         handCards.Add(card);
-    }
-
-    public void AddlineupCardObject(Card card)
-    {
-        lineupCards.Add(card);
     }
 }

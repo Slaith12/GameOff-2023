@@ -8,6 +8,7 @@ public class CardDeck : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI deckCounter;
     [SerializeField] private Button button;
+    [SerializeField] private Hand hand;
 
     [SerializeField] private List<CardDataSO> possibleCards;
     public List<CardDataSO> deck;
@@ -15,6 +16,10 @@ public class CardDeck : MonoBehaviour
     private void Awake()
     {
         CreateDeck();
+
+        button = GetComponentInChildren<Button>();
+        button.onClick.AddListener(delegate { hand.RedrawHand(); });
+        button.enabled = true;
     }
 
     private void CreateDeck()
@@ -25,8 +30,30 @@ public class CardDeck : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void Reshuffle()
+    {
+        List<CardDataSO> tempList = new List<CardDataSO>();
+        foreach(CardDataSO cardData in deck)
+        {
+            tempList.Add(cardData);
+        }
+        deck.Clear();
+        int tempListSize = tempList.Count;
+        for(int i = 0; i < tempListSize; i++)
+        {
+            int tempRand = Random.Range(0, tempList.Count);
+            deck.Add(tempList[tempRand]);
+            tempList.RemoveAt(tempRand);
+        }
+    }
+
+    public void UpdateDeckSize()
     {
         deckCounter.SetText(deck.Count.ToString());
+    }
+
+    public void DisableButton()
+    {
+        button.enabled = false;
     }
 }
