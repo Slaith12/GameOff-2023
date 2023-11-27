@@ -25,4 +25,6 @@ MonoBehaviour:
   unchangingDescription: A Novakin is born when a star dies
   unchangingEffect: Attacks inflict fire, burning the enemy for 8 damage per second
     for 5 seconds.
+  abilities:
+  - {fileID: 11400000, guid: eb4457d2564c83b49afd018c14a04bf4, type: 2}
   healthBarOffset: {x: 3.5, y: 13.5}
