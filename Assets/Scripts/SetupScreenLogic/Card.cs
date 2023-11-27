@@ -39,8 +39,8 @@ public class Card : MonoBehaviour, ISelectable
         this.alien = alien;
         this.currentCardState = currentCardState;
 
-        nameText.SetText(alien.cardDataSO.unchangingName);
-        imageIMG.sprite = alien.cardDataSO.unchangingCardImage;
+        nameText.SetText(alien.cardDataSO.displayName);
+        imageIMG.sprite = alien.cardDataSO.cardThumbnail;
 
         attackText.SetText(alien.cardDataSO.defaultAttack.ToString());
         defenseText.SetText(alien.cardDataSO.defaultDefense.ToString());
@@ -48,13 +48,13 @@ public class Card : MonoBehaviour, ISelectable
         turnsText.SetText(alien.cardDataSO.defaultRounds.ToString());
         healthText.SetText(alien.cardDataSO.defaultHealth.ToString());
 
-        descriptionText.SetText(alien.cardDataSO.unchangingDescription);
+        descriptionText.SetText(alien.cardDataSO.description);
     }
 
     private void Update()
     {
-        nameText.SetText(alien.cardDataSO.unchangingName);
-        imageIMG.sprite = alien.cardDataSO.unchangingCardImage;
+        nameText.SetText(alien.cardDataSO.displayName);
+        imageIMG.sprite = alien.cardDataSO.cardThumbnail;
 
         attackText.SetText(alien.attack.ToString());
         defenseText.SetText(alien.defense.ToString());
@@ -62,7 +62,7 @@ public class Card : MonoBehaviour, ISelectable
         turnsText.SetText(alien.rounds.ToString());
         healthText.SetText(alien.health.ToString());
 
-        descriptionText.SetText(alien.cardDataSO.unchangingDescription);
+        descriptionText.SetText(alien.cardDataSO.description);
     }
 
     public int GetSelectableType()

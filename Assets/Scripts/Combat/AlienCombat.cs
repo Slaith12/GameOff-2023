@@ -54,7 +54,7 @@ public class AlienCombat : MonoBehaviour
 
         transform.position = (player ? Vector2.left : Vector2.right) * (7 + 10*index);
         transform.localScale = new Vector3(player ? -1 : 1, 1, 1); //all alien sprites face left by default, player aliens should face right
-        renderer.sprite = alienData.cardDataSO.unchangingAlienImage;
+        renderer.sprite = alienData.cardDataSO.defaultCombatSprite;
         animator.runtimeAnimatorController = alienData.cardDataSO.animations;
 
         healthBar.transform.localPosition = alienData.cardDataSO.healthBarOffset;
