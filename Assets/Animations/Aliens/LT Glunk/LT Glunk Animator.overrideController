@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LT Glunk Animator
+  m_Controller: {fileID: 9100000, guid: 4ad32c3a6bd35e44688aca8b944be3cf, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 3b02fcd3f9c018f46b754a04133f692e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ed8da8da3f3530449800fcd05db50e43, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 75e942c6c6ead234d9e885ed3b81f0d0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: df9a1f9bfd5a9a544aa53ae5c7276db9, type: 2}

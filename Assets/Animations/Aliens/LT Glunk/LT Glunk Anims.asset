@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231f917665811494f97bbd0af71585e4, type: 3}
+  m_Name: LT Glunk Anims
+  m_EditorClassIdentifier: 
+  alienName: LT Glunk
+  useCustomAnimator: 0
+  animator: {fileID: 22100000, guid: 9ca0535b855bf0547b29bfa32e7d6231, type: 2}
+  useCustomIdle: 0
+  idleSprites:
+  - {fileID: 21300000, guid: 40396435a809a3d4cb946af71f8664c9, type: 3}
+  - {fileID: 21300000, guid: b65cb89636c85894e9d2c8046f5db83e, type: 3}
+  idleAnimLength: 2
+  idleAnim: {fileID: 7400000, guid: ed8da8da3f3530449800fcd05db50e43, type: 2}
+  useCustomAttack: 0
+  attackSprite: {fileID: 21300000, guid: 8d8c948e7b0ec0b4c98bec5844c8f011, type: 3}
+  attackAnim: {fileID: 7400000, guid: df9a1f9bfd5a9a544aa53ae5c7276db9, type: 2}

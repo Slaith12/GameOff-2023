@@ -246,17 +246,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLineup:
-  - {fileID: 11400000, guid: e30d8e8e0a616c641806556fee9823e9, type: 2}
-  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
-  - {fileID: 11400000, guid: aeefb9164ab9d4e93980b59af572feb3, type: 2}
-  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
-  - {fileID: 11400000, guid: aeefb9164ab9d4e93980b59af572feb3, type: 2}
+  - {fileID: 11400000, guid: b30a8cf27dee74944969820a2a7ea79e, type: 2}
+  - {fileID: 11400000, guid: 1b6e3295bd848f34eb175b468a0631f4, type: 2}
+  - {fileID: 11400000, guid: af7a495394ba6af44a934a4739cc46ba, type: 2}
+  - {fileID: 11400000, guid: 2a7ad7b9f502bf346bbaf1507a32ec14, type: 2}
+  - {fileID: 11400000, guid: e1cbf959ecbbfd646b14a09be244420b, type: 2}
   enemyLineup:
-  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
-  - {fileID: 11400000, guid: aeefb9164ab9d4e93980b59af572feb3, type: 2}
-  - {fileID: 11400000, guid: e30d8e8e0a616c641806556fee9823e9, type: 2}
-  - {fileID: 11400000, guid: aeefb9164ab9d4e93980b59af572feb3, type: 2}
-  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
+  - {fileID: 11400000, guid: 0f3ae251c0739604d91e3636ef03e5fb, type: 2}
+  - {fileID: 11400000, guid: c5dc8ca4f9d1499429b76081b1773521, type: 2}
+  - {fileID: 11400000, guid: 0a6820a22f07aa84886ff6984e75bf07, type: 2}
+  - {fileID: 11400000, guid: e4bd82af1f437b94bac188103f658b45, type: 2}
+  - {fileID: 11400000, guid: 7fd6ef1f616c8c04dace48c2c70a2bbb, type: 2}
+  - {fileID: 11400000, guid: ce65191546f2a1843b79d3a1f10cc7ed, type: 2}
   regenerateLineups: 0
 --- !u!114 &1517865674
 MonoBehaviour:
@@ -276,7 +277,7 @@ MonoBehaviour:
   speedPellets: 0
   currentStage: 0
   numLosses: 0
-  combatSpeed: 2
+  combatSpeed: 1
 --- !u!4 &1517865675
 Transform:
   m_ObjectHideFlags: 0

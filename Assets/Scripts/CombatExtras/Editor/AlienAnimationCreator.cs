@@ -8,15 +8,16 @@ using static UnityEditor.EditorGUILayout;
 public class AlienAnimationCreator : ScriptableObject
 {
     //if you change the location of the generic animator/animations, put the new location here
-    public const string animsFolder = "Assets/Animations/";
+    public const string animsFolder = "Assets/Animations/Aliens/";
+    public const string genericAnimsFolder = animsFolder + "Generic (Use these as base)/";
     //the animator controller extension is always *.controller
     const string genericAnimatorName = "Generic Animator.controller";
-    string genericAnimatorPath => animsFolder + genericAnimatorName;
+    string genericAnimatorPath => genericAnimsFolder + genericAnimatorName;
     //the animation clip extension is always *.anim
     const string genericIdleAnimName = "Idle (Generic) (OVERRIDE THIS).anim";
-    string genericIdleAnimPath => animsFolder + genericIdleAnimName;
+    string genericIdleAnimPath => genericAnimsFolder + genericIdleAnimName;
     const string genericAttackAnimName = "Attack (Generic) (OVERRIDE THIS).anim";
-    string genericAttackAnimPath => animsFolder + genericAttackAnimName;
+    string genericAttackAnimPath => genericAnimsFolder + genericAttackAnimName;
 
     public string alienName;
 

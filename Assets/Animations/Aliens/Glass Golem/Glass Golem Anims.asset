@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231f917665811494f97bbd0af71585e4, type: 3}
+  m_Name: Glass Golem Anims
+  m_EditorClassIdentifier: 
+  alienName: Glass Golem
+  useCustomAnimator: 0
+  animator: {fileID: 22100000, guid: 8978b87f58604404ab1dc00811a1e1d4, type: 2}
+  useCustomIdle: 0
+  idleSprites:
+  - {fileID: 21300000, guid: c63f16bc8aa67ad49a5ee20f376f2660, type: 3}
+  - {fileID: 21300000, guid: f2c29974411c80344bebcd6aeeb5b04a, type: 3}
+  idleAnimLength: 2
+  idleAnim: {fileID: 7400000, guid: 5e569b574cb9db44a9289b308a419267, type: 2}
+  useCustomAttack: 0
+  attackSprite: {fileID: 21300000, guid: 880ab204d3d802344a9b0982992b2d4d, type: 3}
+  attackAnim: {fileID: 7400000, guid: e19ed3fd756136342af53964cab3cd1c, type: 2}

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231f917665811494f97bbd0af71585e4, type: 3}
+  m_Name: Hunter Anims
+  m_EditorClassIdentifier: 
+  alienName: Hunter
+  useCustomAnimator: 1
+  animator: {fileID: 22100000, guid: 84d2d7db9534a0e43af8f5554a6ef599, type: 2}
+  useCustomIdle: 1
+  idleSprites:
+  - {fileID: 21300000, guid: fa5f5ac55c1be0542be8d35133c4549b, type: 3}
+  - {fileID: 21300000, guid: bb654f76777cabe4ba35bd17343254d5, type: 3}
+  idleAnimLength: 2
+  idleAnim: {fileID: 7400000, guid: 4c26b95df3baf8f4f91b371601b4eb13, type: 2}
+  useCustomAttack: 0
+  attackSprite: {fileID: 21300000, guid: b7b92dd493a1dc04f9c62bb31e0b6a76, type: 3}
+  attackAnim: {fileID: 7400000, guid: 5159d88b690a8fb4d8ff4831ff9eb215, type: 2}
