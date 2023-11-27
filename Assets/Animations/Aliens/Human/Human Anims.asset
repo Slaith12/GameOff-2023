@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231f917665811494f97bbd0af71585e4, type: 3}
+  m_Name: Human Anims
+  m_EditorClassIdentifier: 
+  alienName: Human
+  useCustomAnimator: 0
+  animator: {fileID: 22100000, guid: 191bdc65a356a1c40892f510a7137cbe, type: 2}
+  useCustomIdle: 0
+  idleSprites:
+  - {fileID: 21300000, guid: 98059613b019e494fac8b4b1d6fbed01, type: 3}
+  - {fileID: 21300000, guid: 3ae4f370395e75747aac2abc548e4e71, type: 3}
+  idleAnimLength: 2
+  idleAnim: {fileID: 7400000, guid: 8b9af0b3989100143b457c4af413f499, type: 2}
+  useCustomAttack: 0
+  attackSprite: {fileID: 21300000, guid: 858128727da33c749af66003e3622060, type: 3}
+  attackAnim: {fileID: 7400000, guid: 3792f15225e923a4880966c0900c8ad5, type: 2}

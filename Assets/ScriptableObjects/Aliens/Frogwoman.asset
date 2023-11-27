@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
+  m_Name: Frogwoman
+  m_EditorClassIdentifier: 
+  unchangingName: Frogwoman
+  unchangingCardImage: {fileID: 21300000, guid: 807658c364b8be24fa9bdffbe02b37d9, type: 3}
+  unchangingAlienImage: {fileID: 21300000, guid: 42eff5a8258cd8f4f91cff808e74a599, type: 3}
+  animations: {fileID: 22100000, guid: a6b5d1ab44851374d98a96aec9ff5593, type: 2}
+  unchangingCardFrame: {fileID: 0}
+  defaultHealth: 50
+  defaultAttack: 3
+  defaultDefense: 1
+  defaultSpeed: 8
+  defaultRounds: 2
+  unchangingDescription: A tribal frog fighter. Her arms are coated in a slow-acting
+    poison.
+  unchangingEffect: Attacks inflict poison, dealing 6 damage per second for 10 seconds.
+  abilities:
+  - {fileID: 11400000, guid: 618103c3d7bd7d54b8b23e45c8bb4a3a, type: 2}
+  healthBarOffset: {x: 3, y: 9}

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
+  m_Name: Greenskin
+  m_EditorClassIdentifier: 
+  unchangingName: Greenskin
+  unchangingCardImage: {fileID: 21300000, guid: fc54b2d60886f4e429371187c02f8a4d, type: 3}
+  unchangingAlienImage: {fileID: 21300000, guid: bb109de2b73e1ca41a1d6a1f0192b30c, type: 3}
+  animations: {fileID: 22100000, guid: dbaf3ab4e7f7a444e80f5802b6b3666d, type: 2}
+  unchangingCardFrame: {fileID: 0}
+  defaultHealth: 75
+  defaultAttack: 5
+  defaultDefense: 5
+  defaultSpeed: 5
+  defaultRounds: 4
+  unchangingDescription: A green-skinned warrior from a far away planet. His abs
+    are made of steel and his fists of tungsten.
+  unchangingEffect: 
+  abilities: []
+  healthBarOffset: {x: 3, y: 15}

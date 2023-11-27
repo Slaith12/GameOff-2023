@@ -21,7 +21,8 @@ MonoBehaviour:
   defaultAttack: 1
   defaultDefense: 3
   defaultSpeed: 8
-  defaultTurns: 3
+  defaultRounds: 2
   unchangingDescription: A tribal frog mage. He has connections to the occult.
   unchangingEffect: +1 ATK +1 SPD to card in front of self.
+  abilities: []
   healthBarOffset: {x: 3, y: 9}

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231f917665811494f97bbd0af71585e4, type: 3}
+  m_Name: Meatslab Anims
+  m_EditorClassIdentifier: 
+  alienName: Meatslab
+  useCustomAnimator: 0
+  animator: {fileID: 22100000, guid: f35c4b8e3ff8cc847a29c55d595f5a5a, type: 2}
+  useCustomIdle: 0
+  idleSprites:
+  - {fileID: 21300000, guid: 3b05df911980d4e14a916232eb396764, type: 3}
+  - {fileID: 21300000, guid: ddcfa0418b6554300b01da92de6af532, type: 3}
+  idleAnimLength: 2
+  idleAnim: {fileID: 7400000, guid: c0d23dae2d1e5ef4e835ab8e348fa37a, type: 2}
+  useCustomAttack: 0
+  attackSprite: {fileID: 21300000, guid: 44677072c3d834d498c8a78617968090, type: 3}
+  attackAnim: {fileID: 7400000, guid: efac4c777b4a26a4995e51b62e664062, type: 2}

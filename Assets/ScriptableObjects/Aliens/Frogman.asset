@@ -20,9 +20,10 @@ MonoBehaviour:
   defaultHealth: 50
   defaultAttack: 2
   defaultDefense: 2
-  defaultSpeed: 8
+  defaultSpeed: 9
   defaultRounds: 4
   unchangingDescription: A tribal frog fighter from a swamp planet. His body is soft,
     but quick and nimble.
   unchangingEffect: 
+  abilities: []
   healthBarOffset: {x: 3, y: 9}
