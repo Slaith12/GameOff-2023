@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
+  m_Name: Orc
+  m_EditorClassIdentifier: 
+  unchangingName: The Orcitect
+  unchangingCardImage: {fileID: 0}
+  unchangingAlienImage: {fileID: 0}
+  animations: {fileID: 22100000, guid: 39507b0453503914588ff82653352594, type: 2}
+  unchangingCardFrame: {fileID: 0}
+  defaultHealth: 125
+  defaultAttack: 6
+  defaultDefense: 6
+  defaultSpeed: 6
+  defaultRounds: 2
+  unchangingDescription: A scrappy orc engineer determined to conquer with his machine.
+  unchangingEffect: Adds a pellet to the deck each turn.
+  abilities: []
+  healthBarOffset: {x: 3, y: 15}

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231f917665811494f97bbd0af71585e4, type: 3}
+  m_Name: Claire Anims
+  m_EditorClassIdentifier: 
+  alienName: Claire
+  useCustomAnimator: 0
+  animator: {fileID: 22100000, guid: 1323e808fc43fb34694d5748a4732198, type: 2}
+  useCustomIdle: 0
+  idleSprites:
+  - {fileID: 21300000, guid: fef5a9d8696602f418b15a9dede679fd, type: 3}
+  - {fileID: 21300000, guid: 452b57969439c6d4886c713511dfe35c, type: 3}
+  idleAnimLength: 2
+  idleAnim: {fileID: 7400000, guid: 762e9241b8ae95b40b27bc1b1d8ffc2e, type: 2}
+  useCustomAttack: 0
+  attackSprite: {fileID: 21300000, guid: f74e1fbbab538ea45ab5bf8d8bc926e9, type: 3}
+  attackAnim: {fileID: 7400000, guid: e544d2479bc7b514890aa89fec88bd84, type: 2}

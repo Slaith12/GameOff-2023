@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
+  m_Name: Magnus
+  m_EditorClassIdentifier: 
+  unchangingName: Magnus
+  unchangingCardImage: {fileID: 21300000, guid: c6a19091eaceb274b804e4824a68f8cf, type: 3}
+  unchangingAlienImage: {fileID: 21300000, guid: dada0c300e4278b40b603f7546a38881, type: 3}
+  animations: {fileID: 22100000, guid: e54a885b6c4e4964b99ea07ac8a37417, type: 2}
+  unchangingCardFrame: {fileID: 0}
+  defaultHealth: 75
+  defaultAttack: 2
+  defaultDefense: 5
+  defaultSpeed: 7
+  defaultRounds: 4
+  unchangingDescription: A sentient magnet who loves solving puzzles
+  unchangingEffect: +2 DEF -1 SPD for cards next to self.
+  abilities: []
+  healthBarOffset: {x: 3, y: 5}

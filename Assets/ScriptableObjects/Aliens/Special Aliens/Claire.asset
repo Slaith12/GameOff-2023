@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afdf0b8f07db14731a365d26edd63b65, type: 3}
+  m_Name: Claire
+  m_EditorClassIdentifier: 
+  unchangingName: Cl41R3
+  unchangingCardImage: {fileID: 21300000, guid: b02906d85ded9f14abac8a309786dcd6, type: 3}
+  unchangingAlienImage: {fileID: 21300000, guid: fef5a9d8696602f418b15a9dede679fd, type: 3}
+  animations: {fileID: 22100000, guid: 1323e808fc43fb34694d5748a4732198, type: 2}
+  unchangingCardFrame: {fileID: 0}
+  defaultHealth: 175
+  defaultAttack: 8
+  defaultDefense: 8
+  defaultSpeed: 2
+  defaultRounds: 2
+  unchangingDescription: An ACORP medium weight class constitution gynoid. Likes
+    wrenches
+  unchangingEffect: Immune to all status effects.
+  abilities: []
+  healthBarOffset: {x: 3, y: 9}

@@ -21,7 +21,7 @@ MonoBehaviour:
   defaultAttack: 9
   defaultDefense: 1
   defaultSpeed: 6
-  defaultRounds: 8
+  defaultRounds: 3
   unchangingDescription: Novakin will gather and refine minerals inside their bodies,
     leaving behind a shell of the finest glass.
   unchangingEffect: 
