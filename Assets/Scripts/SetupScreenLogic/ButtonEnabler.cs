@@ -9,6 +9,10 @@ public class ButtonEnabler : MonoBehaviour
     public List<Card> handCards;
     [SerializeField] private List<LineupCardContainer> lineupCardContainers = new List<LineupCardContainer>(5);
 
+    [SerializeField] private StoredPellets redPellets;
+    [SerializeField] private StoredPellets yellowPellets;
+    [SerializeField] private StoredPellets bluePellets;
+
     private ISelectable selectedItem;
 
     private void Awake()
@@ -229,7 +233,17 @@ public class ButtonEnabler : MonoBehaviour
 
     public void DiscardSelectedItem()
     {
-        Debug.Log("runs");
+
+        int attackPel = selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().alien.attackPellets;
+        redPellets.ChangeNumPellets(attackPel);
+
+        int speedPel = selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().alien.speedPellets;
+        yellowPellets.ChangeNumPellets(speedPel);
+
+        int defensePel = selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().alien.defensePellets;
+        bluePellets.ChangeNumPellets(defensePel);
+
+        selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().alien = null;
         Destroy(selectedItem.GetGameObject());
         selectedItem = null;
     }
