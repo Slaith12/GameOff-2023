@@ -39,7 +39,7 @@ public class DOTAbility : AbilitySO
         alien.OnAfterAttack += ApplyDOT;
     }
 
-    private void ApplyDOT(AlienCombat attacker, AlienCombat defender)
+    private void ApplyDOT(AlienCombat attacker, AlienCombat defender, ref int _)
     {
         DOTInfo dot = new DOTInfo(attacker, type, damagePerTick, numTicks, duration);
         defender.ApplyDOT(dot);

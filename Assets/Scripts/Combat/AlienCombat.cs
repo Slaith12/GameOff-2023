@@ -22,7 +22,7 @@ public class AlienCombat : MonoBehaviour
 
     public delegate void IndividualEvent(AlienCombat alien);
     //Event Order: BeforeAttack, BeforeDamage, AfterDamage, Death, AfterAttack
-    public delegate void CombatEvent(AlienCombat attacker, AlienCombat defender);
+    public delegate void CombatEvent(AlienCombat attacker, AlienCombat defender, ref int damage);
     /// <summary>
     /// Called when this alien is about to attack. Can be used to modify upcoming damage or do similar actions.
     /// </summary>
@@ -133,35 +133,35 @@ public class AlienCombat : MonoBehaviour
     public void Attack(AlienCombat defender)
     {
         animator.SetTrigger("Attack");
-        OnBeforeAttack?.Invoke(this, defender);
-        defender.Damage(attacker: this);
-        OnAfterAttack?.Invoke(this, defender);
+        int damage = (this.alienData.attack + 10 - defender.alienData.defense) * 4;
+        OnBeforeAttack?.Invoke(this, defender, ref damage);
+        defender.Damage(this, ref damage);
+        OnAfterAttack?.Invoke(this, defender, ref damage);
     }
 
-    public void Damage(AlienCombat attacker)
+    public void Damage(AlienCombat attacker, ref int damage)
     {
         int prevDamage = damageTaken;
-        OnBeforeDamage?.Invoke(attacker, this);
+        OnBeforeDamage?.Invoke(attacker, this, ref damage);
 
-        damageTaken += (attacker.alienData.attack + 10 - this.alienData.defense) * 4;
-        UpdateHealthBar(recentDamage: damageTaken - prevDamage);
+        damageTaken += damage;
+        UpdateHealthBar(recentDamage: damage);
 
-        OnAfterDamage?.Invoke(attacker, this);
+        OnAfterDamage?.Invoke(attacker, this, ref damage);
         if (damageTaken >= alienData.health)
             Death();
     }
 
     public void DamageNonAttacker(int damage, bool triggerEvents = true, bool displayDamage = true)
     {
-        int prevDamage = damageTaken;
         if (triggerEvents)
-            OnBeforeDamage?.Invoke(null, this);
+            OnBeforeDamage?.Invoke(null, this, ref damage);
 
         damageTaken += damage;
-        UpdateHealthBar(recentDamage: damageTaken - prevDamage, displayDamage);
+        UpdateHealthBar(recentDamage: damage, displayDamage);
 
         if (triggerEvents)
-            OnAfterDamage?.Invoke(null, this);
+            OnAfterDamage?.Invoke(null, this, ref damage);
         if (damageTaken >= alienData.health)
             Death();
     }

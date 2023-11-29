@@ -25,7 +25,7 @@ public class DoubleAttackAbility : AbilitySO
         }
     }
 
-    void OnPlayerAttack(AlienCombat attacker, AlienCombat defender)
+    void OnPlayerAttack(AlienCombat attacker, AlienCombat defender, ref int _)
     {
         if(playerDouble)
         {
@@ -39,7 +39,7 @@ public class DoubleAttackAbility : AbilitySO
         }
     }
 
-    void OnEnemyAttack(AlienCombat attacker, AlienCombat defender)
+    void OnEnemyAttack(AlienCombat attacker, AlienCombat defender, ref int _)
     {
         if (enemyDouble)
         {
