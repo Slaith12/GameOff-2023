@@ -79,24 +79,24 @@ public class LineupCardContainer : MonoBehaviour
         }
     }
 
-    public void AddAttackModifier(int amount)
+    public void AddAttackModifier(int amount, bool applyToCurrent = true)
     {
         attackModifier += amount;
-        if (alien != null)
+        if (alien != null && applyToCurrent)
             alien.attack += amount;
     }
 
-    public void AddDefenseModifier(int amount)
+    public void AddDefenseModifier(int amount, bool applyToCurrent = true)
     {
         defenseModifier += amount;
-        if (alien != null)
+        if (alien != null && applyToCurrent)
             alien.defense += amount;
     }
 
-    public void AddSpeedModifier(int amount)
+    public void AddSpeedModifier(int amount, bool applyToCurrent = true)
     {
         speedModifier += amount;
-        if (alien != null)
+        if (alien != null && applyToCurrent)
             alien.speed += amount;
     }
 }

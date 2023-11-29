@@ -6,6 +6,7 @@ public abstract class AbilitySO : ScriptableObject
 {
     public virtual void OnLineupPlace(int index, Alien alien) { }
     public virtual void OnLineupRemove(int index, Alien alien) { }
+    public virtual void OnLineupReinit(int index, Alien alien) { }
 
     /// <summary>
     /// <para>This should be used to subscribe to combat-phase events that will be used as triggers for the ability.</para>

@@ -45,4 +45,22 @@ public class BuffAbility : AbilitySO
             buffedCard.AddSpeedModifier(-speedModifier);
         }
     }
+
+    public override void OnLineupReinit(int index, Alien alien)
+    {
+        if (index != 0)
+        {
+            LineupCardContainer buffedCard = LineupManager.instance.lineupCards[index - 1];
+            buffedCard.AddAttackModifier(attackModifier);
+            buffedCard.AddDefenseModifier(defenseModifier);
+            buffedCard.AddSpeedModifier(speedModifier);
+        }
+        if (affectBack && index != 4)
+        {
+            LineupCardContainer buffedCard = LineupManager.instance.lineupCards[index + 1];
+            buffedCard.AddAttackModifier(attackModifier);
+            buffedCard.AddDefenseModifier(defenseModifier);
+            buffedCard.AddSpeedModifier(speedModifier);
+        }
+    }
 }
