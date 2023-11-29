@@ -26,5 +26,6 @@ MonoBehaviour:
   defaultRounds: 4
   description: A sentient magnet who loves solving puzzles
   effectDescription: +2 DEF -1 SPD for allies next to self.
-  abilities: []
+  abilities:
+  - {fileID: 11400000, guid: f883c5a9be2a05f46ac83c3df2a1a083, type: 2}
   healthBarOffset: {x: 3, y: 5}
