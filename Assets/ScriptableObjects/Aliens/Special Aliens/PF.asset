@@ -16,7 +16,9 @@ MonoBehaviour:
   cardThumbnail: {fileID: 21300000, guid: 7945a1c7b87fbd14a96f240143e69910, type: 3}
   defaultCombatSprite: {fileID: 21300000, guid: 8aa1b818af74e8042bcdcd0c67f95cf4, type: 3}
   animations: {fileID: 22100000, guid: dabf3ef87e320b84aa874ba107cd00fa, type: 2}
-  unchangingCardFrame: {fileID: 0}
+  customCardFrame: {fileID: 21300000, guid: f132a52eeff6e4c45a9a19a53ac5c181, type: 3}
+  customCardCounters: {fileID: 21300000, guid: e8a9eb031c385aa47934e02322e065f7, type: 3}
+  customThumbnailFrame: {fileID: 21300000, guid: f451793eb1f489944bdff4406de71ab9, type: 3}
   defaultHealth: 75
   defaultAttack: 4
   defaultDefense: 4

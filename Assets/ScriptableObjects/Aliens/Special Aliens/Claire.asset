@@ -16,14 +16,15 @@ MonoBehaviour:
   cardThumbnail: {fileID: 21300000, guid: b02906d85ded9f14abac8a309786dcd6, type: 3}
   defaultCombatSprite: {fileID: 21300000, guid: fef5a9d8696602f418b15a9dede679fd, type: 3}
   animations: {fileID: 22100000, guid: 1323e808fc43fb34694d5748a4732198, type: 2}
-  unchangingCardFrame: {fileID: 0}
+  customCardFrame: {fileID: 21300000, guid: 4c53105211d37f348ad7558bb27a003d, type: 3}
+  customCardCounters: {fileID: 21300000, guid: a68749cc1cbe0ec43ada54bc8d860491, type: 3}
+  customThumbnailFrame: {fileID: 21300000, guid: c88ae5a4af960f44fa927fae312e9eb9, type: 3}
   defaultHealth: 175
   defaultAttack: 8
   defaultDefense: 8
   defaultSpeed: 2
   defaultRounds: 2
-  description: An ACORP medium weight class constitution gynoid. Likes
-    wrenches
+  description: An ACORP medium weight class constitution gynoid. Likes wrenches
   effectDescription: Immune to all status effects.
   abilities: []
   healthBarOffset: {x: 3, y: 9}
