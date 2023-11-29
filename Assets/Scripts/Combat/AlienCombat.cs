@@ -125,7 +125,7 @@ public class AlienCombat : MonoBehaviour
     }
 
     //parameters would be used for displaying damage numbers, not currently implemented
-    private void UpdateHealthBar(int recentDamage, bool displayDamage = true)
+    public void UpdateHealthBar(int recentDamage, bool displayDamage = true)
     {
         healthBar.SetHealth(alienData.health - damageTaken, alienData.health);
     }

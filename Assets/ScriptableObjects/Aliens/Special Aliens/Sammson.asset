@@ -26,5 +26,6 @@ MonoBehaviour:
   defaultRounds: 1
   description: 
   effectDescription: Heals by half of damage done to opponent.
-  abilities: []
+  abilities:
+  - {fileID: 11400000, guid: 9ce095ed88e802748a2c019f214bca38, type: 2}
   healthBarOffset: {x: 3, y: 15}
