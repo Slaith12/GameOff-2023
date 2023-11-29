@@ -18,12 +18,9 @@ public class SetupScreenDataSaver : MonoBehaviour
         DataManager.instance.enemyLineup[3] = new Alien(EnemyProgression.instance.GetEnemyLineup(DataManager.instance.currentStage)[3]);
         DataManager.instance.enemyLineup[4] = new Alien(EnemyProgression.instance.GetEnemyLineup(DataManager.instance.currentStage)[4]);
 
-        if (DataManager.instance.currentStage == 1 & DataManager.instance.numLosses == 0) return;
+        LineupManager.instance.Initialize(DataManager.instance.playerLineup);
 
-        for (int i = 0; i < 5; i++)
-        {
-            ButtonEnabler.instance.lineupCardContainers[i].SetCard(DataManager.instance.playerLineup[i]);
-        }
+        if (DataManager.instance.currentStage == 1 & DataManager.instance.numLosses == 0) return;
 
         deck.deck = DataManager.instance.cardDeck;
 
