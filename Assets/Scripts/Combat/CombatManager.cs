@@ -7,14 +7,14 @@ public class CombatManager : MonoBehaviour
 {
     const string SETUP_SCENE = "JacobTestScene";
 
-    public CombatManager instance { get; private set; }
+    public static CombatManager instance { get; private set; }
 
     //how long a 1 speed creature would take to attack.
     //the time it takes for a creature to attack is this value/speed.
-    const float attackTimeThreshold = 10f;
+    public const float attackTimeThreshold = 10f;
     //the percentage of the time threshold already filled when an alien gets to the front
     //higher values benefit slower creatures more
-    const float startingTimeBoost = 0.25f;
+    public const float startingTimeBoost = 0.25f;
 
     [SerializeField] GameObject winUI;
     [SerializeField] GameObject loseUI;
