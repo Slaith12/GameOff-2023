@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Orc
   m_EditorClassIdentifier: 
   displayName: The Orcitect
-  cardThumbnail: {fileID: 0}
-  defaultCombatSprite: {fileID: 0}
+  cardThumbnail: {fileID: 21300000, guid: aad568524c37b874f84185d147357e9b, type: 3}
+  defaultCombatSprite: {fileID: 21300000, guid: e669f896f7236564fbbd8328cf026cda, type: 3}
   animations: {fileID: 22100000, guid: 39507b0453503914588ff82653352594, type: 2}
   unchangingCardFrame: {fileID: 0}
   defaultHealth: 125
