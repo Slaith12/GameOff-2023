@@ -4,19 +4,9 @@ using UnityEngine;
 
 public abstract class AbilitySO : ScriptableObject
 {
-    /// <summary>
-    /// <para>This should be used to subscribe to setup-phase events that will be used as triggers for the ability.</para>
-    /// <para>This should be called whenever an alien is loaded in the setup phase, including when it is placed and when the scene is loaded with the alien in the lineup.</para>
-    /// </summary>
-    /// 
-    /// <remarks>
-    /// <para>This should not be used as an "On Alien Placed" event, as it is to be called every time the scene is loaded as well, even after the alien is already placed.</para>
-    /// <para>Instead, you can use this function to subscribe to an "OnAlienPlaced" event for the alien and use that to trigger an ability.</para>
-    /// <para>Any abilities that affect or are triggered by other aliens should be properly reversed/disposed of when the alien leaves the lineup.</para>
-    /// </remarks>
-    /// 
-    /// <param name="alien">The alien that owns the ability. The parameter type is meant to be the setup-phase representation of the alien which contains events for the ability to subscribe to.</param>
-    public virtual void InitSetup(AlienContainer alien) { }
+    public virtual void OnLineupPlace(int index, Alien alien) { }
+    public virtual void OnLineupRemove(int index, Alien alien) { }
+    public virtual void OnLineupReinit(int index, Alien alien) { }
 
     /// <summary>
     /// <para>This should be used to subscribe to combat-phase events that will be used as triggers for the ability.</para>

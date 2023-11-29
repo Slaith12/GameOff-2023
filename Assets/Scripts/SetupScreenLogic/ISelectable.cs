@@ -4,12 +4,11 @@ using UnityEngine;
 
 public interface ISelectable
 {
-    /*
-    0 = card
-    1 = card container
-    2 = pellet
-    3 = pellet container
-    */
+    public const int CARD = 0;
+    public const int CARD_CONTAINER = 1;
+    public const int PELLET = 2;
+    public const int PELLET_CONTAINER = 3;
+
     public int GetSelectableType();
     public GameObject GetGameObject();
 }

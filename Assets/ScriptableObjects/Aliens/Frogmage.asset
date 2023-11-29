@@ -26,5 +26,6 @@ MonoBehaviour:
   defaultRounds: 2
   description: A tribal frog mage. He has connections to the occult.
   effectDescription: +1 ATK +1 SPD to ally in front of self.
-  abilities: []
+  abilities:
+  - {fileID: 11400000, guid: 7320b4888aee61a44a95571fff9246f8, type: 2}
   healthBarOffset: {x: 3, y: 9}
