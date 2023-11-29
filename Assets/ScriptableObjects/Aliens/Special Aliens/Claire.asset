@@ -26,5 +26,6 @@ MonoBehaviour:
   defaultRounds: 2
   description: An ACORP medium weight class constitution gynoid. Likes wrenches
   effectDescription: Immune to all status effects.
-  abilities: []
+  abilities:
+  - {fileID: 11400000, guid: 96a71f9c283f51d4ab192544cdf16177, type: 2}
   healthBarOffset: {x: 3, y: 9}
