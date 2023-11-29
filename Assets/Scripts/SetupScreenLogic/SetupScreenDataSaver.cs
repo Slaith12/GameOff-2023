@@ -22,7 +22,7 @@ public class SetupScreenDataSaver : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            ButtonEnabler.instance.lineupCardContainers[i].SetAlien(DataManager.instance.playerLineup[i]);
+            ButtonEnabler.instance.lineupCardContainers[i].SetCard(DataManager.instance.playerLineup[i]);
         }
 
         deck.deck = DataManager.instance.cardDeck;
