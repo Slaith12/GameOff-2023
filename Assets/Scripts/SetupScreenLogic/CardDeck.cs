@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class CardDeck : MonoBehaviour
 {
+    public static CardDeck instance;
+
     [SerializeField] private TextMeshProUGUI deckCounter;
     [SerializeField] private Button button;
     [SerializeField] private Hand hand;

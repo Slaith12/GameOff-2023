@@ -5386,6 +5386,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f714b05cc63242099dbb2fb8c7ce792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deck: {fileID: 1382389967}
+  redPel: {fileID: 1702402943}
+  yellowPel: {fileID: 568429732}
+  bluePel: {fileID: 1289334178}
 --- !u!1 &1600944708
 GameObject:
   m_ObjectHideFlags: 0

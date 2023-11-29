@@ -7,7 +7,7 @@ public class ButtonEnabler : MonoBehaviour
     public static ButtonEnabler instance;
 
     public List<Card> handCards;
-    [SerializeField] private List<LineupCardContainer> lineupCardContainers = new List<LineupCardContainer>(5);
+    public List<LineupCardContainer> lineupCardContainers = new List<LineupCardContainer>(5);
 
     [SerializeField] private StoredPellets redPellets;
     [SerializeField] private StoredPellets yellowPellets;
