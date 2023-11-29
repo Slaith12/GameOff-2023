@@ -100,7 +100,10 @@ public class LineupCardContainer : MonoBehaviour
             alien.speed += amount;
     }
 
-    public void SetAlien(Alien alien)
-    {
-        m_alien = alien;    }
+    //DO NOT use this function. SetCard() should be used to set the alien in this slot as the function also includes checks to update the card and trigger/reset abilities appropiately
+    //Only use this function if you're 100% sure that SetCard() will not work for what you need and that you'll be able to deal with the side effects yourself
+    //public void SetAlien(Alien alien)
+    //{
+    //    m_alien = alien;
+    //}
 }
