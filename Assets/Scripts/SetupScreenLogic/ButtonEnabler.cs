@@ -249,7 +249,7 @@ public class ButtonEnabler : MonoBehaviour
         int defensePel = selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().alien.defensePellets;
         bluePellets.ChangeNumPellets(defensePel);
 
-        selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().SetAlien(null);
+        selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().SetCard(null);
         Destroy(selectedItem.GetGameObject());
         selectedItem = null;
     }
