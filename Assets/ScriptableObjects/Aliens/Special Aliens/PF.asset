@@ -26,5 +26,6 @@ MonoBehaviour:
   defaultRounds: 4
   description: A schoolgirl trapped in a non-euclidean complex.
   effectDescription: Each attack has a 1% chance to instantly kill opponent.
-  abilities: []
+  abilities:
+  - {fileID: 11400000, guid: eb48d7f11e17cde44ba1ad2f5e72eb43, type: 2}
   healthBarOffset: {x: 3, y: 5}
