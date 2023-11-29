@@ -7,7 +7,8 @@ using TMPro;
 public class LineupCardContainer : MonoBehaviour
 {
     private Button button;
-    public Alien alien;
+    private Alien m_alien;
+    public Alien alien => m_alien;
 
     [SerializeField] private GameObject cardPrefab;
     [SerializeField] private GameObject pelletDisplay;
@@ -19,6 +20,14 @@ public class LineupCardContainer : MonoBehaviour
     [SerializeField] private Button redButton;
     [SerializeField] private Button yellowButton;
     [SerializeField] private Button blueButton;
+
+    //position-based modifiers, needed to make sure modifiers are always applied to whatever alien is in this slot
+    private int attackModifier;
+    private int defenseModifier;
+    private int speedModifier;
+
+    [SerializeField] private int m_index;
+    public int index => m_index;
 
     void Awake()
     {
@@ -44,10 +53,50 @@ public class LineupCardContainer : MonoBehaviour
         blueText.SetText(alien.defensePellets.ToString());
     }
     
-    public void SetCard(Alien alien)
+    public void SetCard(Alien alien, bool triggerAbilities = true)
     {
-        this.alien = alien;
-        GameObject cardInstance = Instantiate(cardPrefab, this.transform);
-        cardInstance.GetComponent<Card>().SetAlien(alien, Card.cardState.lineup);
+        //reset old alien
+        if (m_alien != null)
+        {
+            m_alien.attack -= attackModifier;
+            m_alien.defense -= defenseModifier;
+            m_alien.speed -= speedModifier;
+            if(triggerAbilities)
+                LineupManager.instance.RemoveCard(index, m_alien);
+        }
+
+        m_alien = alien;
+
+        if (m_alien != null)
+        {
+            alien.attack += attackModifier;
+            alien.defense += defenseModifier;
+            alien.speed += speedModifier;
+            GameObject cardInstance = Instantiate(cardPrefab, this.transform);
+            cardInstance.GetComponent<Card>().SetAlien(alien, Card.cardState.lineup);
+            if (triggerAbilities)
+                LineupManager.instance.AddCard(index, alien);
+        }
+    }
+
+    public void AddAttackModifier(int amount)
+    {
+        attackModifier += amount;
+        if (alien != null)
+            alien.attack += amount;
+    }
+
+    public void AddDefenseModifier(int amount)
+    {
+        defenseModifier += amount;
+        if (alien != null)
+            alien.defense += amount;
+    }
+
+    public void AddSpeedModifier(int amount)
+    {
+        speedModifier += amount;
+        if (alien != null)
+            alien.speed += amount;
     }
 }

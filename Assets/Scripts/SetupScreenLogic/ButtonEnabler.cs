@@ -22,7 +22,7 @@ public class ButtonEnabler : MonoBehaviour
         {
             return;
         }
-        if (selectedItem.GetSelectableType() == 0)
+        if (selectedItem.GetSelectableType() == ISelectable.CARD)
         {
             Alien tempAlien = selectedItem.GetGameObject().GetComponent<Card>().alien;
             Card placeholderCard = null;
@@ -40,7 +40,7 @@ public class ButtonEnabler : MonoBehaviour
 
             if(selectedItem.GetGameObject().GetComponent<Card>().currentCardState == Card.cardState.lineup)
             {
-                selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().alien = null;
+                selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().SetCard(null);
             }
 
             Destroy(selectedItem.GetGameObject());
@@ -64,7 +64,7 @@ public class ButtonEnabler : MonoBehaviour
         }
 
         //if both items are cards
-        if(tempSelectedItem.GetSelectableType() == 0 && selectedItem.GetSelectableType() == 0)
+        if(tempSelectedItem.GetSelectableType() == ISelectable.CARD && selectedItem.GetSelectableType() == ISelectable.CARD)
         {
             if(selectedItem.GetGameObject().GetComponent<Card>().currentCardState == Card.cardState.lineup && tempSelectedItem.GetGameObject().GetComponent<Card>().currentCardState == Card.cardState.lineup)
             {
@@ -87,7 +87,7 @@ public class ButtonEnabler : MonoBehaviour
             }
         }
         //if selectedItem is a stored pellet and the tempSelectedItem is an alien pellet container
-        else if(selectedItem.GetSelectableType() == 2 && tempSelectedItem.GetSelectableType() == 3)
+        else if(selectedItem.GetSelectableType() == ISelectable.PELLET && tempSelectedItem.GetSelectableType() == ISelectable.PELLET_CONTAINER)
         {
             if (selectedItem.GetGameObject().GetComponent<StoredPellets>().GetNumPellets() == 0)
             {
@@ -125,7 +125,7 @@ public class ButtonEnabler : MonoBehaviour
             }
         }
         //if selectedItem is an alien pellet container and the tempSelectedItem is a stored pellet
-        else if (selectedItem.GetSelectableType() == 3 && tempSelectedItem.GetSelectableType() == 2)
+        else if (selectedItem.GetSelectableType() == ISelectable.PELLET_CONTAINER && tempSelectedItem.GetSelectableType() == ISelectable.PELLET)
         {
             if (selectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.red && tempSelectedItem.GetGameObject().GetComponent<StoredPellets>().thisPelletType == StoredPellets.pelletType.red)
             {
@@ -173,7 +173,7 @@ public class ButtonEnabler : MonoBehaviour
             }
         }
         //if both selectedItem and tempSelectedItem are alien pellet containers
-        else if (selectedItem.GetSelectableType() == 3 && tempSelectedItem.GetSelectableType() == 3)
+        else if (selectedItem.GetSelectableType() == ISelectable.PELLET_CONTAINER && tempSelectedItem.GetSelectableType() == ISelectable.PELLET_CONTAINER)
         {
             if (selectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.red && tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.red)
             {
