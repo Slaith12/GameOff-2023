@@ -5265,6 +5265,7 @@ GameObject:
   - component: {fileID: 1588509671}
   - component: {fileID: 1588509670}
   - component: {fileID: 1588509669}
+  - component: {fileID: 1588509672}
   m_Layer: 5
   m_Name: Fight Button
   m_TagString: Untagged
@@ -5373,6 +5374,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588509667}
   m_CullTransparentMesh: 1
+--- !u!114 &1588509672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588509667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f714b05cc63242099dbb2fb8c7ce792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deck: {fileID: 1382389967}
+  redPel: {fileID: 1702402943}
+  yellowPel: {fileID: 568429732}
+  bluePel: {fileID: 1289334178}
 --- !u!1 &1600944708
 GameObject:
   m_ObjectHideFlags: 0
@@ -7377,6 +7394,9 @@ MonoBehaviour:
   - {fileID: 537282771}
   - {fileID: 1959910672}
   - {fileID: 662430979}
+  redPellets: {fileID: 1702402943}
+  yellowPellets: {fileID: 568429732}
+  bluePellets: {fileID: 1289334178}
 --- !u!4 &1994102086
 Transform:
   m_ObjectHideFlags: 0

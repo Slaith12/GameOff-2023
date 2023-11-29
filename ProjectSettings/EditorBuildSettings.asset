@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CardUITest.unity
     guid: 0e570c38fafa51548ae24102d3175459
+  - enabled: 1
+    path: Assets/Scenes/JacobTestScene.unity
+    guid: 032298f991ad24cf48542207e9fc91f0
+  - enabled: 1
+    path: Assets/Scenes/Complete Scenes/Combat.unity
+    guid: 71d3530ce4228094da474fcd014ffcc9
   m_configObjects: {}
