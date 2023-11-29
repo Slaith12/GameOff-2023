@@ -70,7 +70,12 @@ public class ButtonEnabler : MonoBehaviour
         //if both items are cards
         if(tempSelectedItem.GetSelectableType() == ISelectable.CARD && selectedItem.GetSelectableType() == ISelectable.CARD)
         {
-            if(selectedItem.GetGameObject().GetComponent<Card>().currentCardState == Card.cardState.lineup && tempSelectedItem.GetGameObject().GetComponent<Card>().currentCardState == Card.cardState.lineup)
+            if (selectedItem.GetGameObject() == tempSelectedItem.GetGameObject())
+            {
+                this.selectedItem = tempSelectedItem;
+                return;
+            }
+            else if (selectedItem.GetGameObject().GetComponent<Card>().currentCardState == Card.cardState.lineup && tempSelectedItem.GetGameObject().GetComponent<Card>().currentCardState == Card.cardState.lineup)
             {
                 Alien tempAlien = tempSelectedItem.GetGameObject().GetComponent<Card>().alien;
                 Transform tempParent = tempSelectedItem.GetGameObject().GetComponent<Card>().GetParentTransform();
@@ -84,6 +89,7 @@ public class ButtonEnabler : MonoBehaviour
                 selectedItem = null;
                 return;
             }
+            
             else
             {
                 this.selectedItem = tempSelectedItem;
@@ -243,7 +249,7 @@ public class ButtonEnabler : MonoBehaviour
         int defensePel = selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().alien.defensePellets;
         bluePellets.ChangeNumPellets(defensePel);
 
-        selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().alien = null;
+        selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().SetAlien(null);
         Destroy(selectedItem.GetGameObject());
         selectedItem = null;
     }

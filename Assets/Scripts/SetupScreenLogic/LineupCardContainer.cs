@@ -99,4 +99,8 @@ public class LineupCardContainer : MonoBehaviour
         if (alien != null && applyToCurrent)
             alien.speed += amount;
     }
+
+    public void SetAlien(Alien alien)
+    {
+        m_alien = alien;    }
 }
