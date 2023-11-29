@@ -564,9 +564,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A legendary saiyan warrior who is dedicated to fighting for what he loves
-    and having a good fight. I'm filling up the text box to see how far it can be
-    pushed. Hopefully this is enough.
+  m_text: 'A legendary saiyan warrior who is dedicated to fighting for what he loves
+    and having a good fight.
+
+
+    <color=red>I am filling up the text box to see
+    how far it can be pushed.</color>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 596ce883980224f4cb0b2dae9b360714, type: 2}
   m_sharedMaterial: {fileID: 7830228170334450749, guid: 596ce883980224f4cb0b2dae9b360714, type: 2}
@@ -598,7 +601,7 @@ MonoBehaviour:
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 4
-  m_fontSizeMax: 10
+  m_fontSizeMax: 8
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -701,7 +704,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e08d660e12add4b3da226b9672cd610e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fc54b2d60886f4e429371187c02f8a4d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

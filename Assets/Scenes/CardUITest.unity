@@ -541,6 +541,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Small Card
       objectReference: {fileID: 0}
+    - target: {fileID: 2353901263467037057, guid: 9d8211c75cdc10f42ba4586d036a61b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5603698090687006840, guid: 9d8211c75cdc10f42ba4586d036a61b2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

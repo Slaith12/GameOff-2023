@@ -62,7 +62,14 @@ public class Card : MonoBehaviour, ISelectable
         turnsText.SetText(alien.rounds.ToString());
         healthText.SetText(alien.health.ToString());
 
-        descriptionText.SetText(alien.cardDataSO.description);
+        string description = alien.cardDataSO.description;
+        if (!string.IsNullOrEmpty(alien.cardDataSO.effectDescription))
+        {
+            if (!string.IsNullOrEmpty(description))
+                description += "\n\n";
+            description += $"<color=red>{alien.cardDataSO.effectDescription}</color>";
+        }
+        descriptionText.SetText(description);
     }
 
     public int GetSelectableType()
