@@ -44,4 +44,9 @@ public class StoredPellets : MonoBehaviour, ISelectable
     {
         return numPellets;
     }
+
+    public void SetNumPellets(int numPellets)
+    {
+        this.numPellets = numPellets;
+    }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 //consider splitting display logic into a separate class
 public class CombatManager : MonoBehaviour
 {
-    const string SETUP_SCENE = "Placeholder Setup Scene";
+    const string SETUP_SCENE = "JacobTestScene";
 
     public CombatManager instance { get; private set; }
 

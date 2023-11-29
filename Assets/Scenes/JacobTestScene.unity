@@ -4859,7 +4859,7 @@ MonoBehaviour:
   attackPellets: 0
   defensePellets: 0
   speedPellets: 0
-  currentStage: 0
+  currentStage: 1
   numLosses: 0
   combatSpeed: 0
 --- !u!4 &1372907773
@@ -7408,8 +7408,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1994102086}
   - component: {fileID: 1994102085}
+  - component: {fileID: 1994102087}
+  - component: {fileID: 1994102088}
   m_Layer: 0
-  m_Name: ButtonEnabler
+  m_Name: SetupSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7452,6 +7454,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1994102087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994102084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a58944f521a4e4e2c96c7e69f9e78a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineup1:
+  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
+  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
+  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
+  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
+  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
+  lineup2:
+  - {fileID: 11400000, guid: af7a495394ba6af44a934a4739cc46ba, type: 2}
+  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
+  - {fileID: 11400000, guid: 2a7ad7b9f502bf346bbaf1507a32ec14, type: 2}
+  - {fileID: 11400000, guid: af7a495394ba6af44a934a4739cc46ba, type: 2}
+  - {fileID: 11400000, guid: 0f3ae251c0739604d91e3636ef03e5fb, type: 2}
+  lineup3: []
+  lineup4: []
+  lineup5: []
+  lineup6: []
+  lineup7: []
+  lineup8: []
+  lineup9: []
+  lineup10: []
+--- !u!114 &1994102088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994102084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be788e82a09b4322b29c09e61036e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deck: {fileID: 1382389967}
+  redPel: {fileID: 1702402943}
+  yellowPel: {fileID: 568429732}
+  bluePel: {fileID: 1289334178}
 --- !u!1 &2022059923
 GameObject:
   m_ObjectHideFlags: 0
