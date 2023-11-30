@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class SetupScreenDataSaver : MonoBehaviour
 {
+    public static SetupScreenDataSaver instance { get; private set; }
+
     [SerializeField] private CardDeck deck;
 
     [SerializeField] private StoredPellets redPel;
     [SerializeField] private StoredPellets yellowPel;
     [SerializeField] private StoredPellets bluePel;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -24,8 +31,26 @@ public class SetupScreenDataSaver : MonoBehaviour
 
         deck.deck = DataManager.instance.cardDeck;
 
+        AddRandomPellet();
+
         redPel.SetNumPellets(DataManager.instance.attackPellets);
         yellowPel.SetNumPellets(DataManager.instance.speedPellets);
         bluePel.SetNumPellets(DataManager.instance.defensePellets);
+    }
+
+    public void AddRandomPellet()
+    {
+        switch((int)(Random.value*3))
+        {
+            case 0:
+                redPel.ChangeNumPellets(1);
+                break;
+            case 1:
+                yellowPel.ChangeNumPellets(1);
+                break;
+            case 2:
+                bluePel.ChangeNumPellets(1);
+                break;
+        }
     }
 }
