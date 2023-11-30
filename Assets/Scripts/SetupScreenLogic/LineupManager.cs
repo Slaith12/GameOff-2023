@@ -51,14 +51,12 @@ public class LineupManager : MonoBehaviour
             cardContainer.alien.rounds -= 1;
             if (cardContainer.alien.rounds == 0)
             {
-                cardContainer.SetCard(null);
                 redPel.ChangeNumPellets(cardContainer.alien.attackPellets);
                 bluePel.ChangeNumPellets(cardContainer.alien.defensePellets);
                 yellowPel.ChangeNumPellets(cardContainer.alien.speedPellets);
+                cardContainer.SetCard(null);
                 Destroy(cardContainer.GetComponentInChildren<Card>().gameObject);
             }
-            else 
-                cardContainer.SetCard(cardContainer.alien, triggerAbilities: false);
         }
     }
 

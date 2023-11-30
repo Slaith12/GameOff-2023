@@ -13,9 +13,9 @@ public class LineupCardContainer : MonoBehaviour
     [SerializeField] private GameObject cardPrefab;
     [SerializeField] private GameObject pelletDisplay;
 
-    [SerializeField] private TextMeshProUGUI redText;
-    [SerializeField] private TextMeshProUGUI yellowText;
-    [SerializeField] private TextMeshProUGUI blueText;
+    [SerializeField] private TMP_Text redText;
+    [SerializeField] private TMP_Text yellowText;
+    [SerializeField] private TMP_Text blueText;
 
     //position-based modifiers, needed to make sure modifiers are always applied to whatever alien is in this slot
     private int attackModifier;

@@ -27,11 +27,7 @@ public class FightButton : MonoBehaviour
             DataManager.instance.playerLineup[i] = ButtonEnabler.instance.lineupCardContainers[i].alien;
         }
 
-        DataManager.instance.enemyLineup[0] = new Alien(EnemyProgression.instance.GetEnemyLineup(DataManager.instance.currentStage)[0]);
-        DataManager.instance.enemyLineup[1] = new Alien(EnemyProgression.instance.GetEnemyLineup(DataManager.instance.currentStage)[1]);
-        DataManager.instance.enemyLineup[2] = new Alien(EnemyProgression.instance.GetEnemyLineup(DataManager.instance.currentStage)[2]);
-        DataManager.instance.enemyLineup[3] = new Alien(EnemyProgression.instance.GetEnemyLineup(DataManager.instance.currentStage)[3]);
-        DataManager.instance.enemyLineup[4] = new Alien(EnemyProgression.instance.GetEnemyLineup(DataManager.instance.currentStage)[4]);
+        DataManager.instance.enemyLineup = EnemyProgression.instance.GetEnemyLineup(DataManager.instance.currentStage);
 
         DataManager.instance.cardDeck = deck.deck;
 

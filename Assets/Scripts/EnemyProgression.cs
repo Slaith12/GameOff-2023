@@ -22,47 +22,53 @@ public class EnemyProgression : MonoBehaviour
         instance = this;
     }
 
-    public List<CardDataSO> GetEnemyLineup(int round)
+    public Alien[] GetEnemyLineup(int round)
     {
-        if(round == 1)
+        List<CardDataSO> baseLineup;
+        switch(round)
         {
-            return lineup1;
+            case 1:
+                baseLineup = lineup1;
+                break;
+            case 2:
+                baseLineup = lineup2;
+                break;
+            case 3:
+                baseLineup = lineup3;
+                break;
+            case 4:
+                baseLineup = lineup4;
+                break;
+            case 5:
+                baseLineup = lineup5;
+                break;
+            case 6:
+                baseLineup = lineup6;
+                break;
+            case 7:
+                baseLineup = lineup7;
+                break;
+            case 8:
+                baseLineup = lineup8;
+                break;
+            case 9:
+                baseLineup = lineup9;
+                break;
+            case 10:
+                baseLineup = lineup10;
+                break;
+            default:
+                baseLineup = lineup1;
+                Debug.LogError("Invalid round entered");
+                break;
         }
-        else if (round == 2)
+        Alien[] fullLineup = new Alien[5];
+        for(int i = 0; i < Mathf.Min(baseLineup.Count, fullLineup.Length); i++)
         {
-            return lineup2;
+            if (baseLineup[i] == null)
+                continue;
+            fullLineup[i] = new Alien(baseLineup[i]);
         }
-        else if (round == 3)
-        {
-            return lineup3;
-        }
-        else if (round == 4)
-        {
-            return lineup4;
-        }
-        else if (round == 5)
-        {
-            return lineup5;
-        }
-        else if (round == 6)
-        {
-            return lineup6;
-        }
-        else if (round == 7)
-        {
-            return lineup7;
-        }
-        else if (round == 8)
-        {
-            return lineup8;
-        }
-        else if (round == 9)
-        {
-            return lineup9;
-        }
-        else
-        {
-            return lineup10;
-        }
+        return fullLineup;
     }
 }
