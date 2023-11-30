@@ -16,14 +16,16 @@ MonoBehaviour:
   cardThumbnail: {fileID: 21300000, guid: 018f6daf899eb984cb1760b86f849fea, type: 3}
   defaultCombatSprite: {fileID: 21300000, guid: 0fbbe96a38ca09540a75dd6b21144bbc, type: 3}
   animations: {fileID: 22100000, guid: 72d019c7794adba4e908afacf9d8f853, type: 2}
-  unchangingCardFrame: {fileID: 0}
-  defaultHealth: 60
-  defaultAttack: 6
-  defaultDefense: 6
-  defaultSpeed: 6
-  defaultRounds: 6
-  unchangingEffect: 
+  customCardFrame: {fileID: 0}
+  customCardCounters: {fileID: 0}
+  customThumbnailFrame: {fileID: 0}
+  defaultHealth: 7
+  defaultAttack: 7
+  defaultDefense: 7
+  defaultSpeed: 7
+  defaultRounds: 7
   description: A doodle come to life and escaped from a math notebook. Still doesn't
     know what an integral is.
+  effectDescription: 
   abilities: []
   healthBarOffset: {x: 3, y: 9}

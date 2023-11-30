@@ -23,7 +23,7 @@ MonoBehaviour:
   defaultAttack: 6
   defaultDefense: 6
   defaultSpeed: 6
-  defaultRounds: 2
+  defaultRounds: 1
   description: A scrappy orc engineer determined to conquer with his machine.
   effectDescription: Adds a pellet to the deck each turn.
   abilities: []
