@@ -26,5 +26,6 @@ MonoBehaviour:
   defaultRounds: 3
   description: A girl with supernatural luck. Can't seem to die.
   effectDescription: Revives until there are no other allies.
-  abilities: []
+  abilities:
+  - {fileID: 11400000, guid: 80b16cc3ba54f294b84c23da32fa3442, type: 2}
   healthBarOffset: {x: 3, y: 15}
