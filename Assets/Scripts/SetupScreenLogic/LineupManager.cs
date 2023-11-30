@@ -14,6 +14,10 @@ public class LineupManager : MonoBehaviour
     public event LineupAction OnCardAdded;
     public event LineupAction OnCardRemoved;
 
+    [SerializeField] private StoredPellets redPel;
+    [SerializeField] private StoredPellets bluePel;
+    [SerializeField] private StoredPellets yellowPel;
+
     private void Awake()
     {
         instance = this;
@@ -40,6 +44,22 @@ public class LineupManager : MonoBehaviour
         }
 
         //if you want to add code to have aliens lose rounds, put it here or anywhere after the initialization function
+        foreach (LineupCardContainer cardContainer in lineupCards)
+        {
+            if (cardContainer.alien == null)
+                continue;
+            cardContainer.alien.rounds -= 1;
+            if (cardContainer.alien.rounds == 0)
+            {
+                cardContainer.SetCard(null);
+                redPel.ChangeNumPellets(cardContainer.alien.attackPellets);
+                bluePel.ChangeNumPellets(cardContainer.alien.defensePellets);
+                yellowPel.ChangeNumPellets(cardContainer.alien.speedPellets);
+                Destroy(cardContainer.GetComponentInChildren<Card>().gameObject);
+            }
+            else 
+                cardContainer.SetCard(cardContainer.alien, triggerAbilities: false);
+        }
     }
 
     //called from LineupCardContainer AFTER card is added, invokes events

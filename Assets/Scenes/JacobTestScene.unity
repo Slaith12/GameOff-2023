@@ -2638,7 +2638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27e02e85955744feb54f5738df89920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numPellets: 20
+  numPellets: 0
   amountText: {fileID: 387552196}
 --- !u!1 &571415475
 GameObject:
@@ -4700,7 +4700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27e02e85955744feb54f5738df89920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numPellets: 2
+  numPellets: 0
   amountText: {fileID: 529869695}
 --- !u!1 &1336222274
 GameObject:
@@ -5732,7 +5732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27e02e85955744feb54f5738df89920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numPellets: 2
+  numPellets: 0
   amountText: {fileID: 1336222276}
 --- !u!1 &1736777054
 GameObject:
@@ -6968,6 +6968,9 @@ MonoBehaviour:
   - {fileID: 537282771}
   - {fileID: 2022059925}
   - {fileID: 1341511961}
+  redPel: {fileID: 1702402943}
+  bluePel: {fileID: 1289334178}
+  yellowPel: {fileID: 568429732}
 --- !u!1 &1959910670
 GameObject:
   m_ObjectHideFlags: 0
@@ -7657,11 +7660,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handCards: []
   lineupCardContainers:
-  - {fileID: 1341511961}
-  - {fileID: 2022059925}
-  - {fileID: 537282771}
-  - {fileID: 1959910672}
   - {fileID: 662430979}
+  - {fileID: 1959910672}
+  - {fileID: 537282771}
+  - {fileID: 2022059925}
+  - {fileID: 1341511961}
   redPellets: {fileID: 1702402943}
   yellowPellets: {fileID: 568429732}
   bluePellets: {fileID: 1289334178}
