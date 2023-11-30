@@ -116,6 +116,7 @@ public class CombatManager : MonoBehaviour
 
         AlienCombat newAlien = Instantiate(alienPrefab).GetComponent<AlienCombat>();
         newAlien.Initialize(alien, index, false);
+        enemyAliens.Insert(index, newAlien);
 
         //push back aliens behind new alien (if applicable)
         for (int i = numEnemyAliens - 1; i > index; i--)
@@ -123,14 +124,13 @@ public class CombatManager : MonoBehaviour
             //only play an animation if alien is spawned after initialization
             if (!started)
             {
-                enemyAliens[i].ChangeIndex(i+1, 0);
+                enemyAliens[i].ChangeIndex(i, 0);
             }
             else
             {
-                enemyAliens[i].ChangeIndex(i + 1);
+                enemyAliens[i].ChangeIndex(i);
             }
         }
-        enemyAliens.Add(newAlien);
         OnAlienSpawn?.Invoke(newAlien);
         return newAlien;
     }
