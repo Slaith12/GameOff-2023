@@ -31,11 +31,11 @@ public class SetupScreenDataSaver : MonoBehaviour
 
         deck.deck = DataManager.instance.cardDeck;
 
-        AddRandomPellet();
-
         redPel.SetNumPellets(DataManager.instance.attackPellets);
         yellowPel.SetNumPellets(DataManager.instance.speedPellets);
         bluePel.SetNumPellets(DataManager.instance.defensePellets);
+
+        AddRandomPellet();
     }
 
     public void AddRandomPellet()
