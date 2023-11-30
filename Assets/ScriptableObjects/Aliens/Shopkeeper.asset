@@ -16,14 +16,16 @@ MonoBehaviour:
   cardThumbnail: {fileID: 21300000, guid: 136d9ea9c2e4e114e92845a4d9816929, type: 3}
   defaultCombatSprite: {fileID: 21300000, guid: bbbc9e674c9f13a4b9b5b5972186108f, type: 3}
   animations: {fileID: 22100000, guid: d1cdc9768d194804ebda38b2ba64d689, type: 2}
-  unchangingCardFrame: {fileID: 0}
+  customCardFrame: {fileID: 0}
+  customCardCounters: {fileID: 0}
+  customThumbnailFrame: {fileID: 0}
   defaultHealth: 75
   defaultAttack: 4
   defaultDefense: 4
   defaultSpeed: 3
   defaultRounds: 3
-  description: Owns a small convenience store on a nearby asteroid open
-    25/8!
+  description: Owns a small convenience store on a nearby asteroid open 25/8!
   effectDescription: Adds a pellet to the deck each round.
-  abilities: []
+  abilities:
+  - {fileID: 11400000, guid: 5e9e33ff9ebdcd944abf1e8057f28eec, type: 2}
   healthBarOffset: {x: 3, y: 9}

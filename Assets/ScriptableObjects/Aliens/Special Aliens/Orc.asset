@@ -26,5 +26,6 @@ MonoBehaviour:
   defaultRounds: 1
   description: A scrappy orc engineer determined to conquer with his machine.
   effectDescription: Adds a pellet to the deck each turn.
-  abilities: []
+  abilities:
+  - {fileID: 11400000, guid: 5e9e33ff9ebdcd944abf1e8057f28eec, type: 2}
   healthBarOffset: {x: 3, y: 15}
