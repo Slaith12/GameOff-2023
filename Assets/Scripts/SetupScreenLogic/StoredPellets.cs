@@ -4,15 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class StoredPellets : MonoBehaviour, ISelectable
+public class StoredPellets : MonoBehaviour
 {
-    public enum pelletType
-    {
-        red,
-        yellow,
-        blue,
-    }
-    public pelletType thisPelletType;
     [SerializeField] private int numPellets;
     [SerializeField] private TextMeshProUGUI amountText;
     private Button pelletButton;
@@ -20,23 +13,17 @@ public class StoredPellets : MonoBehaviour, ISelectable
     private void Awake()
     {
         pelletButton = GetComponent<Button>();
-        pelletButton.onClick.AddListener(delegate { ButtonEnabler.instance.SetSelectedItem(this); });
-        amountText.SetText(this.numPellets.ToString());
+        amountText.SetText(numPellets.ToString());
     }
 
     public GameObject GetGameObject()
     {
-        return this.gameObject;
+        return gameObject;
     }
 
-    public int GetSelectableType()
+    public void ChangeNumPellets(int value)
     {
-        return 2;
-    }
-
-    public void ChangeNumPellets(int numPellets)
-    {
-        this.numPellets += numPellets;
+        this.numPellets += value;
         amountText.SetText(this.numPellets.ToString());
     }
 
@@ -45,8 +32,20 @@ public class StoredPellets : MonoBehaviour, ISelectable
         return numPellets;
     }
 
-    public void SetNumPellets(int numPellets)
+    public void SetNumPellets(int value)
     {
-        this.numPellets = numPellets;
+        this.numPellets = value;
+    }
+
+    public bool TryTake()
+    {
+        if (numPellets <= 0) return false;
+        ChangeNumPellets(-1);
+        return true;
+    }
+
+    public void Return()
+    {
+        ChangeNumPellets(1);
     }
 }
