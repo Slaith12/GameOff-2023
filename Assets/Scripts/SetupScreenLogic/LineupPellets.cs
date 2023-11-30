@@ -3,22 +3,11 @@ using Structures;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class LineupPellets : MonoBehaviour, ISelectable, IPointerClickHandler
+public class LineupPellets : MonoBehaviour, IPointerClickHandler
 {
     public PelletType thisPelletType;
     public LineupCardContainer cardContainer;
     public StoredPellets storage;
-
-
-    public GameObject GetGameObject()
-    {
-        return gameObject;
-    }
-
-    public int GetSelectableType()
-    {
-        return 3;
-    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
