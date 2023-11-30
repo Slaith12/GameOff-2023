@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Health Bar
+    uniqueID: 2801695819
+    locked: 0
+  - name: Damage Numbers
+    uniqueID: 4027252377
+    locked: 0

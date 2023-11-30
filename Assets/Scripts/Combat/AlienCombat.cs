@@ -20,6 +20,8 @@ public class AlienCombat : MonoBehaviour
     [SerializeField] HealthBar healthBar;
     Animator animator;
 
+    [SerializeField] DamageNumber damageNumberPrefab;
+
     public delegate void IndividualEvent(AlienCombat alien);
     //Event Order: BeforeAttack, BeforeDamage, AfterDamage, Death, AfterAttack
     public delegate void CombatEvent(AlienCombat attacker, AlienCombat defender, ref int damage);
@@ -127,6 +129,12 @@ public class AlienCombat : MonoBehaviour
     //parameters would be used for displaying damage numbers, not currently implemented
     public void UpdateHealthBar(int recentDamage, bool displayDamage = true)
     {
+        if (recentDamage > 0 && displayDamage)
+        {
+            DamageNumber damageNumber = Instantiate(damageNumberPrefab.gameObject).GetComponent<DamageNumber>();
+            damageNumber.transform.position = healthBar.transform.position;
+            damageNumber.text.text = $"-{recentDamage}";
+        }
         healthBar.SetHealth(alienData.health - damageTaken, alienData.health);
     }
 

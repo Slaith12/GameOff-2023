@@ -203,7 +203,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1530778355
+  m_SortingLayerID: -1493271477
   m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -288,7 +288,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1530778355
+  m_SortingLayerID: -1493271477
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -408,7 +408,7 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7950125263100207486}
   m_Enabled: 1
-  m_SortingLayerID: 1530778355
+  m_SortingLayerID: -1493271477
   m_SortingLayer: 1
   m_SortingOrder: 2
   m_SortAtRoot: 0
@@ -484,3 +484,4 @@ MonoBehaviour:
   damageTaken: 0
   renderer: {fileID: 6694697022388191883}
   healthBar: {fileID: 3512210806470128683}
+  damageNumberPrefab: {fileID: 5114316135081050033, guid: e73034026604e054db3a8298af7eb841, type: 3}

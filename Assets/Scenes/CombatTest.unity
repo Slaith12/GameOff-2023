@@ -277,7 +277,7 @@ MonoBehaviour:
   speedPellets: 0
   currentStage: 0
   numLosses: 0
-  combatSpeed: 1
+  combatSpeed: 0
 --- !u!4 &1517865675
 Transform:
   m_ObjectHideFlags: 0
