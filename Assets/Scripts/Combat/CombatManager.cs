@@ -37,9 +37,11 @@ public class CombatManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        started = false;
     }
 
-    private void Start()
+    //called by animation event
+    private void Init()
     {
         winUI.SetActive(false);
         loseUI.SetActive(false);
@@ -50,7 +52,10 @@ public class CombatManager : MonoBehaviour
         OnPlayerAttackerChange += delegate { playerAttackTime = attackTimeThreshold * startingTimeBoost; };
         enemyAttackTime = attackTimeThreshold * startingTimeBoost;
         OnEnemyAttackerChange += delegate { enemyAttackTime = attackTimeThreshold * startingTimeBoost; };
+    }
 
+    private void Begin()
+    {
         started = true;
     }
 
@@ -139,6 +144,8 @@ public class CombatManager : MonoBehaviour
 
     private void Update()
     {
+        if (!started)
+            return;
         if(playerAliens.Count == 0)
         {
             Lose();
