@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Structures;
 using UnityEngine;
 
 public class ButtonEnabler : MonoBehaviour
@@ -89,164 +90,24 @@ public class ButtonEnabler : MonoBehaviour
                 selectedItem = null;
                 return;
             }
-            
             else
             {
                 this.selectedItem = tempSelectedItem;
                 return;
             }
         }
-        //if selectedItem is a stored pellet and the tempSelectedItem is an alien pellet container
-        else if(selectedItem.GetSelectableType() == ISelectable.PELLET && tempSelectedItem.GetSelectableType() == ISelectable.PELLET_CONTAINER)
-        {
-            if (selectedItem.GetGameObject().GetComponent<StoredPellets>().GetNumPellets() == 0)
-            {
-                this.selectedItem = tempSelectedItem;
-                return;
-            }
-            else if (selectedItem.GetGameObject().GetComponent<StoredPellets>().thisPelletType == StoredPellets.pelletType.red && tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.red)
-            {
-                selectedItem.GetGameObject().GetComponent<StoredPellets>().ChangeNumPellets(-1);
-                tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeAttackPellets(1);
-
-                selectedItem = null;
-                return;
-            }
-            else if(selectedItem.GetGameObject().GetComponent<StoredPellets>().thisPelletType == StoredPellets.pelletType.yellow && tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.yellow)
-            {
-                selectedItem.GetGameObject().GetComponent<StoredPellets>().ChangeNumPellets(-1);
-                tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeSpeedPellets(1);
-
-                selectedItem = null;
-                return;
-            }
-            else if (selectedItem.GetGameObject().GetComponent<StoredPellets>().thisPelletType == StoredPellets.pelletType.blue && tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.blue)
-            {
-                selectedItem.GetGameObject().GetComponent<StoredPellets>().ChangeNumPellets(-1);
-                tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeDefensePellets(1);
-
-                selectedItem = null;
-                return;
-            }
-            else
-            {
-                this.selectedItem = tempSelectedItem;
-                return;
-            }
-        }
-        //if selectedItem is an alien pellet container and the tempSelectedItem is a stored pellet
-        else if (selectedItem.GetSelectableType() == ISelectable.PELLET_CONTAINER && tempSelectedItem.GetSelectableType() == ISelectable.PELLET)
-        {
-            if (selectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.red && tempSelectedItem.GetGameObject().GetComponent<StoredPellets>().thisPelletType == StoredPellets.pelletType.red)
-            {
-                if (selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.attackPellets == 0)
-                {
-                    this.selectedItem = tempSelectedItem;
-                    return;
-                }
-                selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeAttackPellets(-1);
-                tempSelectedItem.GetGameObject().GetComponent<StoredPellets>().ChangeNumPellets(1);
-
-                selectedItem = null;
-                return;
-            }
-            else if (selectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.yellow && tempSelectedItem.GetGameObject().GetComponent<StoredPellets>().thisPelletType == StoredPellets.pelletType.yellow)
-            {
-                if (selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.speedPellets == 0)
-                {
-                    this.selectedItem = tempSelectedItem;
-                    return;
-                }
-                selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeSpeedPellets(-1);
-                tempSelectedItem.GetGameObject().GetComponent<StoredPellets>().ChangeNumPellets(1);
-
-                selectedItem = null;
-                return;
-            }
-            else if (selectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.blue && tempSelectedItem.GetGameObject().GetComponent<StoredPellets>().thisPelletType == StoredPellets.pelletType.blue)
-            {
-                if (selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.defensePellets == 0)
-                {
-                    this.selectedItem = tempSelectedItem;
-                    return;
-                }
-                selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeDefensePellets(-1);
-                tempSelectedItem.GetGameObject().GetComponent<StoredPellets>().ChangeNumPellets(1);
-
-                selectedItem = null;
-                return;
-            }
-            else
-            {
-                this.selectedItem = tempSelectedItem;
-                return;
-            }
-        }
-        //if both selectedItem and tempSelectedItem are alien pellet containers
-        else if (selectedItem.GetSelectableType() == ISelectable.PELLET_CONTAINER && tempSelectedItem.GetSelectableType() == ISelectable.PELLET_CONTAINER)
-        {
-            if (selectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.red && tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.red)
-            {
-                if (selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.attackPellets == 0)
-                {
-                    this.selectedItem = tempSelectedItem;
-                    return;
-                }
-                selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeAttackPellets(-1);
-                tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeAttackPellets(1);
-
-                selectedItem = null;
-                return;
-            }
-            else if (selectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.yellow && tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.yellow)
-            {
-                if (selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.speedPellets == 0)
-                {
-                    this.selectedItem = tempSelectedItem;
-                    return;
-                }
-                selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeSpeedPellets(-1);
-                tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeSpeedPellets(1);
-
-                selectedItem = null;
-                return;
-            }
-            else if (selectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.blue && tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().thisPelletType == LineupPellets.pelletType.blue)
-            {
-                if (selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.defensePellets == 0)
-                {
-                    this.selectedItem = tempSelectedItem;
-                    return;
-                }
-                selectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeDefensePellets(-1);
-                tempSelectedItem.GetGameObject().GetComponent<LineupPellets>().cardContainer.alien.ChangeDefensePellets(1);
-
-                selectedItem = null;
-                return;
-            }
-            else
-            {
-                this.selectedItem = tempSelectedItem;
-                return;
-            }
-        }
-        else
-        {
-            this.selectedItem = tempSelectedItem;
-        }
-
     }
 
     public void DiscardSelectedItem()
     {
-
-        int attackPel = selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().alien.attackPellets;
+        var alien = selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().alien;
+        int attackPel = alien.attackPellets;
         redPellets.ChangeNumPellets(attackPel);
 
-        int speedPel = selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().alien.speedPellets;
+        int speedPel = alien.speedPellets;
         yellowPellets.ChangeNumPellets(speedPel);
 
-        int defensePel = selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().alien.defensePellets;
+        int defensePel = alien.defensePellets;
         bluePellets.ChangeNumPellets(defensePel);
 
         selectedItem.GetGameObject().GetComponent<Card>().GetParentTransform().GetComponent<LineupCardContainer>().SetCard(null);

@@ -17,10 +17,6 @@ public class LineupCardContainer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI yellowText;
     [SerializeField] private TextMeshProUGUI blueText;
 
-    [SerializeField] private Button redButton;
-    [SerializeField] private Button yellowButton;
-    [SerializeField] private Button blueButton;
-
     //position-based modifiers, needed to make sure modifiers are always applied to whatever alien is in this slot
     private int attackModifier;
     private int defenseModifier;
@@ -32,11 +28,7 @@ public class LineupCardContainer : MonoBehaviour
     void Awake()
     {
         button = GetComponent<Button>();
-        button.onClick.AddListener(delegate { ButtonEnabler.instance.SetSelectedItem(this.gameObject); });
-
-        redButton.onClick.AddListener(delegate { ButtonEnabler.instance.SetSelectedItem(redButton.gameObject.GetComponent<LineupPellets>()); });
-        yellowButton.onClick.AddListener(delegate { ButtonEnabler.instance.SetSelectedItem(yellowButton.gameObject.GetComponent<LineupPellets>()); });
-        blueButton.onClick.AddListener(delegate { ButtonEnabler.instance.SetSelectedItem(blueButton.gameObject.GetComponent<LineupPellets>()); });
+        button.onClick.AddListener(delegate { ButtonEnabler.instance.SetSelectedItem(gameObject); });
     }
     
     private void Update()
