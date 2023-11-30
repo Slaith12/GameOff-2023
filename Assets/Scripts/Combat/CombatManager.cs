@@ -21,8 +21,10 @@ public class CombatManager : MonoBehaviour
     [SerializeField] GameObject alienPrefab;
 
     List<AlienCombat> playerAliens;
+    public int numPlayerAliens => playerAliens.Count;
     public float playerAttackTime;
     List<AlienCombat> enemyAliens;
+    public int numEnemyAliens => enemyAliens.Count;
     public float enemyAttackTime;
     bool started;
 
@@ -35,9 +37,11 @@ public class CombatManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        started = false;
     }
 
-    private void Start()
+    //called by animation event
+    private void Init()
     {
         winUI.SetActive(false);
         loseUI.SetActive(false);
@@ -48,7 +52,10 @@ public class CombatManager : MonoBehaviour
         OnPlayerAttackerChange += delegate { playerAttackTime = attackTimeThreshold * startingTimeBoost; };
         enemyAttackTime = attackTimeThreshold * startingTimeBoost;
         OnEnemyAttackerChange += delegate { enemyAttackTime = attackTimeThreshold * startingTimeBoost; };
+    }
 
+    private void Begin()
+    {
         started = true;
     }
 
@@ -86,22 +93,21 @@ public class CombatManager : MonoBehaviour
 
         AlienCombat newAlien = Instantiate(alienPrefab).GetComponent<AlienCombat>();
         newAlien.Initialize(alien, index, true);
+        playerAliens.Insert(index, newAlien);
 
         //push back aliens behind new alien (if applicable)
-        for(int i = index; i < playerAliens.Count; i++)
+        for (int i = numPlayerAliens - 1; i > index; i--)
         {
             //only play an animation if alien is spawned after initialization
             if (!started)
             {
-                playerAliens[i].ChangeIndex(i + 1, 0);
+                playerAliens[i].ChangeIndex(i, 0);
             }
             else
             {
-                playerAliens[i].ChangeIndex(i + 1);
+                playerAliens[i].ChangeIndex(i);
             }
         }
-        playerAliens.Add(newAlien);
-        newAlien.OnDeath += RemovePlayerAlien;
         OnAlienSpawn?.Invoke(newAlien);
         return newAlien;
     }
@@ -115,22 +121,21 @@ public class CombatManager : MonoBehaviour
 
         AlienCombat newAlien = Instantiate(alienPrefab).GetComponent<AlienCombat>();
         newAlien.Initialize(alien, index, false);
+        enemyAliens.Insert(index, newAlien);
 
         //push back aliens behind new alien (if applicable)
-        for (int i = index; i < enemyAliens.Count; i++)
+        for (int i = numEnemyAliens - 1; i > index; i--)
         {
             //only play an animation if alien is spawned after initialization
             if (!started)
             {
-                enemyAliens[i].ChangeIndex(i+1, 0);
+                enemyAliens[i].ChangeIndex(i, 0);
             }
             else
             {
-                enemyAliens[i].ChangeIndex(i + 1);
+                enemyAliens[i].ChangeIndex(i);
             }
         }
-        enemyAliens.Add(newAlien);
-        newAlien.OnDeath += RemoveEnemyAlien;
         OnAlienSpawn?.Invoke(newAlien);
         return newAlien;
     }
@@ -139,6 +144,8 @@ public class CombatManager : MonoBehaviour
 
     private void Update()
     {
+        if (!started)
+            return;
         if(playerAliens.Count == 0)
         {
             Lose();

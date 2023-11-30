@@ -44,7 +44,7 @@ public class AlienCombat : MonoBehaviour
     /// <summary>
     /// Called when this alien has died. Can be used to react to death or do similar actions.
     /// </summary>
-    public event IndividualEvent OnDeath;
+    public event IndividualEvent OnAfterDeath;
 
     public void Initialize(Alien alien, int index, bool player)
     {
@@ -177,7 +177,12 @@ public class AlienCombat : MonoBehaviour
     public void Death()
     {
         animator.SetTrigger("Death");
-        OnDeath?.Invoke(this);
+        if (player)
+            CombatManager.instance.RemovePlayerAlien(this);
+        else
+            CombatManager.instance.RemoveEnemyAlien(this);
+
+        OnAfterDeath?.Invoke(this);
     }
 
     //Animation Event
