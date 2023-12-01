@@ -38,12 +38,15 @@ public class CombatManager : MonoBehaviour
         started = false;
     }
 
-    //called by animation event
-    private void Init()
+    private void Start()
     {
         winUI.SetActive(false);
         loseUI.SetActive(false);
+    }
 
+    //called by animation event
+    private void Init()
+    {
         InitializeLineups();
 
         playerAttackTime = attackTimeThreshold*startingTimeBoost;
