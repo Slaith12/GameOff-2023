@@ -147,6 +147,8 @@ public class AlienCombat : MonoBehaviour
     {
         animator.SetTrigger("Attack");
         int damage = (this.alienData.attack + 10 - defender.alienData.defense) * 4;
+        if (damage <= 0)
+            damage = 1;
         OnBeforeAttack?.Invoke(this, defender, ref damage);
         defender.Damage(this, ref damage);
         OnAfterAttack?.Invoke(this, defender, ref damage);
