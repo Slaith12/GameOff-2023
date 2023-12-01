@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,16 @@ using UnityEngine.UI;
 
 public class SpeedManager : MonoBehaviour
 {
-    public enum Speed { Low, Medium, High }
+    public enum Speed
+    {
+        Low,
+        Medium,
+        High,
+        Warp
+    }
 
     Speed currentSpeed;
+    private Speed visualSpeed;
     Image image;
     [SerializeField] Sprite[] speedSprites;
 
@@ -21,28 +29,46 @@ public class SpeedManager : MonoBehaviour
     //used by UI
     public void ChangeSpeed()
     {
-        if (currentSpeed == Speed.High)
-            currentSpeed = Speed.Low;
+        if (visualSpeed == Speed.High)
+            visualSpeed = Speed.Low;
         else
-            currentSpeed++;
+            visualSpeed++;
         UpdateSpeed();
+    }
+
+    private void KeyChangeSpeed(bool reverse)
+    {
+        if (reverse)
+        {
+            if (visualSpeed > Speed.Low) visualSpeed--;
+        }
+        else
+        {
+            if (visualSpeed < Speed.High) visualSpeed++;
+        }
+        UpdateSpeed();
+    }
+
+    private void Update()
+    {
+        currentSpeed = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) ? Speed.Warp : visualSpeed;
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyUp(KeyCode.Space)) UpdateSpeed();
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.UpArrow)) UpdateSpeed();
+        if (Input.GetKeyDown(KeyCode.RightArrow)) KeyChangeSpeed(false);
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) KeyChangeSpeed(true);
     }
 
     public void UpdateSpeed()
     {
-        switch(currentSpeed)
+        Time.timeScale = currentSpeed switch
         {
-            case Speed.Low:
-                Time.timeScale = 1;
-                break;
-            case Speed.Medium:
-                Time.timeScale = 1.75f;
-                break;
-            case Speed.High:
-                Time.timeScale = 3;
-                break;
-        }
-        image.sprite = speedSprites[(int)currentSpeed];
-        DataManager.instance.combatSpeed = currentSpeed;
+            Speed.Low => 1,
+            Speed.Medium => 1.75f,
+            Speed.High => 3,
+            Speed.Warp => 4,
+            _ => Time.timeScale
+        };
+        image.sprite = speedSprites[(int) visualSpeed];
+        DataManager.instance.combatSpeed = visualSpeed;
     }
 }
