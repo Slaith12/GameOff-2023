@@ -7582,6 +7582,7 @@ MonoBehaviour:
   redPel: {fileID: 1702402943}
   bluePel: {fileID: 1289334178}
   yellowPel: {fileID: 568429732}
+  damageNumberPrefab: {fileID: 156607936299973366, guid: e73034026604e054db3a8298af7eb841, type: 3}
 --- !u!1 &1959910670
 GameObject:
   m_ObjectHideFlags: 0

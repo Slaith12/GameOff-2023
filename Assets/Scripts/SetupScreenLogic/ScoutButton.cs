@@ -58,7 +58,7 @@ public class ScoutButton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && button.enabled == true)
             ChangeButton();
-        if (Input.GetKeyDown(KeyCode.LeftShift) && button.enabled == true)
+        if (Input.GetKeyUp(KeyCode.LeftShift) && button.enabled == true)
             ChangeButton();
     }
 

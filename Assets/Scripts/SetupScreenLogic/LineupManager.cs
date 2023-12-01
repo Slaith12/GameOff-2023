@@ -19,6 +19,7 @@ public class LineupManager : MonoBehaviour
     [SerializeField] private StoredPellets redPel;
     [SerializeField] private StoredPellets bluePel;
     [SerializeField] private StoredPellets yellowPel;
+    [SerializeField] private GameObject damageNumberPrefab;
 
     private void Awake()
     {
@@ -66,6 +67,7 @@ public class LineupManager : MonoBehaviour
             if (cardContainer.alien == null)
                 continue;
             cardContainer.alien.rounds -= 1;
+
             if (cardContainer.alien.rounds == 0)
             {
                 tempCardContainers.Add(cardContainer);
