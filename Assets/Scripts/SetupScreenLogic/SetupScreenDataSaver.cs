@@ -8,6 +8,7 @@ public class SetupScreenDataSaver : MonoBehaviour
 
     [SerializeField] private CardDeck deck;
     [SerializeField] private Hand hand;
+    [SerializeField] TMPro.TMP_Text roundText;
 
     [SerializeField] private StoredPellets redPel;
     [SerializeField] private StoredPellets yellowPel;
@@ -25,6 +26,8 @@ public class SetupScreenDataSaver : MonoBehaviour
         redPel.SetNumPellets(DataManager.instance.attackPellets);
         yellowPel.SetNumPellets(DataManager.instance.speedPellets);
         bluePel.SetNumPellets(DataManager.instance.defensePellets);
+
+        roundText.text = $"Round {DataManager.instance.currentStage}/10";
 
         if (DataManager.instance.currentStage != 1 || DataManager.instance.numLosses != 0)
         {
