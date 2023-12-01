@@ -10647,6 +10647,8 @@ MonoBehaviour:
   lineups:
   - {fileID: 11400000, guid: a2fe8cda06e2aff49aa5c98e96c79546, type: 2}
   - {fileID: 11400000, guid: b1eb748df3051834e8d3bbb5206beac4, type: 2}
+  - {fileID: 11400000, guid: 943649710218f2a4e9da346ee17011c9, type: 2}
+  - {fileID: 11400000, guid: 7ca6a05e28be512459c85d2b3c88f7fb, type: 2}
 --- !u!114 &1994102088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10661,8 +10663,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deck: {fileID: 1382389967}
   hand: {fileID: 834724324}
-  roundText: {fileID: 0}
-  endText: {fileID: 0}
+  roundText: {fileID: 1644700192}
+  endText: {fileID: 638549930}
   redPel: {fileID: 1702402943}
   yellowPel: {fileID: 568429732}
   bluePel: {fileID: 1289334178}

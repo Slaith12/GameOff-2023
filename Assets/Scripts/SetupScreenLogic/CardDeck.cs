@@ -44,7 +44,7 @@ public class CardDeck : MonoBehaviour
     {
         Debug.Log("Generating Deck");
         deck.Clear();
-        for(int i = 0; i < 50; i++)
+        for(int i = 0; i < 30; i++)
         {
             deck.Add(possibleCards[Random.Range(0, possibleCards.Count)]);
         }

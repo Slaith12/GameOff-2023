@@ -57,7 +57,7 @@ public class SetupScreenDataSaver : MonoBehaviour
                 }
             }
 
-            if (DataManager.instance.currentStage == 11)
+            if (DataManager.instance.currentStage > 10)
             {
                 endText.text = "You've defeated all the rounds!\nYou Win!";
                 endText.transform.parent.gameObject.SetActive(true);
