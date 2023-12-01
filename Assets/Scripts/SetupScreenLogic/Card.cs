@@ -12,6 +12,7 @@ public class Card : MonoBehaviour, ISelectable
     {
         hand,
         lineup,
+        scout
     }
     public cardState currentCardState;
 
