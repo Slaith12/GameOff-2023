@@ -32,7 +32,7 @@ public class LineupManager : MonoBehaviour
         {
             if (lineup[i] == null)
                 continue;
-            lineupCards[i].GetComponentInChildren<Card>().SetAlien(lineup[i], Card.cardState.lineup);
+            lineupCards[i].SetCard(lineup[i]);
         }
 
         //cards should be re-initialized AFTER all cards are placed in the lineup,
