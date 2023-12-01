@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,9 +21,25 @@ public class FightButton : MonoBehaviour
         button.onClick.AddListener(delegate { FightPrep(); });
     }
 
+    private void Start()
+    {
+        LineupManager.instance.OnStartAnimations += DisableButton;
+        LineupManager.instance.OnEndAnimations += EnableButton;
+    }
+
+    private void DisableButton(object sender, EventArgs e)
+    {
+        button.enabled = false;
+    }
+
+    private void EnableButton(object sender, EventArgs e)
+    {
+        button.enabled = true;
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && button.enabled == true)
         {
             FightPrep();
         }

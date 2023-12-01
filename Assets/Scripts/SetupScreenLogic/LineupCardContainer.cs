@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,10 +31,26 @@ public class LineupCardContainer : MonoBehaviour
         button = GetComponent<Button>();
         button.onClick.AddListener(delegate { ButtonEnabler.instance.SetSelectedItem(gameObject); });
     }
-    
+
+    private void Start()
+    {
+        LineupManager.instance.OnStartAnimations += DisableButton;
+        LineupManager.instance.OnEndAnimations += EnableButton;
+    }
+
+    private void DisableButton(object sender, EventArgs e)
+    {
+        button.enabled = false;
+    }
+
+    private void EnableButton(object sender, EventArgs e)
+    {
+        button.enabled = true;
+    }
+
     private void Update()
     {
-        if(alien == null)
+        if(m_alien == null)
         {
             pelletDisplay.SetActive(false);
             return;

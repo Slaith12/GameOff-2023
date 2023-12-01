@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LineupManager : MonoBehaviour
 {
-    public static LineupManager instance { get; private set; }
+    public static LineupManager instance;
 
     public delegate void LineupAction(int index, Alien alien);
 
@@ -13,6 +13,8 @@ public class LineupManager : MonoBehaviour
 
     public event LineupAction OnCardAdded;
     public event LineupAction OnCardRemoved;
+    public event EventHandler OnStartAnimations;
+    public event EventHandler OnEndAnimations;
 
     [SerializeField] private StoredPellets redPel;
     [SerializeField] private StoredPellets bluePel;
@@ -32,7 +34,7 @@ public class LineupManager : MonoBehaviour
         {
             if (lineup[i] == null)
                 continue;
-            lineupCards[i].GetComponentInChildren<Card>().SetAlien(lineup[i], Card.cardState.lineup);
+            lineupCards[i].SetCard(lineup[i]);
         }
 
         //cards should be re-initialized AFTER all cards are placed in the lineup,
@@ -43,7 +45,22 @@ public class LineupManager : MonoBehaviour
                 ReInitCard(card.index, card.alien);
         }
 
+        StartCoroutine(TelegraphSceneSetup());
         //if you want to add code to have aliens lose rounds, put it here or anywhere after the initialization function
+        
+    }
+
+    private IEnumerator TelegraphSceneSetup()
+    {
+        yield return new WaitForSeconds(0.01f);
+
+        OnStartAnimations?.Invoke(this, EventArgs.Empty);
+
+        yield return new WaitForSeconds(1.5f);
+
+        List<LineupCardContainer> tempCardContainers = new List<LineupCardContainer>();
+
+        //reduces rounds
         foreach (LineupCardContainer cardContainer in lineupCards)
         {
             if (cardContainer.alien == null)
@@ -51,13 +68,23 @@ public class LineupManager : MonoBehaviour
             cardContainer.alien.rounds -= 1;
             if (cardContainer.alien.rounds == 0)
             {
-                redPel.ChangeNumPellets(cardContainer.alien.attackPellets);
-                bluePel.ChangeNumPellets(cardContainer.alien.defensePellets);
-                yellowPel.ChangeNumPellets(cardContainer.alien.speedPellets);
-                cardContainer.SetCard(null);
-                Destroy(cardContainer.GetComponentInChildren<Card>().gameObject);
+                tempCardContainers.Add(cardContainer);
             }
         }
+
+        yield return new WaitForSeconds(1.5f);
+
+        //deletes 0 round aliens
+        foreach (LineupCardContainer cardContainer in tempCardContainers)
+        {
+            redPel.ChangeNumPellets(cardContainer.alien.attackPellets);
+            bluePel.ChangeNumPellets(cardContainer.alien.defensePellets);
+            yellowPel.ChangeNumPellets(cardContainer.alien.speedPellets);
+            cardContainer.SetCard(null);
+            Destroy(cardContainer.GetComponentInChildren<Card>().gameObject);
+        }
+
+        OnEndAnimations?.Invoke(this, EventArgs.Empty);
     }
 
     //called from LineupCardContainer AFTER card is added, invokes events

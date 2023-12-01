@@ -25,9 +25,9 @@ public class SetupScreenDataSaver : MonoBehaviour
         yellowPel.SetNumPellets(DataManager.instance.speedPellets);
         bluePel.SetNumPellets(DataManager.instance.defensePellets);
 
-        LineupManager.instance.Initialize(DataManager.instance.playerLineup);
-
         if (DataManager.instance.currentStage == 1 & DataManager.instance.numLosses == 0) return;
+
+        LineupManager.instance.Initialize(DataManager.instance.playerLineup);
 
         deck.deck = DataManager.instance.cardDeck;
 

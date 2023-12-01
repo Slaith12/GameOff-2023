@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,6 +34,19 @@ public class Card : MonoBehaviour, ISelectable
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(delegate { ButtonEnabler.instance.SetSelectedItem(this); });
+
+        LineupManager.instance.OnStartAnimations += DisableButton;
+        LineupManager.instance.OnEndAnimations += EnableButton;
+    }
+
+    private void DisableButton(object sender, EventArgs e)
+    {
+        button.enabled = false;
+    }
+
+    private void EnableButton(object sender, EventArgs e)
+    {
+        button.enabled = true;
     }
 
     public void SetAlien(Alien alien, cardState currentCardState)

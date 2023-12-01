@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,22 @@ public class DiscardButton : MonoBehaviour
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(delegate { ButtonEnabler.instance.DiscardSelectedItem(); });
+    }
+
+    private void Start()
+    {
+        LineupManager.instance.OnStartAnimations += DisableButton;
+        LineupManager.instance.OnEndAnimations += EnableButton;
+    }
+
+    private void DisableButton(object sender, EventArgs e)
+    {
+        button.enabled = false;
+    }
+
+    private void EnableButton(object sender, EventArgs e)
+    {
+        button.enabled = true;
     }
 
     private void Update()
@@ -27,7 +44,7 @@ public class DiscardButton : MonoBehaviour
                 }
             }
         }
-        if (button.enabled && Input.GetKeyDown(KeyCode.X))
+        if (button.enabled && Input.GetKeyDown(KeyCode.X) && button.enabled == true)
         {
             ButtonEnabler.instance.DiscardSelectedItem();
         }

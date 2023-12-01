@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class CardDeck : MonoBehaviour
 {
@@ -24,6 +26,21 @@ public class CardDeck : MonoBehaviour
         button.enabled = true;
     }
 
+    private void Start()
+    {
+        LineupManager.instance.OnStartAnimations += DisableButton;
+        LineupManager.instance.OnEndAnimations += EnableButton;
+    }
+
+    private void DisableButton(object sender, EventArgs e)
+    {
+        button.enabled = false;
+    }
+
+    private void EnableButton(object sender, EventArgs e)
+    {
+        button.enabled = true;
+    }
     private void CreateDeck()
     {
         for(int i = 0; i < 50; i++)

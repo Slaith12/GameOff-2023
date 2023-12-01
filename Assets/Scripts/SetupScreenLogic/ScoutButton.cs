@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,9 +19,22 @@ public class ScoutButton : MonoBehaviour
         button.onClick.AddListener(delegate { ChangeButton(); } );
     }
 
-    void Start()
+    private void Start()
     {
+        LineupManager.instance.OnStartAnimations += DisableButton;
+        LineupManager.instance.OnEndAnimations += EnableButton;
+
         Invoke("DelayedStart", 0.01f);
+    }
+
+    private void DisableButton(object sender, EventArgs e)
+    {
+        button.enabled = false;
+    }
+
+    private void EnableButton(object sender, EventArgs e)
+    {
+        button.enabled = true;
     }
 
     private void DelayedStart()
@@ -38,10 +52,16 @@ public class ScoutButton : MonoBehaviour
         enemyLineupContainer.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift) && button.enabled == true)
+            ChangeButton();
+        if (Input.GetKeyUp(KeyCode.LeftShift) && button.enabled == true)
+            ChangeButton();
+    }
+
     private void ChangeButton()
     {
         enemyLineupContainer.SetActive(!enemyLineupContainer.activeInHierarchy);
-        button.enabled = false;
-        button.enabled = true;
     }
 }
