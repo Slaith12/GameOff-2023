@@ -131,6 +131,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 966211382185189272, guid: 111445e580362fd47b6dfd2d70d9118e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139663248808050737, guid: 111445e580362fd47b6dfd2d70d9118e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4392414767264343290, guid: 111445e580362fd47b6dfd2d70d9118e, type: 3}
       propertyPath: m_Name
       value: Combat Manager
