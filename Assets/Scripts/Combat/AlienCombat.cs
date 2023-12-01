@@ -97,6 +97,11 @@ public class AlienCombat : MonoBehaviour
             transform.position += interpVector * Mathf.Sqrt(interpAmount);
             interpTime -= Time.deltaTime;
         }
+
+        //don't do DOT ticks if combat is over
+        if (CombatManager.instance.numPlayerAliens == 0 || CombatManager.instance.numEnemyAliens == 0)
+            return;
+
         //can't be a foreach loop because it causes an error if I remove an element from the list in the middle of the loop
         for(int i = 0; i < currentDOTs.Count; i++)
         {
