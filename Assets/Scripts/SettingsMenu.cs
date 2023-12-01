@@ -33,4 +33,9 @@ public class SettingsMenu : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    public void ResetGame()
+    {
+        DataManager.instance.ResetGame();
+    }
 }

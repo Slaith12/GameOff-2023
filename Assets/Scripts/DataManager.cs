@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,6 +40,20 @@ public class DataManager : MonoBehaviour
         fadeOut.color = new Color(0, 0, 0, 0);
         fadeMode = 0;
         generatedDeck = false;
+    }
+
+    public void ResetGame()
+    {
+        cardDeck = new List<CardDataSO>();
+        playerLineup = new Alien[5];
+        enemyLineup = new Alien[5];
+        attackPellets = 0;
+        defensePellets = 0;
+        speedPellets = 0;
+        currentStage = 1;
+        numLosses = 0;
+        generatedDeck = false;
+        GoToSetup();
     }
 
     private void Update()
