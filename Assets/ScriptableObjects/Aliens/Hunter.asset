@@ -16,14 +16,15 @@ MonoBehaviour:
   cardThumbnail: {fileID: 21300000, guid: 614a9d4f9416be248b224d272417eafb, type: 3}
   defaultCombatSprite: {fileID: 21300000, guid: fa5f5ac55c1be0542be8d35133c4549b, type: 3}
   animations: {fileID: 22100000, guid: 84d2d7db9534a0e43af8f5554a6ef599, type: 2}
-  unchangingCardFrame: {fileID: 0}
+  customCardFrame: {fileID: 0}
+  customCardCounters: {fileID: 0}
+  customThumbnailFrame: {fileID: 0}
   defaultHealth: 85
   defaultAttack: 8
   defaultDefense: 5
   defaultSpeed: 4
-  defaultRounds: 4
-  description: A green-skinned warrior. Deployed in space vietnam and now
-    has PTSD.
-  unchangingEffect: 
+  defaultRounds: 2
+  description: A green-skinned warrior. Deployed in space vietnam and now has PTSD.
+  effectDescription: 
   abilities: []
   healthBarOffset: {x: 3, y: 15}

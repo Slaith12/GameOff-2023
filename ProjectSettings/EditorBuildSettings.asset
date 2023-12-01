@@ -6,17 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Placeholder Setup Scene.unity
-    guid: c3a2ad570be15774cac86486ad056673
-  - enabled: 1
-    path: Assets/Scenes/CombatTest.unity
-    guid: 3a41e3829eb6243419b26b896ceaa3b0
-  - enabled: 1
     path: Assets/Scenes/Title Screen.unity
     guid: 62f903b23e8700744bc127108b6e412c
-  - enabled: 1
-    path: Assets/Scenes/CardUITest.unity
-    guid: 0e570c38fafa51548ae24102d3175459
   - enabled: 1
     path: Assets/Scenes/JacobTestScene.unity
     guid: 032298f991ad24cf48542207e9fc91f0

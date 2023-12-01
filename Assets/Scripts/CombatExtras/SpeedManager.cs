@@ -14,7 +14,6 @@ public class SpeedManager : MonoBehaviour
         Warp
     }
 
-    Speed currentSpeed;
     private Speed visualSpeed;
     Image image;
     [SerializeField] Sprite[] speedSprites;
@@ -22,7 +21,7 @@ public class SpeedManager : MonoBehaviour
     void Start()
     {
         image = GetComponent<Image>();
-        currentSpeed = DataManager.instance.combatSpeed;
+        visualSpeed = DataManager.instance.combatSpeed;
         UpdateSpeed();
     }
 
@@ -51,16 +50,13 @@ public class SpeedManager : MonoBehaviour
 
     private void Update()
     {
-        currentSpeed = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) ? Speed.Warp : visualSpeed;
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyUp(KeyCode.Space)) UpdateSpeed();
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.UpArrow)) UpdateSpeed();
         if (Input.GetKeyDown(KeyCode.RightArrow)) KeyChangeSpeed(false);
         if (Input.GetKeyDown(KeyCode.LeftArrow)) KeyChangeSpeed(true);
     }
 
     public void UpdateSpeed()
     {
-        Time.timeScale = currentSpeed switch
+        Time.timeScale = visualSpeed switch
         {
             Speed.Low => 1,
             Speed.Medium => 1.75f,

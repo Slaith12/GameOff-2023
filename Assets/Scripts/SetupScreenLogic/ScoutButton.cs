@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ScoutButton : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class ScoutButton : MonoBehaviour
 
     [SerializeField] private List<GameObject> enemyCardContainers;
     [SerializeField] private GameObject enemyLineupContainer;
+    [SerializeField] private TextMeshProUGUI text;
 
     private Button button;
 
@@ -46,9 +48,9 @@ public class ScoutButton : MonoBehaviour
                 GameObject card = Instantiate(cardPrefab, enemyCardContainers[i].transform);
                 card.GetComponent<Card>().SetAlien(DataManager.instance.enemyLineup[i], Card.cardState.scout);
                 card.GetComponent<Button>().enabled = false;
-
             }
         }
+        text.SetText("Round: " + DataManager.instance.currentStage);
         enemyLineupContainer.SetActive(false);
     }
 
@@ -56,7 +58,7 @@ public class ScoutButton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && button.enabled == true)
             ChangeButton();
-        if (Input.GetKeyUp(KeyCode.LeftShift) && button.enabled == true)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && button.enabled == true)
             ChangeButton();
     }
 
