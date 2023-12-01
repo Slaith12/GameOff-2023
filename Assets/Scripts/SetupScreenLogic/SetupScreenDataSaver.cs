@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class SetupScreenDataSaver : MonoBehaviour
 {
@@ -8,7 +10,8 @@ public class SetupScreenDataSaver : MonoBehaviour
 
     [SerializeField] private CardDeck deck;
     [SerializeField] private Hand hand;
-    [SerializeField] TMPro.TMP_Text roundText;
+    [SerializeField] TMP_Text roundText;
+    [SerializeField] TMP_Text endText;
 
     [SerializeField] private StoredPellets redPel;
     [SerializeField] private StoredPellets yellowPel;
@@ -31,12 +34,39 @@ public class SetupScreenDataSaver : MonoBehaviour
 
         if (DataManager.instance.currentStage != 1 || DataManager.instance.numLosses != 0)
         {
-
             LineupManager.instance.Initialize(DataManager.instance.playerLineup);
 
             deck.deck = DataManager.instance.cardDeck;
 
             AddRandomPellet();
+
+            bool lineupActive = false;
+
+            for (int i = 0; i < DataManager.instance.playerLineup.Length; i++)
+            {
+                if(DataManager.instance.playerLineup[i] != null)
+                {
+                    if (DataManager.instance.playerLineup[i].rounds == 1)
+                    {
+                        DataManager.instance.playerLineup[i] = null;
+                    }
+                    else
+                    {
+                        lineupActive = true;
+                    }
+                }
+            }
+
+            if (DataManager.instance.currentStage == 11)
+            {
+                endText.text = "You've defeated all the rounds!\nYou Win!";
+                endText.transform.parent.gameObject.SetActive(true);
+            }
+            else if (DataManager.instance.generatedDeck && DataManager.instance.cardDeck.Count == 0 && !lineupActive)
+            {
+                endText.text = "You've run out of cards.\nYou Lose.";
+                endText.transform.parent.gameObject.SetActive(true);
+            }
         }
 
         hand.PopulateHand();
