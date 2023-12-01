@@ -9,6 +9,7 @@ public class FightButton : MonoBehaviour
     private Button button;
 
     [SerializeField] private CardDeck deck;
+    [SerializeField] private Hand hand;
 
     [SerializeField] private StoredPellets redPel;
     [SerializeField] private StoredPellets yellowPel;
@@ -46,6 +47,8 @@ public class FightButton : MonoBehaviour
 
     private void FightPrep()
     {
+        hand.ReturnHand();
+
         for (int i = 0; i < 5; i++)
         {
             DataManager.instance.playerLineup[i] = ButtonEnabler.instance.lineupCardContainers[i].alien;

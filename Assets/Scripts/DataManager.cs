@@ -25,6 +25,8 @@ public class DataManager : MonoBehaviour
     private const float FADETIME = 0.5f;
     private string nextScene;
 
+    public bool generatedDeck;
+
     private void Awake()
     {
         if(instance != null)
@@ -36,11 +38,12 @@ public class DataManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         fadeOut.color = new Color(0, 0, 0, 0);
         fadeMode = 0;
+        generatedDeck = false;
     }
 
     private void Update()
     {
-        switch(fadeMode)
+        switch (fadeMode)
         {
             case 0: //none
                 break;

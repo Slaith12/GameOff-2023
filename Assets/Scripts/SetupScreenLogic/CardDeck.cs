@@ -15,15 +15,14 @@ public class CardDeck : MonoBehaviour
     [SerializeField] private Hand hand;
 
     [SerializeField] private List<CardDataSO> possibleCards;
-    public List<CardDataSO> deck;
+    [HideInInspector] public List<CardDataSO> deck;
 
     private void Awake()
     {
-        CreateDeck();
-
         button = GetComponentInChildren<Button>();
         button.onClick.AddListener(delegate { hand.RedrawHand(); });
         button.enabled = true;
+        deck = new List<CardDataSO>();
     }
 
     private void Start()
@@ -41,12 +40,15 @@ public class CardDeck : MonoBehaviour
     {
         button.enabled = true;
     }
-    private void CreateDeck()
+    public void CreateDeck()
     {
+        Debug.Log("Generating Deck");
+        deck.Clear();
         for(int i = 0; i < 50; i++)
         {
             deck.Add(possibleCards[Random.Range(0, possibleCards.Count)]);
         }
+        UpdateDeckSize();
     }
 
     public void Reshuffle()
@@ -64,6 +66,35 @@ public class CardDeck : MonoBehaviour
             deck.Add(tempList[tempRand]);
             tempList.RemoveAt(tempRand);
         }
+    }
+
+    public CardDataSO TryDrawCard()
+    {
+        if(!DataManager.instance.generatedDeck)
+        {
+            CreateDeck();
+            DataManager.instance.generatedDeck = true;
+        }
+        Debug.Log("Drawing Card");
+        if (deck.Count == 0)
+        {
+            Debug.Log("No card to draw");
+            return null;
+        }
+        else
+        {
+            int index = (int)(Random.value * deck.Count);
+            CardDataSO card = deck[index];
+            deck.RemoveAt(index);
+            UpdateDeckSize();
+            return card;
+        }
+    }
+
+    public void ReturnCard(CardDataSO card)
+    {
+        deck.Add(card);
+        UpdateDeckSize();
     }
 
     public void UpdateDeckSize()

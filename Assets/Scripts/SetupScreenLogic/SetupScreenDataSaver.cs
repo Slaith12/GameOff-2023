@@ -7,6 +7,7 @@ public class SetupScreenDataSaver : MonoBehaviour
     public static SetupScreenDataSaver instance { get; private set; }
 
     [SerializeField] private CardDeck deck;
+    [SerializeField] private Hand hand;
 
     [SerializeField] private StoredPellets redPel;
     [SerializeField] private StoredPellets yellowPel;
@@ -25,13 +26,17 @@ public class SetupScreenDataSaver : MonoBehaviour
         yellowPel.SetNumPellets(DataManager.instance.speedPellets);
         bluePel.SetNumPellets(DataManager.instance.defensePellets);
 
-        if (DataManager.instance.currentStage == 1 & DataManager.instance.numLosses == 0) return;
+        if (DataManager.instance.currentStage != 1 || DataManager.instance.numLosses != 0)
+        {
 
-        LineupManager.instance.Initialize(DataManager.instance.playerLineup);
+            LineupManager.instance.Initialize(DataManager.instance.playerLineup);
 
-        deck.deck = DataManager.instance.cardDeck;
+            deck.deck = DataManager.instance.cardDeck;
 
-        AddRandomPellet();
+            AddRandomPellet();
+        }
+
+        hand.PopulateHand();
     }
 
     public void AddRandomPellet()

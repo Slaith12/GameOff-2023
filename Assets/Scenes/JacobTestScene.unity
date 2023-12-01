@@ -5481,6 +5481,7 @@ MonoBehaviour:
   numLosses: 0
   combatSpeed: 0
   fadeOut: {fileID: 1888794766}
+  generatedDeck: 0
 --- !u!4 &1372907773
 Transform:
   m_ObjectHideFlags: 0
@@ -6028,6 +6029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 1382389967}
+  hand: {fileID: 834724324}
   redPel: {fileID: 1702402943}
   yellowPel: {fileID: 568429732}
   bluePel: {fileID: 1289334178}
@@ -8323,6 +8325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 1382389967}
+  hand: {fileID: 834724324}
   redPel: {fileID: 1702402943}
   yellowPel: {fileID: 568429732}
   bluePel: {fileID: 1289334178}
