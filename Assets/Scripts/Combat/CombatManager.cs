@@ -5,8 +5,6 @@ using UnityEngine;
 //consider splitting display logic into a separate class
 public class CombatManager : MonoBehaviour
 {
-    const string SETUP_SCENE = "JacobTestScene";
-
     public static CombatManager instance { get; private set; }
 
     //how long a 1 speed creature would take to attack.
@@ -189,7 +187,7 @@ public class CombatManager : MonoBehaviour
     public void GoToSetup()
     {
         Time.timeScale = 1;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(SETUP_SCENE);
+        DataManager.instance.GoToSetup();
     }
 
     public void ShiftPlayerAlien(AlienCombat alien, int newIndex)

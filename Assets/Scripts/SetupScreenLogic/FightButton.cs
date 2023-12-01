@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class FightButton : MonoBehaviour
 {
@@ -43,6 +42,6 @@ public class FightButton : MonoBehaviour
         DataManager.instance.speedPellets = yellowPel.GetNumPellets();
         DataManager.instance.defensePellets = bluePel.GetNumPellets();
 
-        SceneManager.LoadScene("Combat");
+        DataManager.instance.GoToCombat();
     }
 }
