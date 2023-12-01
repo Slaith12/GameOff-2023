@@ -68,6 +68,11 @@ public class LineupManager : MonoBehaviour
                 continue;
             cardContainer.alien.rounds -= 1;
 
+            GameObject tempDamageNumber = Instantiate(damageNumberPrefab, cardContainer.transform);
+            tempDamageNumber.GetComponent<DamageNumber>().text.text = "-1";
+            tempDamageNumber.transform.localScale = new Vector3(20, 20, 20);
+            tempDamageNumber.layer = 6;
+
             if (cardContainer.alien.rounds == 0)
             {
                 tempCardContainers.Add(cardContainer);
