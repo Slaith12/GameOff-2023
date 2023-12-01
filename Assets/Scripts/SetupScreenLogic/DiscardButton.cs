@@ -15,18 +15,21 @@ public class DiscardButton : MonoBehaviour
 
     private void Update()
     {
-        if(ButtonEnabler.instance.GetSelectedItem() == null)
+        button.enabled = false;
+        ISelectable selectedItem = ButtonEnabler.instance.GetSelectedItem();
+        if(selectedItem != null)
         {
-            return;
-        }
-        if(ButtonEnabler.instance.GetSelectedItem().GetSelectableType() == 0)
-        {
-            if(ButtonEnabler.instance.GetSelectedItem().GetGameObject().GetComponent<Card>().currentCardState == Card.cardState.lineup)
+            if(selectedItem.GetSelectableType() == 0)
             {
-                button.enabled = true;
-                return;
+                if(selectedItem.GetGameObject().GetComponent<Card>().currentCardState == Card.cardState.lineup)
+                {
+                    button.enabled = true;
+                }
             }
         }
-        button.enabled = false;
+        if (button.enabled && Input.GetKeyDown(KeyCode.X))
+        {
+            ButtonEnabler.instance.DiscardSelectedItem();
+        }
     }
 }

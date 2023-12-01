@@ -20,9 +20,17 @@ public class FightButton : MonoBehaviour
         button.onClick.AddListener(delegate { FightPrep(); });
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            FightPrep();
+        }
+    }
+
     private void FightPrep()
     {
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
             DataManager.instance.playerLineup[i] = ButtonEnabler.instance.lineupCardContainers[i].alien;
         }
