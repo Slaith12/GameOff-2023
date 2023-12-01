@@ -15,6 +15,8 @@ public class EnemyProgression : MonoBehaviour
 
     public Alien[] GetEnemyLineup(int round)
     {
+        if (round > lineups.Count)
+            return lineups[0].GetLineup();
         return lineups[round-1].GetLineup();
     }
 }

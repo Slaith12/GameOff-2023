@@ -57,7 +57,7 @@ public class LineupManager : MonoBehaviour
 
         OnStartAnimations?.Invoke(this, EventArgs.Empty);
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
 
         List<LineupCardContainer> tempCardContainers = new List<LineupCardContainer>();
 
@@ -79,7 +79,7 @@ public class LineupManager : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
 
         //deletes 0 round aliens
         foreach (LineupCardContainer cardContainer in tempCardContainers)
