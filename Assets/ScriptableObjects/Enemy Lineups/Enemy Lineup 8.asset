@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Enemy Lineup 8
   m_EditorClassIdentifier: 
   aliens:
-  - {fileID: 11400000, guid: af7a495394ba6af44a934a4739cc46ba, type: 2}
-  - {fileID: 11400000, guid: 745e79d06493d4a01bb8df05ab216147, type: 2}
-  - {fileID: 11400000, guid: 2a7ad7b9f502bf346bbaf1507a32ec14, type: 2}
-  - {fileID: 11400000, guid: af7a495394ba6af44a934a4739cc46ba, type: 2}
-  attackMods: 00000000010000000000000000000000
-  defenseMods: 00000000000000000000000001000000
-  speedMods: 01000000000000000100000000000000
+  - {fileID: 11400000, guid: 8d59f0f89ab188449bd8a264cb97daf9, type: 2}
+  - {fileID: 11400000, guid: 59cc4ff50aeaaa04a8efb258c7af5afa, type: 2}
+  - {fileID: 11400000, guid: 59cc4ff50aeaaa04a8efb258c7af5afa, type: 2}
+  - {fileID: 11400000, guid: 59cc4ff50aeaaa04a8efb258c7af5afa, type: 2}
+  - {fileID: 11400000, guid: 7fd6ef1f616c8c04dace48c2c70a2bbb, type: 2}
+  attackMods: 0000000000000000000000000000000000000000
+  defenseMods: 0000000000000000000000000000000001000000
+  speedMods: 0000000003000000030000000300000000000000
