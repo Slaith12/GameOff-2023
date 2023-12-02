@@ -35,7 +35,7 @@ public class LineupManager : MonoBehaviour
         {
             if (lineup[i] == null)
                 continue;
-            lineupCards[i].SetCard(lineup[i]);
+            lineupCards[i].SetCard(lineup[i], false);
         }
 
         //cards should be re-initialized AFTER all cards are placed in the lineup,
